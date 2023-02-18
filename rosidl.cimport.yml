@@ -19,8 +19,7 @@ imports:
     - rawNims: |
         type
           uintLeast16T * {.importc: "uint_least16_t", header: "stddef.h", bycopy.} = object
-  - cSourceModification: "'action_type_support_struct.h'"
+  - cSourceModification: "'message_type_support_struct.h'"
     c2NimExtras:
     - fileContents: |
-        #delete "rosidl_typesupport_interface/macros"
-        #delete "rosidlTypesupportInterface/macros"
+

@@ -24,7 +24,7 @@
 ##  limitations under the License.
 
 import
-  ./visibility_control, ./visibility_control, rosidlTypesupportInterface/macros
+  ./visibility_control, ./visibility_control
 
 type
 

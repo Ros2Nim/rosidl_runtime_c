@@ -26,13 +26,8 @@
 import
   ./message_type_support_struct, ./visibility_control, ./visibility_control,
   ./message_type_support_struct, ./message_type_support_struct,
-  ./service_type_support_struct, ./service_type_support_struct, rcutils/allocator,
-  rcutils/allocator, rcutils/allocator, rcutils/macros, rcutils/macros,
-  rcutils/macros, rcutils/macros, rcutils/macros, rcutils/allocator,
-  rcutils/types/rcutilsRet, rcutils/allocator, rcutils/visibilityControl,
-  rcutils/visibilityControlMacros, rcutils/visibilityControlMacros,
-  rcutils/visibilityControl, rcutils/allocator, ./service_type_support_struct,
-  ./service_type_support_struct
+  ./service_type_support_struct, ./service_type_support_struct,
+  ./service_type_support_struct, ./service_type_support_struct
 
 type
 
