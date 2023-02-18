@@ -5,6 +5,7 @@ imports:
   sources: "deps/rosidl/rosidl_runtime_c/include"
   globs: ["**/*.h"]
   includes: [
+    "deps/rcutils/include",
     "deps/rosidl/rosidl_runtime_c/include",
     "deps/rosidl/rosidl_typesupport_interface/include",
     "deps/rosidl/rosidl_typesupport_introspection_c/include",
