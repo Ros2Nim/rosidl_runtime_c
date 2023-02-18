@@ -40,16 +40,6 @@ imports:
     "deps/rosidl/rosidl_typesupport_introspection_c/include",
     ]
 
-- name: "rosidl_typesupport_interface"
-  sources: "deps/rosidl/rosidl_typesupport_interface/include"
-  globs: ["**/*.h"]
-  includes: [
-    "deps/rcutils/include",
-    "deps/rosidl/rosidl_runtime_c/include",
-    "deps/rosidl/rosidl_typesupport_interface/include",
-    "deps/rosidl/rosidl_typesupport_introspection_c/include",
-    ]
-
 - name: "rosidl_typesupport_introspection_c"
   sources: "deps/rosidl/rosidl_typesupport_introspection_c/include"
   globs: ["**/*.h"]
