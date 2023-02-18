@@ -1,0 +1,25 @@
+
+imports:
+
+- name: "rosidl_runtime_c"
+  sources: "../deps/rosidl/rosidl_runtime_c/include"
+  globs: ["**/*.h"]
+  includes: [
+    "../deps/rosidl/rosidl_runtime_c/include",
+    "../deps/rosidl/rosidl_typesupport_interface/include",
+    "../deps/rosidl/rosidl_typesupport_introspection_c/include",
+    ]
+  defines: []
+  skips: []
+
+  cSourceModifications:
+  - cSourceModification: "'u16string.h'"
+    c2NimExtras:
+    - rawNims: |
+        type
+          uintLeast16T * {.importc: "uint_least16_t", header: "stddef.h", bycopy.} = object
+  - cSourceModification: "'action_type_support_struct.h'"
+    c2NimExtras:
+    - fileContents: |
+        #delete "rosidl_typesupport_interface/macros"
+        #delete "rosidlTypesupportInterface/macros"
