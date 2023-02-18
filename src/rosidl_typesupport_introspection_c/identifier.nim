@@ -30,6 +30,5 @@ import
 
 ##  String identifying the typesupport introspection implementation in use.
 
-let rosidlTypesupportIntrospectionCIdentifier* {.
-    importc: "rosidl_typesupport_introspection_c__identifier",
-    header: "identifier.h".}: cstring
+let identifier* {.importc: "rosidl_typesupport_introspection_c__identifier",
+                header: "identifier.h".}: cstring

@@ -31,17 +31,16 @@ import
 
 type
 
-  RosidlRuntimeCString* {.importc: "rosidl_runtime_c__String", header: "string.h",
-                         bycopy.} = object ##  An array of 8-bit characters terminated by a null byte.
+  String* {.importc: "rosidl_runtime_c__String", header: "string.h", bycopy.} = object ##
+                              ##  An array of 8-bit characters terminated by a null byte.
     data* {.importc: "data".}: cstring ##  The pointer to the first character, the sequence ends with a null byte.
     size* {.importc: "size".}: csize_t ##  The length of the string (excluding the null byte).
     capacity* {.importc: "capacity".}: csize_t ##  The capacity represents the number of allocated bytes (including the null byte).
 
 
-  RosidlRuntimeCStringSequence* {.importc: "rosidl_runtime_c__String__Sequence",
-                                 header: "string.h", bycopy.} = object
-    data* {.importc: "data".}: ptr RosidlRuntimeCString ##
-                              ## !< The pointer to an array of STRUCT_NAME
+  String__Sequence* {.importc: "rosidl_runtime_c__String__Sequence",
+                     header: "string.h", bycopy.} = object
+    data* {.importc: "data".}: ptr String ## !< The pointer to an array of STRUCT_NAME
     size* {.importc: "size".}: csize_t ## !< The number of valid items in data
     capacity* {.importc: "capacity".}: csize_t
     ## !< The number of allocated items in data

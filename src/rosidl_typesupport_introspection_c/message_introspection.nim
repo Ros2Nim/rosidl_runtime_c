@@ -26,17 +26,17 @@
 ##  limitations under the License.
 
 import
-  rosidlRuntimeC/messageInitialization, rosidlRuntimeC/messageTypeSupportStruct,
-  rosidlRuntimeC/visibilityControl, rosidlRuntimeC/visibilityControl,
-  rosidlRuntimeC/messageTypeSupportStruct,
-  rosidlRuntimeC/messageTypeSupportStruct, ./visibility_control,
+  ../rosidl_runtime_c/message_initialization,
+  ../rosidl_runtime_c/message_type_support_struct,
+  ../rosidl_runtime_c/visibility_control, ../rosidl_runtime_c/visibility_control,
+  ../rosidl_runtime_c/message_type_support_struct,
+  ../rosidl_runtime_c/message_type_support_struct, ./visibility_control,
   ./visibility_control
 
 type
 
-  RosidlTypesupportIntrospectionCMessageMember* {.
-      importc: "rosidl_typesupport_introspection_c__MessageMember",
-      header: "message_introspection.h", bycopy.} = object ##
+  MessageMember* {.importc: "rosidl_typesupport_introspection_c__MessageMember",
+                  header: "message_introspection.h", bycopy.} = object ##
                               ##  Structure used to describe a single field of an interface type.
     name* {.importc: "name_".}: cstring ##  The name of the field.
     typeId* {.importc: "type_id_".}: uint8 ##  The type of the field as a value of the field types enum
@@ -83,9 +83,8 @@ type
                               ##  If is_array_ is true, a pointer to a function that resizes the array.
 
 
-  RosidlTypesupportIntrospectionCMessageMembers* {.
-      importc: "rosidl_typesupport_introspection_c__MessageMembers",
-      header: "message_introspection.h", bycopy.} = object ##
+  MessageMembers* {.importc: "rosidl_typesupport_introspection_c__MessageMembers",
+                   header: "message_introspection.h", bycopy.} = object ##
                               ##  Structure used to describe all fields of a single interface type.
     messageNamespace* {.importc: "message_namespace_".}: cstring ##
                               ##  The namespace in which the interface resides, e.g. "example_messages__msg" for
@@ -94,10 +93,10 @@ type
                               ##  The name of the interface, e.g. "Int16"
     memberCount* {.importc: "member_count_".}: uint32 ##  The number of fields in the interface
     sizeOf* {.importc: "size_of_".}: csize_t ##  The size of the interface structure in memory
-    members* {.importc: "members_".}: ptr RosidlTypesupportIntrospectionCMessageMember ##
+    members* {.importc: "members_".}: ptr MessageMember ##
                               ##  A pointer to the array that describes each field of the interface
     initFunction* {.importc: "init_function".}: proc (a1: pointer;
-        a2: RosidlRuntimeCMessageInitialization) ##  The function used to initialise the interface's in-memory representation
+        a2: message_initialization) ##  The function used to initialise the interface's in-memory representation
     finiFunction* {.importc: "fini_function".}: proc (a1: pointer) ##
                               ##  The function used to clean up the interface's in-memory representation
 

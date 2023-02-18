@@ -22,9 +22,12 @@
 #pragma c2nim render reindentlongcomments
 
 // #pragma c2nim render nobody
+#pragma c2nim mangle "'rosidl_typesupport_introspection_c__' {\\w+}" "$1"
+#pragma c2nim mangle "'rosidl_runtime_c__' {\\w+}" "$1"
 
 #pragma c2nim mangle "{([A-Za-z0-9]+'__')+}$" "$1priv"
 #pragma c2nim mangle "'_Bool'" "bool"
+#pragma c2nim mangle "'rosidl_runtime_c/'" "../rosidl_runtime_c/"
 
 #pragma c2nim delete "rosidl_typesupport_interface/macros"
 #pragma c2nim delete "rosidlTypesupportInterface/macros"

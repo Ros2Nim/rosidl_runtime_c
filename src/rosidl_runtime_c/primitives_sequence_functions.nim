@@ -84,8 +84,7 @@ import
 ##
 
 
-proc rosidlRuntimeCFloatSequenceInit*(sequence: ptr RosidlRuntimeCFloatSequence;
-                                     size: csize_t): bool {.
+proc float__Sequence__init*(sequence: ptr float__Sequence; size: csize_t): bool {.
     importc: "rosidl_runtime_c__float__Sequence__init",
     header: "primitives_sequence_functions.h".}
   ##
@@ -94,335 +93,299 @@ proc rosidlRuntimeCFloatSequenceInit*(sequence: ptr RosidlRuntimeCFloatSequence;
   ## @{
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_INIT(STRUCT_NAME)
 
-proc rosidlRuntimeCFloatSequenceFini*(sequence: ptr RosidlRuntimeCFloatSequence) {.
+proc float__Sequence__fini*(sequence: ptr float__Sequence) {.
     importc: "rosidl_runtime_c__float__Sequence__fini",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_EQ(STRUCT_NAME)
 
-proc rosidlRuntimeCFloatSequenceAreEqual*(lhs: ptr RosidlRuntimeCFloatSequence;
-    rhs: ptr RosidlRuntimeCFloatSequence): bool {.
+proc float__Sequence__are_equal*(lhs: ptr float__Sequence; rhs: ptr float__Sequence): bool {.
     importc: "rosidl_runtime_c__float__Sequence__are_equal",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_COPY(STRUCT_NAME)
 
-proc rosidlRuntimeCFloatSequenceCopy*(input: ptr RosidlRuntimeCFloatSequence;
-                                     output: ptr RosidlRuntimeCFloatSequence): bool {.
+proc float__Sequence__copy*(input: ptr float__Sequence; output: ptr float__Sequence): bool {.
     importc: "rosidl_runtime_c__float__Sequence__copy",
     header: "primitives_sequence_functions.h".}
 
-proc rosidlRuntimeCDoubleSequenceInit*(sequence: ptr RosidlRuntimeCDoubleSequence;
-                                      size: csize_t): bool {.
+proc double__Sequence__init*(sequence: ptr double__Sequence; size: csize_t): bool {.
     importc: "rosidl_runtime_c__double__Sequence__init",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_INIT(STRUCT_NAME)
 
-proc rosidlRuntimeCDoubleSequenceFini*(sequence: ptr RosidlRuntimeCDoubleSequence) {.
+proc double__Sequence__fini*(sequence: ptr double__Sequence) {.
     importc: "rosidl_runtime_c__double__Sequence__fini",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_EQ(STRUCT_NAME)
 
-proc rosidlRuntimeCDoubleSequenceAreEqual*(lhs: ptr RosidlRuntimeCDoubleSequence;
-    rhs: ptr RosidlRuntimeCDoubleSequence): bool {.
+proc double__Sequence__are_equal*(lhs: ptr double__Sequence;
+                                 rhs: ptr double__Sequence): bool {.
     importc: "rosidl_runtime_c__double__Sequence__are_equal",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_COPY(STRUCT_NAME)
 
-proc rosidlRuntimeCDoubleSequenceCopy*(input: ptr RosidlRuntimeCDoubleSequence;
-                                      output: ptr RosidlRuntimeCDoubleSequence): bool {.
+proc double__Sequence__copy*(input: ptr double__Sequence;
+                            output: ptr double__Sequence): bool {.
     importc: "rosidl_runtime_c__double__Sequence__copy",
     header: "primitives_sequence_functions.h".}
 
-proc rosidlRuntimeCLongDoubleSequenceInit*(
-    sequence: ptr RosidlRuntimeCLongDoubleSequence; size: csize_t): bool {.
+proc long_double__Sequence__init*(sequence: ptr long_double__Sequence; size: csize_t): bool {.
     importc: "rosidl_runtime_c__long_double__Sequence__init",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_INIT(STRUCT_NAME)
 
-proc rosidlRuntimeCLongDoubleSequenceFini*(
-    sequence: ptr RosidlRuntimeCLongDoubleSequence) {.
+proc long_double__Sequence__fini*(sequence: ptr long_double__Sequence) {.
     importc: "rosidl_runtime_c__long_double__Sequence__fini",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_EQ(STRUCT_NAME)
 
-proc rosidlRuntimeCLongDoubleSequenceAreEqual*(
-    lhs: ptr RosidlRuntimeCLongDoubleSequence;
-    rhs: ptr RosidlRuntimeCLongDoubleSequence): bool {.
+proc long_double__Sequence__are_equal*(lhs: ptr long_double__Sequence;
+                                      rhs: ptr long_double__Sequence): bool {.
     importc: "rosidl_runtime_c__long_double__Sequence__are_equal",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_COPY(STRUCT_NAME)
 
-proc rosidlRuntimeCLongDoubleSequenceCopy*(
-    input: ptr RosidlRuntimeCLongDoubleSequence;
-    output: ptr RosidlRuntimeCLongDoubleSequence): bool {.
+proc long_double__Sequence__copy*(input: ptr long_double__Sequence;
+                                 output: ptr long_double__Sequence): bool {.
     importc: "rosidl_runtime_c__long_double__Sequence__copy",
     header: "primitives_sequence_functions.h".}
 
-proc rosidlRuntimeCCharSequenceInit*(sequence: ptr RosidlRuntimeCCharSequence;
-                                    size: csize_t): bool {.
+proc char__Sequence__init*(sequence: ptr char__Sequence; size: csize_t): bool {.
     importc: "rosidl_runtime_c__char__Sequence__init",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_INIT(STRUCT_NAME)
 
-proc rosidlRuntimeCCharSequenceFini*(sequence: ptr RosidlRuntimeCCharSequence) {.
+proc char__Sequence__fini*(sequence: ptr char__Sequence) {.
     importc: "rosidl_runtime_c__char__Sequence__fini",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_EQ(STRUCT_NAME)
 
-proc rosidlRuntimeCCharSequenceAreEqual*(lhs: ptr RosidlRuntimeCCharSequence;
-                                        rhs: ptr RosidlRuntimeCCharSequence): bool {.
+proc char__Sequence__are_equal*(lhs: ptr char__Sequence; rhs: ptr char__Sequence): bool {.
     importc: "rosidl_runtime_c__char__Sequence__are_equal",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_COPY(STRUCT_NAME)
 
-proc rosidlRuntimeCCharSequenceCopy*(input: ptr RosidlRuntimeCCharSequence;
-                                    output: ptr RosidlRuntimeCCharSequence): bool {.
+proc char__Sequence__copy*(input: ptr char__Sequence; output: ptr char__Sequence): bool {.
     importc: "rosidl_runtime_c__char__Sequence__copy",
     header: "primitives_sequence_functions.h".}
 
-proc rosidlRuntimeCWcharSequenceInit*(sequence: ptr RosidlRuntimeCWcharSequence;
-                                     size: csize_t): bool {.
+proc wchar__Sequence__init*(sequence: ptr wchar__Sequence; size: csize_t): bool {.
     importc: "rosidl_runtime_c__wchar__Sequence__init",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_INIT(STRUCT_NAME)
 
-proc rosidlRuntimeCWcharSequenceFini*(sequence: ptr RosidlRuntimeCWcharSequence) {.
+proc wchar__Sequence__fini*(sequence: ptr wchar__Sequence) {.
     importc: "rosidl_runtime_c__wchar__Sequence__fini",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_EQ(STRUCT_NAME)
 
-proc rosidlRuntimeCWcharSequenceAreEqual*(lhs: ptr RosidlRuntimeCWcharSequence;
-    rhs: ptr RosidlRuntimeCWcharSequence): bool {.
+proc wchar__Sequence__are_equal*(lhs: ptr wchar__Sequence; rhs: ptr wchar__Sequence): bool {.
     importc: "rosidl_runtime_c__wchar__Sequence__are_equal",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_COPY(STRUCT_NAME)
 
-proc rosidlRuntimeCWcharSequenceCopy*(input: ptr RosidlRuntimeCWcharSequence;
-                                     output: ptr RosidlRuntimeCWcharSequence): bool {.
+proc wchar__Sequence__copy*(input: ptr wchar__Sequence; output: ptr wchar__Sequence): bool {.
     importc: "rosidl_runtime_c__wchar__Sequence__copy",
     header: "primitives_sequence_functions.h".}
 
-proc rosidlRuntimeCBooleanSequenceInit*(sequence: ptr RosidlRuntimeCBooleanSequence;
-                                       size: csize_t): bool {.
+proc boolean__Sequence__init*(sequence: ptr boolean__Sequence; size: csize_t): bool {.
     importc: "rosidl_runtime_c__boolean__Sequence__init",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_INIT(STRUCT_NAME)
 
-proc rosidlRuntimeCBooleanSequenceFini*(sequence: ptr RosidlRuntimeCBooleanSequence) {.
+proc boolean__Sequence__fini*(sequence: ptr boolean__Sequence) {.
     importc: "rosidl_runtime_c__boolean__Sequence__fini",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_EQ(STRUCT_NAME)
 
-proc rosidlRuntimeCBooleanSequenceAreEqual*(
-    lhs: ptr RosidlRuntimeCBooleanSequence; rhs: ptr RosidlRuntimeCBooleanSequence): bool {.
+proc boolean__Sequence__are_equal*(lhs: ptr boolean__Sequence;
+                                  rhs: ptr boolean__Sequence): bool {.
     importc: "rosidl_runtime_c__boolean__Sequence__are_equal",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_COPY(STRUCT_NAME)
 
-proc rosidlRuntimeCBooleanSequenceCopy*(input: ptr RosidlRuntimeCBooleanSequence;
-    output: ptr RosidlRuntimeCBooleanSequence): bool {.
+proc boolean__Sequence__copy*(input: ptr boolean__Sequence;
+                             output: ptr boolean__Sequence): bool {.
     importc: "rosidl_runtime_c__boolean__Sequence__copy",
     header: "primitives_sequence_functions.h".}
 
-proc rosidlRuntimeCOctetSequenceInit*(sequence: ptr RosidlRuntimeCOctetSequence;
-                                     size: csize_t): bool {.
+proc octet__Sequence__init*(sequence: ptr octet__Sequence; size: csize_t): bool {.
     importc: "rosidl_runtime_c__octet__Sequence__init",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_INIT(STRUCT_NAME)
 
-proc rosidlRuntimeCOctetSequenceFini*(sequence: ptr RosidlRuntimeCOctetSequence) {.
+proc octet__Sequence__fini*(sequence: ptr octet__Sequence) {.
     importc: "rosidl_runtime_c__octet__Sequence__fini",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_EQ(STRUCT_NAME)
 
-proc rosidlRuntimeCOctetSequenceAreEqual*(lhs: ptr RosidlRuntimeCOctetSequence;
-    rhs: ptr RosidlRuntimeCOctetSequence): bool {.
+proc octet__Sequence__are_equal*(lhs: ptr octet__Sequence; rhs: ptr octet__Sequence): bool {.
     importc: "rosidl_runtime_c__octet__Sequence__are_equal",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_COPY(STRUCT_NAME)
 
-proc rosidlRuntimeCOctetSequenceCopy*(input: ptr RosidlRuntimeCOctetSequence;
-                                     output: ptr RosidlRuntimeCOctetSequence): bool {.
+proc octet__Sequence__copy*(input: ptr octet__Sequence; output: ptr octet__Sequence): bool {.
     importc: "rosidl_runtime_c__octet__Sequence__copy",
     header: "primitives_sequence_functions.h".}
 
-proc rosidlRuntimeCUint8SequenceInit*(sequence: ptr RosidlRuntimeCUint8Sequence;
-                                     size: csize_t): bool {.
+proc uint8__Sequence__init*(sequence: ptr uint8__Sequence; size: csize_t): bool {.
     importc: "rosidl_runtime_c__uint8__Sequence__init",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_INIT(STRUCT_NAME)
 
-proc rosidlRuntimeCUint8SequenceFini*(sequence: ptr RosidlRuntimeCUint8Sequence) {.
+proc uint8__Sequence__fini*(sequence: ptr uint8__Sequence) {.
     importc: "rosidl_runtime_c__uint8__Sequence__fini",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_EQ(STRUCT_NAME)
 
-proc rosidlRuntimeCUint8SequenceAreEqual*(lhs: ptr RosidlRuntimeCUint8Sequence;
-    rhs: ptr RosidlRuntimeCUint8Sequence): bool {.
+proc uint8__Sequence__are_equal*(lhs: ptr uint8__Sequence; rhs: ptr uint8__Sequence): bool {.
     importc: "rosidl_runtime_c__uint8__Sequence__are_equal",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_COPY(STRUCT_NAME)
 
-proc rosidlRuntimeCUint8SequenceCopy*(input: ptr RosidlRuntimeCUint8Sequence;
-                                     output: ptr RosidlRuntimeCUint8Sequence): bool {.
+proc uint8__Sequence__copy*(input: ptr uint8__Sequence; output: ptr uint8__Sequence): bool {.
     importc: "rosidl_runtime_c__uint8__Sequence__copy",
     header: "primitives_sequence_functions.h".}
 
-proc rosidlRuntimeCInt8SequenceInit*(sequence: ptr RosidlRuntimeCInt8Sequence;
-                                    size: csize_t): bool {.
+proc int8__Sequence__init*(sequence: ptr int8__Sequence; size: csize_t): bool {.
     importc: "rosidl_runtime_c__int8__Sequence__init",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_INIT(STRUCT_NAME)
 
-proc rosidlRuntimeCInt8SequenceFini*(sequence: ptr RosidlRuntimeCInt8Sequence) {.
+proc int8__Sequence__fini*(sequence: ptr int8__Sequence) {.
     importc: "rosidl_runtime_c__int8__Sequence__fini",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_EQ(STRUCT_NAME)
 
-proc rosidlRuntimeCInt8SequenceAreEqual*(lhs: ptr RosidlRuntimeCInt8Sequence;
-                                        rhs: ptr RosidlRuntimeCInt8Sequence): bool {.
+proc int8__Sequence__are_equal*(lhs: ptr int8__Sequence; rhs: ptr int8__Sequence): bool {.
     importc: "rosidl_runtime_c__int8__Sequence__are_equal",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_COPY(STRUCT_NAME)
 
-proc rosidlRuntimeCInt8SequenceCopy*(input: ptr RosidlRuntimeCInt8Sequence;
-                                    output: ptr RosidlRuntimeCInt8Sequence): bool {.
+proc int8__Sequence__copy*(input: ptr int8__Sequence; output: ptr int8__Sequence): bool {.
     importc: "rosidl_runtime_c__int8__Sequence__copy",
     header: "primitives_sequence_functions.h".}
 
-proc rosidlRuntimeCUint16SequenceInit*(sequence: ptr RosidlRuntimeCUint16Sequence;
-                                      size: csize_t): bool {.
+proc uint16__Sequence__init*(sequence: ptr uint16__Sequence; size: csize_t): bool {.
     importc: "rosidl_runtime_c__uint16__Sequence__init",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_INIT(STRUCT_NAME)
 
-proc rosidlRuntimeCUint16SequenceFini*(sequence: ptr RosidlRuntimeCUint16Sequence) {.
+proc uint16__Sequence__fini*(sequence: ptr uint16__Sequence) {.
     importc: "rosidl_runtime_c__uint16__Sequence__fini",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_EQ(STRUCT_NAME)
 
-proc rosidlRuntimeCUint16SequenceAreEqual*(lhs: ptr RosidlRuntimeCUint16Sequence;
-    rhs: ptr RosidlRuntimeCUint16Sequence): bool {.
+proc uint16__Sequence__are_equal*(lhs: ptr uint16__Sequence;
+                                 rhs: ptr uint16__Sequence): bool {.
     importc: "rosidl_runtime_c__uint16__Sequence__are_equal",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_COPY(STRUCT_NAME)
 
-proc rosidlRuntimeCUint16SequenceCopy*(input: ptr RosidlRuntimeCUint16Sequence;
-                                      output: ptr RosidlRuntimeCUint16Sequence): bool {.
+proc uint16__Sequence__copy*(input: ptr uint16__Sequence;
+                            output: ptr uint16__Sequence): bool {.
     importc: "rosidl_runtime_c__uint16__Sequence__copy",
     header: "primitives_sequence_functions.h".}
 
-proc rosidlRuntimeCInt16SequenceInit*(sequence: ptr RosidlRuntimeCInt16Sequence;
-                                     size: csize_t): bool {.
+proc int16__Sequence__init*(sequence: ptr int16__Sequence; size: csize_t): bool {.
     importc: "rosidl_runtime_c__int16__Sequence__init",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_INIT(STRUCT_NAME)
 
-proc rosidlRuntimeCInt16SequenceFini*(sequence: ptr RosidlRuntimeCInt16Sequence) {.
+proc int16__Sequence__fini*(sequence: ptr int16__Sequence) {.
     importc: "rosidl_runtime_c__int16__Sequence__fini",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_EQ(STRUCT_NAME)
 
-proc rosidlRuntimeCInt16SequenceAreEqual*(lhs: ptr RosidlRuntimeCInt16Sequence;
-    rhs: ptr RosidlRuntimeCInt16Sequence): bool {.
+proc int16__Sequence__are_equal*(lhs: ptr int16__Sequence; rhs: ptr int16__Sequence): bool {.
     importc: "rosidl_runtime_c__int16__Sequence__are_equal",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_COPY(STRUCT_NAME)
 
-proc rosidlRuntimeCInt16SequenceCopy*(input: ptr RosidlRuntimeCInt16Sequence;
-                                     output: ptr RosidlRuntimeCInt16Sequence): bool {.
+proc int16__Sequence__copy*(input: ptr int16__Sequence; output: ptr int16__Sequence): bool {.
     importc: "rosidl_runtime_c__int16__Sequence__copy",
     header: "primitives_sequence_functions.h".}
 
-proc rosidlRuntimeCUint32SequenceInit*(sequence: ptr RosidlRuntimeCUint32Sequence;
-                                      size: csize_t): bool {.
+proc uint32__Sequence__init*(sequence: ptr uint32__Sequence; size: csize_t): bool {.
     importc: "rosidl_runtime_c__uint32__Sequence__init",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_INIT(STRUCT_NAME)
 
-proc rosidlRuntimeCUint32SequenceFini*(sequence: ptr RosidlRuntimeCUint32Sequence) {.
+proc uint32__Sequence__fini*(sequence: ptr uint32__Sequence) {.
     importc: "rosidl_runtime_c__uint32__Sequence__fini",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_EQ(STRUCT_NAME)
 
-proc rosidlRuntimeCUint32SequenceAreEqual*(lhs: ptr RosidlRuntimeCUint32Sequence;
-    rhs: ptr RosidlRuntimeCUint32Sequence): bool {.
+proc uint32__Sequence__are_equal*(lhs: ptr uint32__Sequence;
+                                 rhs: ptr uint32__Sequence): bool {.
     importc: "rosidl_runtime_c__uint32__Sequence__are_equal",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_COPY(STRUCT_NAME)
 
-proc rosidlRuntimeCUint32SequenceCopy*(input: ptr RosidlRuntimeCUint32Sequence;
-                                      output: ptr RosidlRuntimeCUint32Sequence): bool {.
+proc uint32__Sequence__copy*(input: ptr uint32__Sequence;
+                            output: ptr uint32__Sequence): bool {.
     importc: "rosidl_runtime_c__uint32__Sequence__copy",
     header: "primitives_sequence_functions.h".}
 
-proc rosidlRuntimeCInt32SequenceInit*(sequence: ptr RosidlRuntimeCInt32Sequence;
-                                     size: csize_t): bool {.
+proc int32__Sequence__init*(sequence: ptr int32__Sequence; size: csize_t): bool {.
     importc: "rosidl_runtime_c__int32__Sequence__init",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_INIT(STRUCT_NAME)
 
-proc rosidlRuntimeCInt32SequenceFini*(sequence: ptr RosidlRuntimeCInt32Sequence) {.
+proc int32__Sequence__fini*(sequence: ptr int32__Sequence) {.
     importc: "rosidl_runtime_c__int32__Sequence__fini",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_EQ(STRUCT_NAME)
 
-proc rosidlRuntimeCInt32SequenceAreEqual*(lhs: ptr RosidlRuntimeCInt32Sequence;
-    rhs: ptr RosidlRuntimeCInt32Sequence): bool {.
+proc int32__Sequence__are_equal*(lhs: ptr int32__Sequence; rhs: ptr int32__Sequence): bool {.
     importc: "rosidl_runtime_c__int32__Sequence__are_equal",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_COPY(STRUCT_NAME)
 
-proc rosidlRuntimeCInt32SequenceCopy*(input: ptr RosidlRuntimeCInt32Sequence;
-                                     output: ptr RosidlRuntimeCInt32Sequence): bool {.
+proc int32__Sequence__copy*(input: ptr int32__Sequence; output: ptr int32__Sequence): bool {.
     importc: "rosidl_runtime_c__int32__Sequence__copy",
     header: "primitives_sequence_functions.h".}
 
-proc rosidlRuntimeCUint64SequenceInit*(sequence: ptr RosidlRuntimeCUint64Sequence;
-                                      size: csize_t): bool {.
+proc uint64__Sequence__init*(sequence: ptr uint64__Sequence; size: csize_t): bool {.
     importc: "rosidl_runtime_c__uint64__Sequence__init",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_INIT(STRUCT_NAME)
 
-proc rosidlRuntimeCUint64SequenceFini*(sequence: ptr RosidlRuntimeCUint64Sequence) {.
+proc uint64__Sequence__fini*(sequence: ptr uint64__Sequence) {.
     importc: "rosidl_runtime_c__uint64__Sequence__fini",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_EQ(STRUCT_NAME)
 
-proc rosidlRuntimeCUint64SequenceAreEqual*(lhs: ptr RosidlRuntimeCUint64Sequence;
-    rhs: ptr RosidlRuntimeCUint64Sequence): bool {.
+proc uint64__Sequence__are_equal*(lhs: ptr uint64__Sequence;
+                                 rhs: ptr uint64__Sequence): bool {.
     importc: "rosidl_runtime_c__uint64__Sequence__are_equal",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_COPY(STRUCT_NAME)
 
-proc rosidlRuntimeCUint64SequenceCopy*(input: ptr RosidlRuntimeCUint64Sequence;
-                                      output: ptr RosidlRuntimeCUint64Sequence): bool {.
+proc uint64__Sequence__copy*(input: ptr uint64__Sequence;
+                            output: ptr uint64__Sequence): bool {.
     importc: "rosidl_runtime_c__uint64__Sequence__copy",
     header: "primitives_sequence_functions.h".}
 
-proc rosidlRuntimeCInt64SequenceInit*(sequence: ptr RosidlRuntimeCInt64Sequence;
-                                     size: csize_t): bool {.
+proc int64__Sequence__init*(sequence: ptr int64__Sequence; size: csize_t): bool {.
     importc: "rosidl_runtime_c__int64__Sequence__init",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_INIT(STRUCT_NAME)
 
-proc rosidlRuntimeCInt64SequenceFini*(sequence: ptr RosidlRuntimeCInt64Sequence) {.
+proc int64__Sequence__fini*(sequence: ptr int64__Sequence) {.
     importc: "rosidl_runtime_c__int64__Sequence__fini",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_EQ(STRUCT_NAME)
 
-proc rosidlRuntimeCInt64SequenceAreEqual*(lhs: ptr RosidlRuntimeCInt64Sequence;
-    rhs: ptr RosidlRuntimeCInt64Sequence): bool {.
+proc int64__Sequence__are_equal*(lhs: ptr int64__Sequence; rhs: ptr int64__Sequence): bool {.
     importc: "rosidl_runtime_c__int64__Sequence__are_equal",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_COPY(STRUCT_NAME)
 
-proc rosidlRuntimeCInt64SequenceCopy*(input: ptr RosidlRuntimeCInt64Sequence;
-                                     output: ptr RosidlRuntimeCInt64Sequence): bool {.
+proc int64__Sequence__copy*(input: ptr int64__Sequence; output: ptr int64__Sequence): bool {.
     importc: "rosidl_runtime_c__int64__Sequence__copy",
     header: "primitives_sequence_functions.h".}
 
-proc rosidlRuntimeCBoolSequenceInit*(sequence: ptr RosidlRuntimeCBooleanSequence;
-                                    size: csize_t): bool {.
+proc bool__Sequence__init*(sequence: ptr boolean__Sequence; size: csize_t): bool {.
     importc: "rosidl_runtime_c__bool__Sequence__init",
     header: "primitives_sequence_functions.h".}
   ## @}
@@ -432,88 +395,83 @@ proc rosidlRuntimeCBoolSequenceInit*(sequence: ptr RosidlRuntimeCBooleanSequence
   ## @{
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_INIT(bool)
 
-proc rosidlRuntimeCBoolSequenceFini*(sequence: ptr RosidlRuntimeCBooleanSequence) {.
+proc bool__Sequence__fini*(sequence: ptr boolean__Sequence) {.
     importc: "rosidl_runtime_c__bool__Sequence__fini",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_FINI(bool)
 
-proc rosidlRuntimeCBoolSequenceAreEqual*(lhs: ptr RosidlRuntimeCBooleanSequence;
-                                        rhs: ptr RosidlRuntimeCBooleanSequence): bool {.
+proc bool__Sequence__are_equal*(lhs: ptr boolean__Sequence;
+                               rhs: ptr boolean__Sequence): bool {.
     importc: "rosidl_runtime_c__bool__Sequence__are_equal",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_EQ(bool)
 
-proc rosidlRuntimeCBoolSequenceCopy*(input: ptr RosidlRuntimeCBooleanSequence;
-                                    output: ptr RosidlRuntimeCBooleanSequence): bool {.
+proc bool__Sequence__copy*(input: ptr boolean__Sequence;
+                          output: ptr boolean__Sequence): bool {.
     importc: "rosidl_runtime_c__bool__Sequence__copy",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_COPY(bool)
 
-proc rosidlRuntimeCByteSequenceInit*(sequence: ptr RosidlRuntimeCOctetSequence;
-                                    size: csize_t): bool {.
+proc byte__Sequence__init*(sequence: ptr octet__Sequence; size: csize_t): bool {.
     importc: "rosidl_runtime_c__byte__Sequence__init",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_INIT(byte)
 
-proc rosidlRuntimeCByteSequenceFini*(sequence: ptr RosidlRuntimeCOctetSequence) {.
+proc byte__Sequence__fini*(sequence: ptr octet__Sequence) {.
     importc: "rosidl_runtime_c__byte__Sequence__fini",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_FINI(byte)
 
-proc rosidlRuntimeCByteSequenceAreEqual*(lhs: ptr RosidlRuntimeCOctetSequence;
-                                        rhs: ptr RosidlRuntimeCOctetSequence): bool {.
+proc byte__Sequence__are_equal*(lhs: ptr octet__Sequence; rhs: ptr octet__Sequence): bool {.
     importc: "rosidl_runtime_c__byte__Sequence__are_equal",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_EQ(byte)
 
-proc rosidlRuntimeCByteSequenceCopy*(input: ptr RosidlRuntimeCOctetSequence;
-                                    output: ptr RosidlRuntimeCOctetSequence): bool {.
+proc byte__Sequence__copy*(input: ptr octet__Sequence; output: ptr octet__Sequence): bool {.
     importc: "rosidl_runtime_c__byte__Sequence__copy",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_COPY(byte)
 
-proc rosidlRuntimeCFloat32SequenceInit*(sequence: ptr RosidlRuntimeCFloatSequence;
-                                       size: csize_t): bool {.
+proc float32__Sequence__init*(sequence: ptr float__Sequence; size: csize_t): bool {.
     importc: "rosidl_runtime_c__float32__Sequence__init",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_INIT(float32)
 
-proc rosidlRuntimeCFloat32SequenceFini*(sequence: ptr RosidlRuntimeCFloatSequence) {.
+proc float32__Sequence__fini*(sequence: ptr float__Sequence) {.
     importc: "rosidl_runtime_c__float32__Sequence__fini",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_FINI(float32)
 
-proc rosidlRuntimeCFloat32SequenceAreEqual*(lhs: ptr RosidlRuntimeCFloatSequence;
-    rhs: ptr RosidlRuntimeCFloatSequence): bool {.
+proc float32__Sequence__are_equal*(lhs: ptr float__Sequence;
+                                  rhs: ptr float__Sequence): bool {.
     importc: "rosidl_runtime_c__float32__Sequence__are_equal",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_EQ(float32)
 
-proc rosidlRuntimeCFloat32SequenceCopy*(input: ptr RosidlRuntimeCFloatSequence;
-                                       output: ptr RosidlRuntimeCFloatSequence): bool {.
+proc float32__Sequence__copy*(input: ptr float__Sequence;
+                             output: ptr float__Sequence): bool {.
     importc: "rosidl_runtime_c__float32__Sequence__copy",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_COPY(float32)
 
-proc rosidlRuntimeCFloat64SequenceInit*(sequence: ptr RosidlRuntimeCDoubleSequence;
-                                       size: csize_t): bool {.
+proc float64__Sequence__init*(sequence: ptr double__Sequence; size: csize_t): bool {.
     importc: "rosidl_runtime_c__float64__Sequence__init",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_INIT(float64)
 
-proc rosidlRuntimeCFloat64SequenceFini*(sequence: ptr RosidlRuntimeCDoubleSequence) {.
+proc float64__Sequence__fini*(sequence: ptr double__Sequence) {.
     importc: "rosidl_runtime_c__float64__Sequence__fini",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_FINI(float64)
 
-proc rosidlRuntimeCFloat64SequenceAreEqual*(
-    lhs: ptr RosidlRuntimeCDoubleSequence; rhs: ptr RosidlRuntimeCDoubleSequence): bool {.
+proc float64__Sequence__are_equal*(lhs: ptr double__Sequence;
+                                  rhs: ptr double__Sequence): bool {.
     importc: "rosidl_runtime_c__float64__Sequence__are_equal",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_EQ(float64)
 
-proc rosidlRuntimeCFloat64SequenceCopy*(input: ptr RosidlRuntimeCDoubleSequence;
-                                       output: ptr RosidlRuntimeCDoubleSequence): bool {.
+proc float64__Sequence__copy*(input: ptr double__Sequence;
+                             output: ptr double__Sequence): bool {.
     importc: "rosidl_runtime_c__float64__Sequence__copy",
     header: "primitives_sequence_functions.h".}
   ##  See #ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_COPY(float64)

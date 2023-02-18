@@ -30,20 +30,18 @@ import
 
 type
 
-  RosidlRuntimeCBoundHandleFunction* = proc (a1: ptr RosidlRuntimeCSequenceBound;
-      a2: cstring): ptr RosidlRuntimeCSequenceBound
+  bound_handle_function* = proc (a1: ptr Sequence__bound; a2: cstring): ptr Sequence__bound
 
-  RosidlRuntimeCSequenceBound* {.importc: "rosidl_runtime_c__Sequence__bound",
-                                header: "sequence_bound.h", bycopy.} = object
+  Sequence__bound* {.importc: "rosidl_runtime_c__Sequence__bound",
+                    header: "sequence_bound.h", bycopy.} = object
     typesupportIdentifier* {.importc: "typesupport_identifier".}: cstring ##
                               ##  String identifier for the type_support.
     data* {.importc: "data".}: pointer ##  Pointer to type support handle function
-    `func`* {.importc: "func".}: RosidlRuntimeCBoundHandleFunction
+    `func`* {.importc: "func".}: bound_handle_function
 
 
 
-proc getSequenceBoundHandle*(handle: ptr RosidlRuntimeCSequenceBound;
-                            identifier: cstring): ptr RosidlRuntimeCSequenceBound {.
+proc getSequenceBoundHandle*(handle: ptr Sequence__bound; identifier: cstring): ptr Sequence__bound {.
     importc: "get_sequence_bound_handle", header: "sequence_bound.h".}
   ##  Get the message bounds handle specific to this identifier.
   ##
@@ -55,8 +53,8 @@ proc getSequenceBoundHandle*(handle: ptr RosidlRuntimeCSequenceBound;
   ##  \return The associated sequence bound handle function.
   ##
 
-proc getSequenceBoundHandleFunction*(handle: ptr RosidlRuntimeCSequenceBound;
-                                    identifier: cstring): ptr RosidlRuntimeCSequenceBound {.
+proc getSequenceBoundHandleFunction*(handle: ptr Sequence__bound;
+                                    identifier: cstring): ptr Sequence__bound {.
     importc: "get_sequence_bound_handle_function", header: "sequence_bound.h".}
   ##  Get the message bounds handle function specific to this identifier.
   ##

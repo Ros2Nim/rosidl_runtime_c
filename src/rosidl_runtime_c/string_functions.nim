@@ -31,8 +31,8 @@ import
   ./visibility_control
 
 
-proc rosidlRuntimeCStringInit*(str: ptr RosidlRuntimeCString): bool {.
-    importc: "rosidl_runtime_c__String__init", header: "string_functions.h".}
+proc String__init*(str: ptr String): bool {.importc: "rosidl_runtime_c__String__init",
+                                       header: "string_functions.h".}
   ##  Initialize a rosidl_runtime_c__String structure.
   ##
   ##  The contents of rosidl_runtime_c__String are initialized to a single null character ('\0').
@@ -50,8 +50,8 @@ proc rosidlRuntimeCStringInit*(str: ptr RosidlRuntimeCString): bool {.
   ##    or the memory allocation failed
   ##
 
-proc rosidlRuntimeCStringFini*(str: ptr RosidlRuntimeCString) {.
-    importc: "rosidl_runtime_c__String__fini", header: "string_functions.h".}
+proc String__fini*(str: ptr String) {.importc: "rosidl_runtime_c__String__fini",
+                                  header: "string_functions.h".}
   ##  Deallocate the memory of the rosidl_runtime_c__String structure.
   ##
   ##  Calling the function with an already deallocated sequence is a no-op.
@@ -59,8 +59,7 @@ proc rosidlRuntimeCStringFini*(str: ptr RosidlRuntimeCString) {.
   ##  \param[inout] str a pointer to a rosidl_runtime_c__String structure to be finalized
   ##
 
-proc rosidlRuntimeCStringCopy*(input: ptr RosidlRuntimeCString;
-                              output: ptr RosidlRuntimeCString): bool {.
+proc String__copy*(input: ptr String; output: ptr String): bool {.
     importc: "rosidl_runtime_c__String__copy", header: "string_functions.h".}
   ##  Copy rosidl_runtime_c__String structure content.
   ##
@@ -75,8 +74,7 @@ proc rosidlRuntimeCStringCopy*(input: ptr RosidlRuntimeCString;
   ##    allocation fails.
   ##
 
-proc rosidlRuntimeCStringAreEqual*(lhs: ptr RosidlRuntimeCString;
-                                  rhs: ptr RosidlRuntimeCString): bool {.
+proc String__are_equal*(lhs: ptr String; rhs: ptr String): bool {.
     importc: "rosidl_runtime_c__String__are_equal", header: "string_functions.h".}
   ##  Check for rosidl_runtime_c__String structure equality.
   ##
@@ -86,8 +84,7 @@ proc rosidlRuntimeCStringAreEqual*(lhs: ptr RosidlRuntimeCString;
   ##    otherwise false.
   ##
 
-proc rosidlRuntimeCStringAssignn*(str: ptr RosidlRuntimeCString; value: cstring;
-                                 n: csize_t): bool {.
+proc String__assignn*(str: ptr String; value: cstring; n: csize_t): bool {.
     importc: "rosidl_runtime_c__String__assignn", header: "string_functions.h".}
   ##  Assign the c string pointer of n characters to the rosidl_runtime_c__String structure.
   ##
@@ -99,7 +96,7 @@ proc rosidlRuntimeCStringAssignn*(str: ptr RosidlRuntimeCString; value: cstring;
   ##    or if the memory reallocation failed.
   ##
 
-proc rosidlRuntimeCStringAssign*(str: ptr RosidlRuntimeCString; value: cstring): bool {.
+proc String__assign*(str: ptr String; value: cstring): bool {.
     importc: "rosidl_runtime_c__String__assign", header: "string_functions.h".}
   ##  Assign the c string pointer to the rosidl_runtime_c__String structure.
   ##
@@ -116,8 +113,7 @@ proc rosidlRuntimeCStringAssign*(str: ptr RosidlRuntimeCString; value: cstring):
   ##    or if the memory reallocation failed.
   ##
 
-proc rosidlRuntimeCStringSequenceInit*(sequence: ptr RosidlRuntimeCStringSequence;
-                                      size: csize_t): bool {.
+proc String__Sequence__init*(sequence: ptr String__Sequence; size: csize_t): bool {.
     importc: "rosidl_runtime_c__String__Sequence__init",
     header: "string_functions.h".}
   ##  Initialize a rosidl_runtime_c__String__Sequence__init structure.
@@ -134,7 +130,7 @@ proc rosidlRuntimeCStringSequenceInit*(sequence: ptr RosidlRuntimeCStringSequenc
   ##    or the memory allocation failed
   ##
 
-proc rosidlRuntimeCStringSequenceFini*(sequence: ptr RosidlRuntimeCStringSequence) {.
+proc String__Sequence__fini*(sequence: ptr String__Sequence) {.
     importc: "rosidl_runtime_c__String__Sequence__fini",
     header: "string_functions.h".}
   ##  Deallocate the memory of the string sequence structure.
@@ -144,8 +140,8 @@ proc rosidlRuntimeCStringSequenceFini*(sequence: ptr RosidlRuntimeCStringSequenc
   ##  \param[inout] sequence a pointer to a string sequence to be finalized
   ##
 
-proc rosidlRuntimeCStringSequenceAreEqual*(lhs: ptr RosidlRuntimeCStringSequence;
-    rhs: ptr RosidlRuntimeCStringSequence): bool {.
+proc String__Sequence__are_equal*(lhs: ptr String__Sequence;
+                                 rhs: ptr String__Sequence): bool {.
     importc: "rosidl_runtime_c__String__Sequence__are_equal",
     header: "string_functions.h".}
   ##  Check for rosidl_runtime_c__String__Sequence structure equality.
@@ -156,8 +152,8 @@ proc rosidlRuntimeCStringSequenceAreEqual*(lhs: ptr RosidlRuntimeCStringSequence
   ##    in size and content, otherwise false.
   ##
 
-proc rosidlRuntimeCStringSequenceCopy*(input: ptr RosidlRuntimeCStringSequence;
-                                      output: ptr RosidlRuntimeCStringSequence): bool {.
+proc String__Sequence__copy*(input: ptr String__Sequence;
+                            output: ptr String__Sequence): bool {.
     importc: "rosidl_runtime_c__String__Sequence__copy",
     header: "string_functions.h".}
   ##  Copy rosidl_runtime_c__String__Sequence structure content.
@@ -173,7 +169,7 @@ proc rosidlRuntimeCStringSequenceCopy*(input: ptr RosidlRuntimeCStringSequence;
   ##    allocation fails.
   ##
 
-proc rosidlRuntimeCStringSequenceCreate*(size: csize_t): ptr RosidlRuntimeCStringSequence {.
+proc String__Sequence__create*(size: csize_t): ptr String__Sequence {.
     importc: "rosidl_runtime_c__String__Sequence__create",
     header: "string_functions.h".}
   ##  Create a rosidl_runtime_c__String__Sequence structure with a specific size.
@@ -187,8 +183,7 @@ proc rosidlRuntimeCStringSequenceCreate*(size: csize_t): ptr RosidlRuntimeCStrin
   ##  \return a string sequence if initialization was successfully, otherwise NULL.
   ##
 
-proc rosidlRuntimeCStringSequenceDestroy*(
-    sequence: ptr RosidlRuntimeCStringSequence) {.
+proc String__Sequence__destroy*(sequence: ptr String__Sequence) {.
     importc: "rosidl_runtime_c__String__Sequence__destroy",
     header: "string_functions.h".}
   ##  Destroy a rosidl_runtime_c__String__Sequence structure.

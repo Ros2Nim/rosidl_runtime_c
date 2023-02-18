@@ -50,11 +50,11 @@ imports:
     "deps/rosidl/rosidl_typesupport_introspection_c/include",
     ]
   
-  cSourceModifications:
-  - cSourceModification: "'field_types.h'"
-    substitutes:
-    - peg: "'rosidl_typesupport_introspection_c__' {\\w+}"
-      repl: "$1"
+  # cSourceModifications:
+  # - cSourceModification: "'field_types.h'"
+    # substitutes:
+    # - peg: "'rosidl_typesupport_introspection_c__' {\\w+}"
+    #   repl: "$1"
     # deletes:
     # - match: "'__ROS_TYPE_BYTE'"
     # - match: "'__ROS_TYPE_BOOL'"

@@ -26,22 +26,22 @@
 ##  limitations under the License.
 
 import
-  rosidlRuntimeC/serviceTypeSupportStruct,
-  rosidlRuntimeC/serviceTypeSupportStruct,
-  rosidlRuntimeC/messageTypeSupportStruct, rosidlRuntimeC/visibilityControl,
-  rosidlRuntimeC/visibilityControl, rosidlRuntimeC/messageTypeSupportStruct,
-  rosidlRuntimeC/messageTypeSupportStruct,
-  rosidlRuntimeC/serviceTypeSupportStruct,
-  rosidlRuntimeC/serviceTypeSupportStruct, ./message_introspection,
-  ./message_introspection, rosidlRuntimeC/messageInitialization,
+  ../rosidl_runtime_c/service_type_support_struct,
+  ../rosidl_runtime_c/service_type_support_struct,
+  ../rosidl_runtime_c/message_type_support_struct,
+  ../rosidl_runtime_c/visibility_control, ../rosidl_runtime_c/visibility_control,
+  ../rosidl_runtime_c/message_type_support_struct,
+  ../rosidl_runtime_c/message_type_support_struct,
+  ../rosidl_runtime_c/service_type_support_struct,
+  ../rosidl_runtime_c/service_type_support_struct, ./message_introspection,
+  ./message_introspection, ../rosidl_runtime_c/message_initialization,
   ./message_introspection, ./visibility_control, ./visibility_control,
   ./message_introspection
 
 type
 
-  RosidlTypesupportIntrospectionCServiceMembers* {.
-      importc: "rosidl_typesupport_introspection_c__ServiceMembers",
-      header: "service_introspection.h", bycopy.} = object ##
+  ServiceMembers* {.importc: "rosidl_typesupport_introspection_c__ServiceMembers",
+                   header: "service_introspection.h", bycopy.} = object ##
                               ##  This struct provides introspection information for one service definition.
                               ##  A service is comprised of two interfaces: the request and the response.
     serviceNamespace* {.importc: "service_namespace_".}: cstring ##
@@ -49,10 +49,10 @@ type
                               ##  example_messages/srv
     serviceName* {.importc: "service_name_".}: cstring ##
                               ##  The name of the service, e.g. "AddTwoInts"
-    requestMembers* {.importc: "request_members_".}: ptr RosidlTypesupportIntrospectionCMessageMembers ##
+    requestMembers* {.importc: "request_members_".}: ptr MessageMembers ##
                               ##  A pointer to the introspection information structure for the request interface.
-    responseMembers* {.importc: "response_members_".}: ptr RosidlTypesupportIntrospectionCMessageMembers ##
+    responseMembers* {.importc: "response_members_".}: ptr MessageMembers ##
                               ##  A pointer to the introspection information structure for the response interface.
-    eventMembers* {.importc: "event_members_".}: ptr RosidlTypesupportIntrospectionCMessageMembers ##
+    eventMembers* {.importc: "event_members_".}: ptr MessageMembers ##
                               ##  A pointer to the introspection information structure for the event interface.
 
