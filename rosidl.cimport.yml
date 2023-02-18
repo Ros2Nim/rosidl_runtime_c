@@ -19,7 +19,43 @@ imports:
     - rawNims: |
         type
           uintLeast16T * {.importc: "uint_least16_t", header: "stddef.h", bycopy.} = object
-  - cSourceModification: "'message_type_support_struct.h'"
-    c2NimExtras:
-    - fileContents: |
 
+- name: "rosidl_adapter"
+  sources: "deps/rosidl/rosidl_adapter/include"
+  globs: ["**/*.h"]
+  includes: [
+    "deps/rcutils/include",
+    "deps/rosidl/rosidl_runtime_c/include",
+    "deps/rosidl/rosidl_typesupport_interface/include",
+    "deps/rosidl/rosidl_typesupport_introspection_c/include",
+    ]
+
+- name: "rosidl_parser"
+  sources: "deps/rosidl/rosidl_parser/include"
+  globs: ["**/*.h"]
+  includes: [
+    "deps/rcutils/include",
+    "deps/rosidl/rosidl_runtime_c/include",
+    "deps/rosidl/rosidl_typesupport_interface/include",
+    "deps/rosidl/rosidl_typesupport_introspection_c/include",
+    ]
+
+- name: "rosidl_typesupport_interface"
+  sources: "deps/rosidl/rosidl_typesupport_interface/include"
+  globs: ["**/*.h"]
+  includes: [
+    "deps/rcutils/include",
+    "deps/rosidl/rosidl_runtime_c/include",
+    "deps/rosidl/rosidl_typesupport_interface/include",
+    "deps/rosidl/rosidl_typesupport_introspection_c/include",
+    ]
+
+- name: "rosidl_typesupport_introspection_c"
+  sources: "deps/rosidl/rosidl_typesupport_introspection_c/include"
+  globs: ["**/*.h"]
+  includes: [
+    "deps/rcutils/include",
+    "deps/rosidl/rosidl_runtime_c/include",
+    "deps/rosidl/rosidl_typesupport_interface/include",
+    "deps/rosidl/rosidl_typesupport_introspection_c/include",
+    ]
