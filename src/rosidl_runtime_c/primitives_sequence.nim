@@ -1,3 +1,5 @@
+##  #pragma c2nim reordertypes
+
 ##  #pragma c2nim importFuncDefines
 ##  #pragma c2nim importc
 ##  --importDefines        import C defines as procs or vars with ``{.importc.}``
@@ -146,12 +148,11 @@ type
     ## !< The number of allocated items in data
 
 
-  RosidlRuntimeCBoolSequence* = RosidlRuntimeCBooleanSequence
+  RosidlRuntimeCBoolSequence* = RosidlRuntimeCBooleanSequence ##
+                              ##  emulate legacy API
 
   RosidlRuntimeCByteSequence* = RosidlRuntimeCOctetSequence
 
   RosidlRuntimeCFloat32Sequence* = RosidlRuntimeCFloatSequence
 
   RosidlRuntimeCFloat64Sequence* = RosidlRuntimeCDoubleSequence
-
-##  emulate legacy API

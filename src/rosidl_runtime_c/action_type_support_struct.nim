@@ -1,3 +1,5 @@
+##  #pragma c2nim reordertypes
+
 ##  #pragma c2nim importFuncDefines
 ##  #pragma c2nim importc
 ##  --importDefines        import C defines as procs or vars with ``{.importc.}``
@@ -32,18 +34,17 @@ import
 type
 
   RosidlActionTypeSupportT* {.importc: "rosidl_action_type_support_t",
-                             header: "action_type_support_struct.h", bycopy.} = object
+                             header: "action_type_support_struct.h", bycopy.} = object ##
+                              ##  Contains rosidl action type support data.
+                              ##
+                              ##  Actions are built based on services(goal, result and cancel) and message (feedback and status).
+                              ##
     goalServiceTypeSupport* {.importc: "goal_service_type_support".}: ptr RosidlServiceTypeSupportT
     resultServiceTypeSupport* {.importc: "result_service_type_support".}: ptr RosidlServiceTypeSupportT
     cancelServiceTypeSupport* {.importc: "cancel_service_type_support".}: ptr RosidlServiceTypeSupportT
     feedbackMessageTypeSupport* {.importc: "feedback_message_type_support".}: ptr RosidlMessageTypeSupportT
     statusMessageTypeSupport* {.importc: "status_message_type_support".}: ptr RosidlMessageTypeSupportT
 
-
-##  Contains rosidl action type support data.
-##
-##  Actions are built based on services(goal, result and cancel) and message (feedback and status).
-##
 
 ##  Get the action type support given a provided action and package.
 ##

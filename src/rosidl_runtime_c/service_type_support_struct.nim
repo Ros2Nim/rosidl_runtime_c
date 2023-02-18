@@ -1,3 +1,5 @@
+##  #pragma c2nim reordertypes
+
 ##  #pragma c2nim importFuncDefines
 ##  #pragma c2nim importc
 ##  --importDefines        import C defines as procs or vars with ``{.importc.}``
@@ -44,13 +46,33 @@ type
 
   RosidlEventMessageCreateHandleFunctionFunction* = proc (
       info: ptr RosidlServiceIntrospectionInfoT; allocator: ptr RcutilsAllocatorT;
-      requestMessage: pointer; responseMessage: pointer): pointer
+      requestMessage: pointer; responseMessage: pointer): pointer ##
+                              ##  Creates a ServiceEvent message for the service.
+                              ##
+                              ##  Instantiates a ServiceEvent message with the given info and request/response message.
+                              ##  The message is allocated using the given allocator and must be deallocated using
+                              ##  the rosidl_service_introspection_destroy_handle
+                              ##
+                              ##  \param[in] info POD fields of service_msgs/msg/ServiceEventInfo to be passed from rcl
+                              ##  \param[in] allocator The allocator to use for allocating the ServiceEvent message
+                              ##  \param[in] request_message type-erased handle to request message from rcl. Can be NULL.
+                              ##  \param[in] response_message type-erased handle to request message from rcl. Can be NULL.
+                              ##  \return The built ServiceEvent message. Will return NULL if the message could not be built.
+                              ##
 
   RosidlEventMessageDestroyHandleFunctionFunction* = proc (eventMessage: pointer;
-      allocator: ptr RcutilsAllocatorT): bool
+      allocator: ptr RcutilsAllocatorT): bool ##  Destroys a ServiceEvent message
+                                          ##
+                                          ##  Destroys a ServiceEvent message returned by a rosidl_service_introspection_message_create_handle
+                                          ##  by calling the corresponding __fini function then deallocating
+                                          ##
+                                          ##  \param[in] event_message The message to destroy.
+                                          ##  \param[in] allocator The allocator to use for deallocating the message.
+                                          ##
 
   RosidlServiceTypeSupportT* {.importc: "rosidl_service_type_support_t",
-                              header: "service_type_support_struct.h", bycopy.} = object
+                              header: "service_type_support_struct.h", bycopy.} = object ##
+                              ##  Contains rosidl service type support data
     typesupportIdentifier* {.importc: "typesupport_identifier".}: cstring ##
                               ##  String identifier for the type_support.
     data* {.importc: "data".}: pointer ##  Pointer to the service type support library
@@ -63,30 +85,6 @@ type
     eventTypesupport* {.importc: "event_typesupport".}: ptr RosidlMessageTypeSupportT ##
                               ##  Service event message typesupport
 
-
-##  Creates a ServiceEvent message for the service.
-##
-##  Instantiates a ServiceEvent message with the given info and request/response message.
-##  The message is allocated using the given allocator and must be deallocated using
-##  the rosidl_service_introspection_destroy_handle
-##
-##  \param[in] info POD fields of service_msgs/msg/ServiceEventInfo to be passed from rcl
-##  \param[in] allocator The allocator to use for allocating the ServiceEvent message
-##  \param[in] request_message type-erased handle to request message from rcl. Can be NULL.
-##  \param[in] response_message type-erased handle to request message from rcl. Can be NULL.
-##  \return The built ServiceEvent message. Will return NULL if the message could not be built.
-##
-
-##  Destroys a ServiceEvent message
-##
-##  Destroys a ServiceEvent message returned by a rosidl_service_introspection_message_create_handle
-##  by calling the corresponding __fini function then deallocating
-##
-##  \param[in] event_message The message to destroy.
-##  \param[in] allocator The allocator to use for deallocating the message.
-##
-
-##  Contains rosidl service type support data
 
 
 proc getServiceTypesupportHandle*(handle: ptr RosidlServiceTypeSupportT;

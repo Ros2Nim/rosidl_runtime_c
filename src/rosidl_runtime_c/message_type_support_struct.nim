@@ -1,3 +1,5 @@
+##  #pragma c2nim reordertypes
+
 ##  #pragma c2nim importFuncDefines
 ##  #pragma c2nim importc
 ##  --importDefines        import C defines as procs or vars with ``{.importc.}``
@@ -32,15 +34,14 @@ type
       a1: ptr RosidlMessageTypeSupportT; a2: cstring): ptr RosidlMessageTypeSupportT
 
   RosidlMessageTypeSupportT* {.importc: "rosidl_message_type_support_t",
-                              header: "message_type_support_struct.h", bycopy.} = object
+                              header: "message_type_support_struct.h", bycopy.} = object ##
+                              ##  Contains rosidl message type support data
     typesupportIdentifier* {.importc: "typesupport_identifier".}: cstring ##
                               ##  String identifier for the type_support.
     data* {.importc: "data".}: pointer ##  Pointer to the message type support library
     `func`* {.importc: "func".}: RosidlMessageTypesupportHandleFunction ##
                               ##  Pointer to the message type support handler function
 
-
-##  Contains rosidl message type support data
 
 
 proc getMessageTypesupportHandle*(handle: ptr RosidlMessageTypeSupportT;

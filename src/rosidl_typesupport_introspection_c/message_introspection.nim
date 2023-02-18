@@ -1,3 +1,5 @@
+##  #pragma c2nim reordertypes
+
 ##  #pragma c2nim importFuncDefines
 ##  #pragma c2nim importc
 ##  --importDefines        import C defines as procs or vars with ``{.importc.}``
@@ -83,7 +85,8 @@ type
 
   RosidlTypesupportIntrospectionCMessageMembers* {.
       importc: "rosidl_typesupport_introspection_c__MessageMembers",
-      header: "message_introspection.h", bycopy.} = object
+      header: "message_introspection.h", bycopy.} = object ##
+                              ##  Structure used to describe all fields of a single interface type.
     messageNamespace* {.importc: "message_namespace_".}: cstring ##
                               ##  The namespace in which the interface resides, e.g. "example_messages__msg" for
                               ##  example_messages/msg
@@ -98,5 +101,3 @@ type
     finiFunction* {.importc: "fini_function".}: proc (a1: pointer) ##
                               ##  The function used to clean up the interface's in-memory representation
 
-
-##  Structure used to describe all fields of a single interface type.
