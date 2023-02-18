@@ -2,12 +2,12 @@
 imports:
 
 - name: "rosidl_runtime_c"
-  sources: "../deps/rosidl/rosidl_runtime_c/include"
+  sources: "deps/rosidl/rosidl_runtime_c/include"
   globs: ["**/*.h"]
   includes: [
-    "../deps/rosidl/rosidl_runtime_c/include",
-    "../deps/rosidl/rosidl_typesupport_interface/include",
-    "../deps/rosidl/rosidl_typesupport_introspection_c/include",
+    "deps/rosidl/rosidl_runtime_c/include",
+    "deps/rosidl/rosidl_typesupport_interface/include",
+    "deps/rosidl/rosidl_typesupport_introspection_c/include",
     ]
   defines: []
   skips: []
