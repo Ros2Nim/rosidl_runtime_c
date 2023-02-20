@@ -1,7 +1,3 @@
-##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
-##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
-##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
-
 ##  Copyright 2015 Open Source Robotics Foundation, Inc.
 ##
 ##  Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,8 +13,8 @@
 ##  limitations under the License.
 
 import
-  primitives_sequence, primitives_sequence, primitives_sequence,
-  primitives_sequence
+  ./primitives_sequence, ./primitives_sequence, ./primitives_sequence,
+  ./primitives_sequence
 
 type
 
@@ -29,8 +25,8 @@ type
     capacity* {.importc: "capacity".}: csize_t ##  The capacity represents the number of allocated bytes (including the null byte).
 
 
-  StringSequence* {.importc: "rosidl_runtime_c__String__Sequence",
-                    header: "string.h", bycopy.} = object
+  String_sequence* {.importc: "rosidl_runtime_c__String__Sequence",
+                     header: "string.h", bycopy.} = object
     data* {.importc: "data".}: ptr String ## !< The pointer to an array of STRUCT_NAME
     size* {.importc: "size".}: csize_t ## !< The number of valid items in data
     capacity* {.importc: "capacity".}: csize_t

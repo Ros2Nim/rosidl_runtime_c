@@ -1,7 +1,3 @@
-##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
-##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
-##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
-
 ##  Copyright 2014-2015 Open Source Robotics Foundation, Inc.
 ##
 ##  Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,11 +13,10 @@
 ##  limitations under the License.
 
 import
-  rosidl_typesupport_introspection_c.visibility_control,
-  rosidl_typesupport_introspection_c.visibility_control
+  ./visibility_control, ./visibility_control
 
 ##  String identifying the typesupport introspection implementation in use.
 
-let rosidlTypesupportIntrospectionCIdentifier* {.
+let typesupport_introspection_c_identifier* {.
     importc: "rosidl_typesupport_introspection_c__identifier",
     header: "identifier.h".}: cstring
