@@ -1,3 +1,5 @@
+##  #pragma c2nim nep1
+
 ##  #pragma c2nim reordertypes
 
 ##  #pragma c2nim importFuncDefines
@@ -26,33 +28,39 @@
 ##  limitations under the License.
 
 import
-  ../rosidl_runtime_c/service_type_support_struct,
-  ../rosidl_runtime_c/service_type_support_struct,
-  ../rosidl_runtime_c/message_type_support_struct,
-  ../rosidl_runtime_c/visibility_control, ../rosidl_runtime_c/visibility_control,
-  ../rosidl_runtime_c/message_type_support_struct,
-  ../rosidl_runtime_c/message_type_support_struct,
-  ../rosidl_runtime_c/service_type_support_struct,
-  ../rosidl_runtime_c/service_type_support_struct, ./message_introspection,
-  ./message_introspection, ../rosidl_runtime_c/message_initialization,
-  ./message_introspection, ./visibility_control, ./visibility_control,
-  ./message_introspection
+  service_type_support_struct, rcutils.allocator, rcutils.allocator,
+  rcutils.allocator, rcutils.macros, rcutils.macros, rcutils.macros,
+  rcutils.macros, rcutils.macros, rcutils.allocator, rcutils.types.rcutils_ret,
+  rcutils.allocator, rcutils.visibility_control,
+  rcutils.visibility_control_macros, rcutils.visibility_control_macros,
+  rcutils.visibility_control, rcutils.allocator, service_type_support_struct,
+  message_type_support_struct, visibility_control, visibility_control,
+  message_type_support_struct, message_type_support_struct,
+  service_type_support_struct, service_type_support_struct,
+  rosidl_typesupport_introspection_c.message_introspection,
+  rosidl_typesupport_introspection_c.message_introspection,
+  message_initialization,
+  rosidl_typesupport_introspection_c.message_introspection,
+  rosidl_typesupport_introspection_c.visibility_control,
+  rosidl_typesupport_introspection_c.visibility_control,
+  rosidl_typesupport_introspection_c.message_introspection
 
 type
 
-  ServiceMembers* {.importc: "rosidl_typesupport_introspection_c__ServiceMembers",
-                   header: "service_introspection.h", bycopy.} = object ##
+  rosidl_typesupport_introspection_c_ServiceMembers* {.
+      importc: "rosidl_typesupport_introspection_c__ServiceMembers",
+      header: "service_introspection.h", bycopy.} = object ##
                               ##  This struct provides introspection information for one service definition.
                               ##  A service is comprised of two interfaces: the request and the response.
-    serviceNamespace* {.importc: "service_namespace_".}: cstring ##
+    service_namespace_* {.importc: "service_namespace_".}: cstring ##
                               ##  The namespace in which the service resides, e.g. "example_messages__srv" for
                               ##  example_messages/srv
-    serviceName* {.importc: "service_name_".}: cstring ##
+    service_name_* {.importc: "service_name_".}: cstring ##
                               ##  The name of the service, e.g. "AddTwoInts"
-    requestMembers* {.importc: "request_members_".}: ptr MessageMembers ##
+    request_members_* {.importc: "request_members_".}: ptr rosidl_typesupport_introspection_c_MessageMembers ##
                               ##  A pointer to the introspection information structure for the request interface.
-    responseMembers* {.importc: "response_members_".}: ptr MessageMembers ##
+    response_members_* {.importc: "response_members_".}: ptr rosidl_typesupport_introspection_c_MessageMembers ##
                               ##  A pointer to the introspection information structure for the response interface.
-    eventMembers* {.importc: "event_members_".}: ptr MessageMembers ##
+    event_members_* {.importc: "event_members_".}: ptr rosidl_typesupport_introspection_c_MessageMembers ##
                               ##  A pointer to the introspection information structure for the event interface.
 

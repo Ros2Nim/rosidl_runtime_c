@@ -1,3 +1,5 @@
+##  #pragma c2nim nep1
+
 ##  #pragma c2nim reordertypes
 
 ##  #pragma c2nim importFuncDefines
@@ -26,52 +28,53 @@
 ##  limitations under the License.
 
 import
-  ./visibility_control, ./visibility_control
+  visibility_control, visibility_control
 
 type
 
-  RosidlMessageTypesupportHandleFunction* = proc (
-      a1: ptr RosidlMessageTypeSupportT; a2: cstring): ptr RosidlMessageTypeSupportT
+  rosidl_message_typesupport_handle_function* = proc (
+      a1: ptr rosidl_message_type_support_t; a2: cstring): ptr rosidl_message_type_support_t
 
-  RosidlMessageTypeSupportT* {.importc: "rosidl_message_type_support_t",
-                              header: "message_type_support_struct.h", bycopy.} = object ##
+  rosidl_message_type_support_t* {.importc: "rosidl_message_type_support_t",
+                                   header: "message_type_support_struct.h",
+                                   bycopy.} = object ##
                               ##  Contains rosidl message type support data
-    typesupportIdentifier* {.importc: "typesupport_identifier".}: cstring ##
+    typesupport_identifier* {.importc: "typesupport_identifier".}: cstring ##
                               ##  String identifier for the type_support.
     data* {.importc: "data".}: pointer ##  Pointer to the message type support library
-    `func`* {.importc: "func".}: RosidlMessageTypesupportHandleFunction ##
+    `func`* {.importc: "func".}: rosidl_message_typesupport_handle_function ##
                               ##  Pointer to the message type support handler function
 
 
 
-proc getMessageTypesupportHandle*(handle: ptr RosidlMessageTypeSupportT;
-                                 identifier: cstring): ptr RosidlMessageTypeSupportT {.
+proc get_message_typesupport_handle*(handle: ptr rosidl_message_type_support_t;
+                                     identifier: cstring): ptr rosidl_message_type_support_t {.
     importc: "get_message_typesupport_handle",
     header: "message_type_support_struct.h".}
   ##  Get the message type support handle specific to this identifier.
-  ##
-  ##  The handle's message typesupport identifier function is returned or if the parameters are NULL
-  ##  then an assert will happen.
-  ##
-  ##  \param handle Handle to message type support
-  ##  \param identifier The typesupport identifier to get the handle function for
-  ##  \return The associated message typesupport handle function.
-  ##
+                                             ##
+                                             ##  The handle's message typesupport identifier function is returned or if the parameters are NULL
+                                             ##  then an assert will happen.
+                                             ##
+                                             ##  \param handle Handle to message type support
+                                             ##  \param identifier The typesupport identifier to get the handle function for
+                                             ##  \return The associated message typesupport handle function.
+                                             ##
 
-proc getMessageTypesupportHandleFunction*(handle: ptr RosidlMessageTypeSupportT;
-    identifier: cstring): ptr RosidlMessageTypeSupportT {.
+proc get_message_typesupport_handle_function*(
+    handle: ptr rosidl_message_type_support_t; identifier: cstring): ptr rosidl_message_type_support_t {.
     importc: "get_message_typesupport_handle_function",
     header: "message_type_support_struct.h".}
   ##  Get the message type support handle function specific to this identifier.
-  ##
-  ##  If the identifier is the same as this handle's typesupport_identifier the handle is simply
-  ##  returned or if the parameters are NULL then an assert will happen.
-  ##
-  ##  \param handle Handle to message type support
-  ##  \param identifier The typesupport identifier to get the handle function for
-  ##  \return if the identifier match's the handle's identifier then the handle's function
-  ##    is returned.
-  ##
+                                             ##
+                                             ##  If the identifier is the same as this handle's typesupport_identifier the handle is simply
+                                             ##  returned or if the parameters are NULL then an assert will happen.
+                                             ##
+                                             ##  \param handle Handle to message type support
+                                             ##  \param identifier The typesupport identifier to get the handle function for
+                                             ##  \return if the identifier match's the handle's identifier then the handle's function
+                                             ##    is returned.
+                                             ##
 ##  Get the message type support given a provided action and package.
 ##
 ##  \param PkgName Name of the package that contains the message

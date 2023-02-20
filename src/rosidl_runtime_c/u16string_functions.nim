@@ -1,3 +1,5 @@
+##  #pragma c2nim nep1
+
 ##  #pragma c2nim reordertypes
 
 ##  #pragma c2nim importFuncDefines
@@ -26,216 +28,220 @@
 ##  limitations under the License.
 
 import
-  ./u16string, ./u16string, ./primitives_sequence, ./primitives_sequence,
-  ./primitives_sequence, ./primitives_sequence, ./u16string, ./visibility_control,
-  ./visibility_control
+  u16string, u16string, primitives_sequence, primitives_sequence,
+  primitives_sequence, primitives_sequence, u16string, visibility_control,
+  visibility_control
 
 
-proc U16String__init*(str: ptr U16String): bool {.
-    importc: "rosidl_runtime_c__U16String__init", header: "u16string_functions.h".}
+proc U16String_init*(str: ptr U16String): bool {.
+    importc: "rosidl_runtime_c__U16String__init",
+    header: "u16string_functions.h".}
   ##  Initialize a rosidl_runtime_c__U16String structure.
-  ##  The contents of rosidl_runtime_c__U16String are initialized to a single null character.
-  ##  The string initially has size 0 and capacity 1.
-  ##  Size represents the size of the contents of the string, while capacity represents the overall
-  ##  storage of the string (counting the null terminator).
-  ##  All strings must be null-terminated.
-  ##  The rosidl_runtime_c__U16String structure should be deallocated using the given function
-  ##  rosidl_runtime_c__U16String__fini() when it is no longer needed.
-  ##  Calling this function with an already initialized U16 string sequence structure will leak
-  ##  memory.
-  ##
-  ##  \param[inout] str a pointer to a U16 string structure
-  ##  \return true if successful, false if the passed string pointer is null
-  ##    or the memory allocation failed
-  ##
+                                     ##  The contents of rosidl_runtime_c__U16String are initialized to a single null character.
+                                     ##  The string initially has size 0 and capacity 1.
+                                     ##  Size represents the size of the contents of the string, while capacity represents the overall
+                                     ##  storage of the string (counting the null terminator).
+                                     ##  All strings must be null-terminated.
+                                     ##  The rosidl_runtime_c__U16String structure should be deallocated using the given function
+                                     ##  rosidl_runtime_c__U16String__fini() when it is no longer needed.
+                                     ##  Calling this function with an already initialized U16 string sequence structure will leak
+                                     ##  memory.
+                                     ##
+                                     ##  \param[inout] str a pointer to a U16 string structure
+                                     ##  \return true if successful, false if the passed string pointer is null
+                                     ##    or the memory allocation failed
+                                     ##
 
-proc U16String__fini*(str: ptr U16String) {.importc: "rosidl_runtime_c__U16String__fini",
-                                        header: "u16string_functions.h".}
+proc U16String_fini*(str: ptr U16String) {.
+    importc: "rosidl_runtime_c__U16String__fini",
+    header: "u16string_functions.h".}
   ##  Deallocate the memory of the rosidl_runtime_c__U16String structure.
-  ##
-  ##  Calling the function with an already deallocated sequence is a no-op.
-  ##
-  ##  \param[inout] str a pointer to a U16 string structure to be finalized
-  ##
+                                     ##
+                                     ##  Calling the function with an already deallocated sequence is a no-op.
+                                     ##
+                                     ##  \param[inout] str a pointer to a U16 string structure to be finalized
+                                     ##
 
-proc U16String__are_equal*(lhs: ptr U16String; rhs: ptr U16String): bool {.
+proc U16String_are_equal*(lhs: ptr U16String; rhs: ptr U16String): bool {.
     importc: "rosidl_runtime_c__U16String__are_equal",
     header: "u16string_functions.h".}
   ##  Check for rosidl_runtime_c__U16String structure equality.
-  ##
-  ##  \param[in] lhs a pointer to the left hand side of the equality operator.
-  ##  \param[in] lhs a pointer to the right hand side of the equality operator.
-  ##  \return true if rosidl_runtime_c__U16String structures are equal
-  ##    in size and content, otherwise false.
-  ##
+                                     ##
+                                     ##  \param[in] lhs a pointer to the left hand side of the equality operator.
+                                     ##  \param[in] lhs a pointer to the right hand side of the equality operator.
+                                     ##  \return true if rosidl_runtime_c__U16String structures are equal
+                                     ##    in size and content, otherwise false.
+                                     ##
 
-proc U16String__copy*(input: ptr U16String; output: ptr U16String): bool {.
-    importc: "rosidl_runtime_c__U16String__copy", header: "u16string_functions.h".}
+proc U16String_copy*(input: ptr U16String; output: ptr U16String): bool {.
+    importc: "rosidl_runtime_c__U16String__copy",
+    header: "u16string_functions.h".}
   ##  Copy rosidl_runtime_c__U16String structure content.
-  ##
-  ##  This functions performs a deep copy, as opposed to the shallow copy that
-  ##  plain assignment yields.
-  ##
-  ##  \param[in] input a pointer to a rosidl_runtime_c__U16String structure
-  ##    to copy from.
-  ##  \param[out] output a pointer to an initialized rosidl_runtime_c__U16String
-  ##    structure to copy into.
-  ##  \return true if successful, false if either pointer is null or memory
-  ##    allocation fails.
-  ##
+                                     ##
+                                     ##  This functions performs a deep copy, as opposed to the shallow copy that
+                                     ##  plain assignment yields.
+                                     ##
+                                     ##  \param[in] input a pointer to a rosidl_runtime_c__U16String structure
+                                     ##    to copy from.
+                                     ##  \param[out] output a pointer to an initialized rosidl_runtime_c__U16String
+                                     ##    structure to copy into.
+                                     ##  \return true if successful, false if either pointer is null or memory
+                                     ##    allocation fails.
+                                     ##
 
-proc U16String__assignn*(str: ptr U16String; value: ptr uint16; n: csize_t): bool {.
+proc U16String_assignn*(str: ptr U16String; value: ptr uint16; n: csize_t): bool {.
     importc: "rosidl_runtime_c__U16String__assignn",
     header: "u16string_functions.h".}
   ##  Assign the uint16_t value of n characters to the rosidl_runtime_c__U16String structure.
-  ##
-  ##  This function returns `false` if memory cannot be allocated,
-  ##  if the input uint16_t pointer is null or if the size is higher than SIZE_MAX.
-  ##  In both cases no error message is set.
-  ##
-  ##  \param[inout] str a pointer to a U16 string structure
-  ##  \param[in] value points to a sequence of 16 bit chars
-  ##  \param[in] n size of the value string
-  ##  \return true if successful, false if the passed string pointer is null
-  ##    or if the passed value pointer is null or if the size is higher than SIZE_MAX
-  ##    or if the memory reallocation failed.
-  ##
+                                     ##
+                                     ##  This function returns `false` if memory cannot be allocated,
+                                     ##  if the input uint16_t pointer is null or if the size is higher than SIZE_MAX.
+                                     ##  In both cases no error message is set.
+                                     ##
+                                     ##  \param[inout] str a pointer to a U16 string structure
+                                     ##  \param[in] value points to a sequence of 16 bit chars
+                                     ##  \param[in] n size of the value string
+                                     ##  \return true if successful, false if the passed string pointer is null
+                                     ##    or if the passed value pointer is null or if the size is higher than SIZE_MAX
+                                     ##    or if the memory reallocation failed.
+                                     ##
 
-proc U16String__assignn_from_char*(str: ptr U16String; value: cstring; n: csize_t): bool {.
+proc U16String_assignn_from_char*(str: ptr U16String; value: cstring; n: csize_t): bool {.
     importc: "rosidl_runtime_c__U16String__assignn_from_char",
     header: "u16string_functions.h".}
   ##  Assign the c string pointer value of n characters to the rosidl_runtime_c__U16String structure.
-  ##
-  ##  This function is identical to rosidl_runtime_c__U16String__assignn() except the type of the
-  ##  value is c string pointer
-  ##
-  ##  \see rosidl_runtime_c__U16String__assignn()
-  ##
-  ##  \param[inout] str a pointer to a U16 string structure
-  ##  \param[in] value points to a sequence of 16 bit chars
-  ##  \param[in] n size of the value string
-  ##  \return true if successful, false if the passed string pointer is null
-  ##    or if the passed value pointer is null or if the size is higher than SIZE_MAX
-  ##    or if the memory reallocation failed.
-  ##
+                                     ##
+                                     ##  This function is identical to rosidl_runtime_c__U16String__assignn() except the type of the
+                                     ##  value is c string pointer
+                                     ##
+                                     ##  \see rosidl_runtime_c__U16String__assignn()
+                                     ##
+                                     ##  \param[inout] str a pointer to a U16 string structure
+                                     ##  \param[in] value points to a sequence of 16 bit chars
+                                     ##  \param[in] n size of the value string
+                                     ##  \return true if successful, false if the passed string pointer is null
+                                     ##    or if the passed value pointer is null or if the size is higher than SIZE_MAX
+                                     ##    or if the memory reallocation failed.
+                                     ##
 
-proc U16String__assign*(str: ptr U16String; value: ptr uint16): bool {.
+proc U16String_assign*(str: ptr U16String; value: ptr uint16): bool {.
     importc: "rosidl_runtime_c__U16String__assign",
     header: "u16string_functions.h".}
   ##  Assign the uint16_t pointer to the rosidl_runtime_c__U16String structure.
-  ##
-  ##  This function is identical to rosidl_runtime_c__U16String__assignn() except the length of the
-  ##  uint16_t does not have to be given.
-  ##  rosidl_runtime_c__U16String__len() is being used to determine the length of the passed string.
-  ##
-  ##  \see rosidl_runtime_c__U16String__assignn()
-  ##
-  ##  \param[inout] str a pointer to a rosidl_runtime_c__U16String structure
-  ##  \param[in] value points to a sequence of 16 bit chars
-  ##  \return true if successful, false if the passed string pointer is null
-  ##    or if the passed value pointer is null or if the size is higher than SIZE_MAX
-  ##    or if the memory reallocation failed.
-  ##
+                                     ##
+                                     ##  This function is identical to rosidl_runtime_c__U16String__assignn() except the length of the
+                                     ##  uint16_t does not have to be given.
+                                     ##  rosidl_runtime_c__U16String__len() is being used to determine the length of the passed string.
+                                     ##
+                                     ##  \see rosidl_runtime_c__U16String__assignn()
+                                     ##
+                                     ##  \param[inout] str a pointer to a rosidl_runtime_c__U16String structure
+                                     ##  \param[in] value points to a sequence of 16 bit chars
+                                     ##  \return true if successful, false if the passed string pointer is null
+                                     ##    or if the passed value pointer is null or if the size is higher than SIZE_MAX
+                                     ##    or if the memory reallocation failed.
+                                     ##
 
-proc U16String__len*(value: ptr uint16): csize_t {.
+proc U16String_len*(value: ptr uint16): csize_t {.
     importc: "rosidl_runtime_c__U16String__len", header: "u16string_functions.h".}
-  ##  Get the length of the uint16_t pointer.
   ##
-  ##  This function returns the length of the input value pointer.
-  ##
-  ##  \param[in] value points to a sequence of 16 bit chars for which the first null char is
-  ##    determined
-  ##  \return the size of the input value pointer or zero if the pointer is NULL
-  ##
+                              ##  Get the length of the uint16_t pointer.
+                              ##
+                              ##  This function returns the length of the input value pointer.
+                              ##
+                              ##  \param[in] value points to a sequence of 16 bit chars for which the first null char is
+                              ##    determined
+                              ##  \return the size of the input value pointer or zero if the pointer is NULL
+                              ##
 
-proc U16String__resize*(str: ptr U16String; n: csize_t): bool {.
+proc U16String_resize*(str: ptr U16String; n: csize_t): bool {.
     importc: "rosidl_runtime_c__U16String__resize",
     header: "u16string_functions.h".}
   ##  Resize the uint16_t pointer.
-  ##
-  ##  This function resize the input value pointer.
-  ##
-  ##  \param[in] n the new size of the internal buffer
-  ##  \return true if successful, false if the passed string pointer is null
-  ##    or if the size is higher than SIZE_MAX or if the memory reallocation failed.
-  ##
+                                     ##
+                                     ##  This function resize the input value pointer.
+                                     ##
+                                     ##  \param[in] n the new size of the internal buffer
+                                     ##  \return true if successful, false if the passed string pointer is null
+                                     ##    or if the size is higher than SIZE_MAX or if the memory reallocation failed.
+                                     ##
 
-proc U16String__Sequence__init*(sequence: ptr U16String__Sequence; size: csize_t): bool {.
+proc U16String_Sequence__init*(sequence: ptr U16String_Sequence; size: csize_t): bool {.
     importc: "rosidl_runtime_c__U16String__Sequence__init",
     header: "u16string_functions.h".}
   ##  Initialize a U16 string sequence structure.
-  ##
-  ##  The rosidl_runtime_c__U16String__Sequence is initialized to the size passed to the function.
-  ##  The U16 string sequence structure should be deallocated using the given
-  ##  function rosidl_runtime_c__U16String__Sequence__fini() when it is no longer needed.
-  ##  Calling this function with an already initialized U16 string sequence structure will leak
-  ##  memory.
-  ##
-  ##  \param[inout] sequence a pointer to a U16 string sequence structure
-  ##  \param[in] size represents the size of the U16 string
-  ##  \return true if successful, false if the passed string pointer is null
-  ##    or the memory allocation failed
-  ##
+                                     ##
+                                     ##  The rosidl_runtime_c__U16String__Sequence is initialized to the size passed to the function.
+                                     ##  The U16 string sequence structure should be deallocated using the given
+                                     ##  function rosidl_runtime_c__U16String__Sequence__fini() when it is no longer needed.
+                                     ##  Calling this function with an already initialized U16 string sequence structure will leak
+                                     ##  memory.
+                                     ##
+                                     ##  \param[inout] sequence a pointer to a U16 string sequence structure
+                                     ##  \param[in] size represents the size of the U16 string
+                                     ##  \return true if successful, false if the passed string pointer is null
+                                     ##    or the memory allocation failed
+                                     ##
 
-proc U16String__Sequence__fini*(sequence: ptr U16String__Sequence) {.
+proc U16String_Sequence__fini*(sequence: ptr U16String_Sequence) {.
     importc: "rosidl_runtime_c__U16String__Sequence__fini",
     header: "u16string_functions.h".}
   ##  Deallocate the memory of the string sequence structure.
-  ##
-  ##  Calling the function with an already deallocated sequence is a no-op.
-  ##
-  ##  \param[inout] sequence a pointer to a U16 string to be finalized
-  ##
+                                     ##
+                                     ##  Calling the function with an already deallocated sequence is a no-op.
+                                     ##
+                                     ##  \param[inout] sequence a pointer to a U16 string to be finalized
+                                     ##
 
-proc U16String__Sequence__are_equal*(lhs: ptr U16String__Sequence;
-                                    rhs: ptr U16String__Sequence): bool {.
+proc U16String_Sequence__are_equal*(lhs: ptr U16String_Sequence;
+                                    rhs: ptr U16String_Sequence): bool {.
     importc: "rosidl_runtime_c__U16String__Sequence__are_equal",
     header: "u16string_functions.h".}
   ##  Check for rosidl_runtime_c__U16String__Sequence structure equality.
-  ##
-  ##  \param[in] lhs a pointer to the left hand side of the equality operator.
-  ##  \param[in] lhs a pointer to the right hand side of the equality operator.
-  ##  \return true if rosidl_runtime_c__U16String__Sequence structures are equal
-  ##    in size and content, otherwise false.
-  ##
+                                     ##
+                                     ##  \param[in] lhs a pointer to the left hand side of the equality operator.
+                                     ##  \param[in] lhs a pointer to the right hand side of the equality operator.
+                                     ##  \return true if rosidl_runtime_c__U16String__Sequence structures are equal
+                                     ##    in size and content, otherwise false.
+                                     ##
 
-proc U16String__Sequence__copy*(input: ptr U16String__Sequence;
-                               output: ptr U16String__Sequence): bool {.
+proc U16String_Sequence__copy*(input: ptr U16String_Sequence;
+                               output: ptr U16String_Sequence): bool {.
     importc: "rosidl_runtime_c__U16String__Sequence__copy",
     header: "u16string_functions.h".}
   ##  Copy a U16 string sequence content.
-  ##
-  ##  This functions performs a deep copy, as opposed to the shallow copy
-  ##  that plain assignment yields.
-  ##
-  ##  \param[in] input a pointer to a rosidl_runtime_c__String__Sequence
-  ##    structure to copy from.
-  ##  \param[out] output a pointer to an initialized rosidl_runtime_c__String__Sequence
-  ##    structure to copy into.
-  ##  \return true if successful, false if either pointer is null or memory
-  ##    allocation fails.
-  ##
+                                     ##
+                                     ##  This functions performs a deep copy, as opposed to the shallow copy
+                                     ##  that plain assignment yields.
+                                     ##
+                                     ##  \param[in] input a pointer to a rosidl_runtime_c__String__Sequence
+                                     ##    structure to copy from.
+                                     ##  \param[out] output a pointer to an initialized rosidl_runtime_c__String__Sequence
+                                     ##    structure to copy into.
+                                     ##  \return true if successful, false if either pointer is null or memory
+                                     ##    allocation fails.
+                                     ##
 
-proc U16String__Sequence__create*(size: csize_t): ptr U16String__Sequence {.
+proc U16String_Sequence__create*(size: csize_t): ptr U16String_Sequence {.
     importc: "rosidl_runtime_c__U16String__Sequence__create",
     header: "u16string_functions.h".}
   ##  Create a U16 string sequence structure with a specific size.
-  ##
-  ##  The U16 string sequence initially has size and capacity equal to the size
-  ##  argument.
-  ##  The U16 string sequence structure should be deallocated using the given
-  ##  function rosidl_runtime_c__U16String__Sequence__destroy() when it is no longer needed.
-  ##
-  ##  \param[in] size of the desired U16 string
-  ##  \return a U16 string sequence if initialization was successfully, otherwise NULL.
-  ##
+                                     ##
+                                     ##  The U16 string sequence initially has size and capacity equal to the size
+                                     ##  argument.
+                                     ##  The U16 string sequence structure should be deallocated using the given
+                                     ##  function rosidl_runtime_c__U16String__Sequence__destroy() when it is no longer needed.
+                                     ##
+                                     ##  \param[in] size of the desired U16 string
+                                     ##  \return a U16 string sequence if initialization was successfully, otherwise NULL.
+                                     ##
 
-proc U16String__Sequence__destroy*(sequence: ptr U16String__Sequence) {.
+proc U16String_Sequence__destroy*(sequence: ptr U16String_Sequence) {.
     importc: "rosidl_runtime_c__U16String__Sequence__destroy",
     header: "u16string_functions.h".}
   ##  Destroy a U16 string sequence structure.
-  ##
-  ##  Calling the function with an already deallocated sequence is a no-op.
-  ##
-  ##  \param[inout] sequence a pointer to a U16 string sequence to be finalized
-  ## 
+                                     ##
+                                     ##  Calling the function with an already deallocated sequence is a no-op.
+                                     ##
+                                     ##  \param[inout] sequence a pointer to a U16 string sequence to be finalized
+                                     ## 

@@ -1,3 +1,5 @@
+##  #pragma c2nim nep1
+
 ##  #pragma c2nim reordertypes
 
 ##  #pragma c2nim importFuncDefines
@@ -26,169 +28,174 @@
 ##  limitations under the License.
 
 import
-  ./string, ./string, ./primitives_sequence, ./primitives_sequence,
-  ./primitives_sequence, ./primitives_sequence, ./string, ./visibility_control,
-  ./visibility_control
+  string, string, primitives_sequence, primitives_sequence, primitives_sequence,
+  primitives_sequence, string, visibility_control, visibility_control
 
 
-proc String__init*(str: ptr String): bool {.importc: "rosidl_runtime_c__String__init",
-                                       header: "string_functions.h".}
-  ##  Initialize a rosidl_runtime_c__String structure.
+proc String_init*(str: ptr String): bool {.
+    importc: "rosidl_runtime_c__String__init", header: "string_functions.h".}
   ##
-  ##  The contents of rosidl_runtime_c__String are initialized to a single null character ('\0').
-  ##  The string initially has size 0 and capacity 1.
-  ##  Size represents the size of the contents of the string, while capacity represents the overall
-  ##  storage of the string (counting the null terminator).
-  ##  All strings must be null-terminated.
-  ##  The rosidl_runtime_c__String structure should be deallocated using the given function
-  ##  rosidl_runtime_c__String__fini() when it is no longer needed.
-  ##  Calling this function with an already initialized U16 string sequence structure will leak
-  ##  memory.
-  ##
-  ##  \param[inout] str a pointer to a rosidl_runtime_c__String structure
-  ##  \return true if successful, false if the passed string pointer is null
-  ##    or the memory allocation failed
-  ##
+                              ##  Initialize a rosidl_runtime_c__String structure.
+                              ##
+                              ##  The contents of rosidl_runtime_c__String are initialized to a single null character ('\0').
+                              ##  The string initially has size 0 and capacity 1.
+                              ##  Size represents the size of the contents of the string, while capacity represents the overall
+                              ##  storage of the string (counting the null terminator).
+                              ##  All strings must be null-terminated.
+                              ##  The rosidl_runtime_c__String structure should be deallocated using the given function
+                              ##  rosidl_runtime_c__String__fini() when it is no longer needed.
+                              ##  Calling this function with an already initialized U16 string sequence structure will leak
+                              ##  memory.
+                              ##
+                              ##  \param[inout] str a pointer to a rosidl_runtime_c__String structure
+                              ##  \return true if successful, false if the passed string pointer is null
+                              ##    or the memory allocation failed
+                              ##
 
-proc String__fini*(str: ptr String) {.importc: "rosidl_runtime_c__String__fini",
-                                  header: "string_functions.h".}
-  ##  Deallocate the memory of the rosidl_runtime_c__String structure.
+proc String_fini*(str: ptr String) {.importc: "rosidl_runtime_c__String__fini",
+                                     header: "string_functions.h".}
   ##
-  ##  Calling the function with an already deallocated sequence is a no-op.
-  ##
-  ##  \param[inout] str a pointer to a rosidl_runtime_c__String structure to be finalized
-  ##
+                              ##  Deallocate the memory of the rosidl_runtime_c__String structure.
+                              ##
+                              ##  Calling the function with an already deallocated sequence is a no-op.
+                              ##
+                              ##  \param[inout] str a pointer to a rosidl_runtime_c__String structure to be finalized
+                              ##
 
-proc String__copy*(input: ptr String; output: ptr String): bool {.
+proc String_copy*(input: ptr String; output: ptr String): bool {.
     importc: "rosidl_runtime_c__String__copy", header: "string_functions.h".}
-  ##  Copy rosidl_runtime_c__String structure content.
   ##
-  ##  This functions performs a deep copy, as opposed to the shallow copy that
-  ##  plain assignment yields.
-  ##
-  ##  \param[in] input a pointer to a rosidl_runtime_c__String structure
-  ##    to copy from.
-  ##  \param[out] output a pointer to an initialized rosidl_runtime_c__String
-  ##    structure to copy into.
-  ##  \return true if successful, false if either pointer is null or memory
-  ##    allocation fails.
-  ##
+                              ##  Copy rosidl_runtime_c__String structure content.
+                              ##
+                              ##  This functions performs a deep copy, as opposed to the shallow copy that
+                              ##  plain assignment yields.
+                              ##
+                              ##  \param[in] input a pointer to a rosidl_runtime_c__String structure
+                              ##    to copy from.
+                              ##  \param[out] output a pointer to an initialized rosidl_runtime_c__String
+                              ##    structure to copy into.
+                              ##  \return true if successful, false if either pointer is null or memory
+                              ##    allocation fails.
+                              ##
 
-proc String__are_equal*(lhs: ptr String; rhs: ptr String): bool {.
+proc String_are_equal*(lhs: ptr String; rhs: ptr String): bool {.
     importc: "rosidl_runtime_c__String__are_equal", header: "string_functions.h".}
-  ##  Check for rosidl_runtime_c__String structure equality.
   ##
-  ##  \param[in] lhs a pointer to the left hand side of the equality operator.
-  ##  \param[in] lhs a pointer to the right hand side of the equality operator.
-  ##  \return true if rosidl_runtime_c__String structures are equal in size and content,
-  ##    otherwise false.
-  ##
+                              ##  Check for rosidl_runtime_c__String structure equality.
+                              ##
+                              ##  \param[in] lhs a pointer to the left hand side of the equality operator.
+                              ##  \param[in] lhs a pointer to the right hand side of the equality operator.
+                              ##  \return true if rosidl_runtime_c__String structures are equal in size and content,
+                              ##    otherwise false.
+                              ##
 
-proc String__assignn*(str: ptr String; value: cstring; n: csize_t): bool {.
+proc String_assignn*(str: ptr String; value: cstring; n: csize_t): bool {.
     importc: "rosidl_runtime_c__String__assignn", header: "string_functions.h".}
-  ##  Assign the c string pointer of n characters to the rosidl_runtime_c__String structure.
   ##
-  ##  \param[inout] str a pointer to a string structure
-  ##  \param[in] value c string pointer to be assigned
-  ##  \param[in] n size of the value string
-  ##  \return true if successful, false if the passed string pointer is null
-  ##    or if the passed value pointer is null or if the size is higher than SIZE_MAX
-  ##    or if the memory reallocation failed.
-  ##
+                              ##  Assign the c string pointer of n characters to the rosidl_runtime_c__String structure.
+                              ##
+                              ##  \param[inout] str a pointer to a string structure
+                              ##  \param[in] value c string pointer to be assigned
+                              ##  \param[in] n size of the value string
+                              ##  \return true if successful, false if the passed string pointer is null
+                              ##    or if the passed value pointer is null or if the size is higher than SIZE_MAX
+                              ##    or if the memory reallocation failed.
+                              ##
 
-proc String__assign*(str: ptr String; value: cstring): bool {.
+proc String_assign*(str: ptr String; value: cstring): bool {.
     importc: "rosidl_runtime_c__String__assign", header: "string_functions.h".}
-  ##  Assign the c string pointer to the rosidl_runtime_c__String structure.
   ##
-  ##
-  ##  This function is identical to rosidl_runtime_c__String__assignn() except the length of the
-  ##  c string does not have to be given and therefore the c string must be null terminated.
-  ##
-  ##  \see rosidl_runtime_c__String__assignn()
-  ##
-  ##  \param[inout] str a pointer to a rosidl_runtime_c__String structure
-  ##  \param[in] value c string pointer to be assigned
-  ##  \return true if successful, false if the passed string pointer is null
-  ##    or if the passed value pointer is null or if the size is higher than SIZE_MAX
-  ##    or if the memory reallocation failed.
-  ##
+                              ##  Assign the c string pointer to the rosidl_runtime_c__String structure.
+                              ##
+                              ##
+                              ##  This function is identical to rosidl_runtime_c__String__assignn() except the length of the
+                              ##  c string does not have to be given and therefore the c string must be null terminated.
+                              ##
+                              ##  \see rosidl_runtime_c__String__assignn()
+                              ##
+                              ##  \param[inout] str a pointer to a rosidl_runtime_c__String structure
+                              ##  \param[in] value c string pointer to be assigned
+                              ##  \return true if successful, false if the passed string pointer is null
+                              ##    or if the passed value pointer is null or if the size is higher than SIZE_MAX
+                              ##    or if the memory reallocation failed.
+                              ##
 
-proc String__Sequence__init*(sequence: ptr String__Sequence; size: csize_t): bool {.
+proc String_Sequence__init*(sequence: ptr String_Sequence; size: csize_t): bool {.
     importc: "rosidl_runtime_c__String__Sequence__init",
     header: "string_functions.h".}
   ##  Initialize a rosidl_runtime_c__String__Sequence__init structure.
-  ##
-  ##  The rosidl_runtime_c__String__Sequence is initialized with the size passed to the function.
-  ##  The rosidl_runtime_c__String__Sequence structure should be deallocated using the given function
-  ##  rosidl_runtime_c__String__Sequence__fini() when it is no longer needed.
-  ##  Calling this function with an already initialized U16 string sequence structure will leak
-  ##  memory.
-  ##
-  ##  \param[inout] sequence a pointer to a string sequence
-  ##  \param[in] size represents the size of the string sequence
-  ##  \return true if successful, false if the passed string pointer is null
-  ##    or the memory allocation failed
-  ##
+                                  ##
+                                  ##  The rosidl_runtime_c__String__Sequence is initialized with the size passed to the function.
+                                  ##  The rosidl_runtime_c__String__Sequence structure should be deallocated using the given function
+                                  ##  rosidl_runtime_c__String__Sequence__fini() when it is no longer needed.
+                                  ##  Calling this function with an already initialized U16 string sequence structure will leak
+                                  ##  memory.
+                                  ##
+                                  ##  \param[inout] sequence a pointer to a string sequence
+                                  ##  \param[in] size represents the size of the string sequence
+                                  ##  \return true if successful, false if the passed string pointer is null
+                                  ##    or the memory allocation failed
+                                  ##
 
-proc String__Sequence__fini*(sequence: ptr String__Sequence) {.
+proc String_Sequence__fini*(sequence: ptr String_Sequence) {.
     importc: "rosidl_runtime_c__String__Sequence__fini",
     header: "string_functions.h".}
   ##  Deallocate the memory of the string sequence structure.
-  ##
-  ##  Calling the function with an already deallocated sequence is a no-op.
-  ##
-  ##  \param[inout] sequence a pointer to a string sequence to be finalized
-  ##
+                                  ##
+                                  ##  Calling the function with an already deallocated sequence is a no-op.
+                                  ##
+                                  ##  \param[inout] sequence a pointer to a string sequence to be finalized
+                                  ##
 
-proc String__Sequence__are_equal*(lhs: ptr String__Sequence;
-                                 rhs: ptr String__Sequence): bool {.
+proc String_Sequence__are_equal*(lhs: ptr String_Sequence;
+                                 rhs: ptr String_Sequence): bool {.
     importc: "rosidl_runtime_c__String__Sequence__are_equal",
     header: "string_functions.h".}
   ##  Check for rosidl_runtime_c__String__Sequence structure equality.
-  ##
-  ##  \param[in] lhs a pointer to the left hand side of the equality operator.
-  ##  \param[in] lhs a pointer to the right hand side of the equality operator.
-  ##  \return true if rosidl_runtime_c__String__Sequence structures are equal
-  ##    in size and content, otherwise false.
-  ##
+                                  ##
+                                  ##  \param[in] lhs a pointer to the left hand side of the equality operator.
+                                  ##  \param[in] lhs a pointer to the right hand side of the equality operator.
+                                  ##  \return true if rosidl_runtime_c__String__Sequence structures are equal
+                                  ##    in size and content, otherwise false.
+                                  ##
 
-proc String__Sequence__copy*(input: ptr String__Sequence;
-                            output: ptr String__Sequence): bool {.
+proc String_Sequence__copy*(input: ptr String_Sequence;
+                            output: ptr String_Sequence): bool {.
     importc: "rosidl_runtime_c__String__Sequence__copy",
     header: "string_functions.h".}
   ##  Copy rosidl_runtime_c__String__Sequence structure content.
-  ##
-  ##  This functions performs a deep copy, as opposed to the shallow copy
-  ##  that plain assignment yields.
-  ##
-  ##  \param[in] input a pointer to a rosidl_runtime_c__String__Sequence
-  ##    structure to copy from.
-  ##  \param[out] output a pointer to an initialized rosidl_runtime_c__String__Sequence
-  ##    structure to copy into.
-  ##  \return true if successful, false if either pointer is null or memory
-  ##    allocation fails.
-  ##
+                                  ##
+                                  ##  This functions performs a deep copy, as opposed to the shallow copy
+                                  ##  that plain assignment yields.
+                                  ##
+                                  ##  \param[in] input a pointer to a rosidl_runtime_c__String__Sequence
+                                  ##    structure to copy from.
+                                  ##  \param[out] output a pointer to an initialized rosidl_runtime_c__String__Sequence
+                                  ##    structure to copy into.
+                                  ##  \return true if successful, false if either pointer is null or memory
+                                  ##    allocation fails.
+                                  ##
 
-proc String__Sequence__create*(size: csize_t): ptr String__Sequence {.
+proc String_Sequence__create*(size: csize_t): ptr String_Sequence {.
     importc: "rosidl_runtime_c__String__Sequence__create",
     header: "string_functions.h".}
   ##  Create a rosidl_runtime_c__String__Sequence structure with a specific size.
-  ##
-  ##  The string sequence initially has size and capacity equal to the size argument passed to the
-  ##  function.
-  ##  The rosidl_runtime_c__String__Sequence structure should be deallocated using the given function
-  ##  rosidl_runtime_c__String__Sequence__destroy() when it is no longer needed.
-  ##
-  ##  \param[in] size of the desired string sequence
-  ##  \return a string sequence if initialization was successfully, otherwise NULL.
-  ##
+                                  ##
+                                  ##  The string sequence initially has size and capacity equal to the size argument passed to the
+                                  ##  function.
+                                  ##  The rosidl_runtime_c__String__Sequence structure should be deallocated using the given function
+                                  ##  rosidl_runtime_c__String__Sequence__destroy() when it is no longer needed.
+                                  ##
+                                  ##  \param[in] size of the desired string sequence
+                                  ##  \return a string sequence if initialization was successfully, otherwise NULL.
+                                  ##
 
-proc String__Sequence__destroy*(sequence: ptr String__Sequence) {.
+proc String_Sequence__destroy*(sequence: ptr String_Sequence) {.
     importc: "rosidl_runtime_c__String__Sequence__destroy",
     header: "string_functions.h".}
   ##  Destroy a rosidl_runtime_c__String__Sequence structure.
-  ##
-  ##  Calling the function with an already deallocated sequence is a no-op.
-  ##
-  ##  \param[inout] sequence a pointer to a string sequence to be finalized
-  ## 
+                                  ##
+                                  ##  Calling the function with an already deallocated sequence is a no-op.
+                                  ##
+                                  ##  \param[inout] sequence a pointer to a string sequence to be finalized
+                                  ## 

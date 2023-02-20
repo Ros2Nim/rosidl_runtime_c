@@ -1,3 +1,5 @@
+##  #pragma c2nim nep1
+
 ##  #pragma c2nim reordertypes
 
 ##  #pragma c2nim importFuncDefines
@@ -28,10 +30,10 @@ type
                               ##  See the License for the specific language governing permissions and
                               ##  limitations under the License.
     ROSIDL_RUNTIME_C_MSG_INIT_ALL, ##  Skip initialization of all fields of the message.  It is up to the user to
-                                  ##  ensure that all fields are initialized before use.
+                                    ##  ensure that all fields are initialized before use.
     ROSIDL_RUNTIME_C_MSG_INIT_SKIP, ##  Initialize all fields of the message to an empty value (generally 0 or an
-                                   ##  empty string).
+                                     ##  empty string).
     ROSIDL_RUNTIME_C_MSG_INIT_ZERO, ##  Initialize all fields of the message that have defaults; all other fields
-                                   ##  are left untouched.
+                                     ##  are left untouched.
     ROSIDL_RUNTIME_C_MSG_INIT_DEFAULTS_ONLY
 

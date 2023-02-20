@@ -1,3 +1,5 @@
+##  #pragma c2nim nep1
+
 ##  #pragma c2nim reordertypes
 
 ##  #pragma c2nim importFuncDefines
@@ -26,8 +28,8 @@
 ##  limitations under the License.
 
 import
-  ./primitives_sequence, ./primitives_sequence, ./primitives_sequence,
-  ./primitives_sequence
+  primitives_sequence, primitives_sequence, primitives_sequence,
+  primitives_sequence
 
 type
 
@@ -38,7 +40,7 @@ type
     capacity* {.importc: "capacity".}: csize_t ##  The capacity represents the number of allocated bytes (including the null byte).
 
 
-  String__Sequence* {.importc: "rosidl_runtime_c__String__Sequence",
+  String_Sequence* {.importc: "rosidl_runtime_c__String__Sequence",
                      header: "string.h", bycopy.} = object
     data* {.importc: "data".}: ptr String ## !< The pointer to an array of STRUCT_NAME
     size* {.importc: "size".}: csize_t ## !< The number of valid items in data

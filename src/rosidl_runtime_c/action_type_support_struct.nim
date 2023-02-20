@@ -1,3 +1,5 @@
+##  #pragma c2nim nep1
+
 ##  #pragma c2nim reordertypes
 
 ##  #pragma c2nim importFuncDefines
@@ -26,24 +28,29 @@
 ##  limitations under the License.
 
 import
-  ./message_type_support_struct, ./visibility_control, ./visibility_control,
-  ./message_type_support_struct, ./message_type_support_struct,
-  ./service_type_support_struct, ./service_type_support_struct,
-  ./service_type_support_struct, ./service_type_support_struct
+  message_type_support_struct, visibility_control, visibility_control,
+  message_type_support_struct, message_type_support_struct,
+  service_type_support_struct, service_type_support_struct, rcutils.allocator,
+  rcutils.allocator, rcutils.allocator, rcutils.macros, rcutils.macros,
+  rcutils.macros, rcutils.macros, rcutils.macros, rcutils.allocator,
+  rcutils.types.rcutils_ret, rcutils.allocator, rcutils.visibility_control,
+  rcutils.visibility_control_macros, rcutils.visibility_control_macros,
+  rcutils.visibility_control, rcutils.allocator, service_type_support_struct,
+  service_type_support_struct
 
 type
 
-  RosidlActionTypeSupportT* {.importc: "rosidl_action_type_support_t",
-                             header: "action_type_support_struct.h", bycopy.} = object ##
+  rosidl_action_type_support_t* {.importc: "rosidl_action_type_support_t",
+                                  header: "action_type_support_struct.h", bycopy.} = object ##
                               ##  Contains rosidl action type support data.
                               ##
                               ##  Actions are built based on services(goal, result and cancel) and message (feedback and status).
                               ##
-    goalServiceTypeSupport* {.importc: "goal_service_type_support".}: ptr RosidlServiceTypeSupportT
-    resultServiceTypeSupport* {.importc: "result_service_type_support".}: ptr RosidlServiceTypeSupportT
-    cancelServiceTypeSupport* {.importc: "cancel_service_type_support".}: ptr RosidlServiceTypeSupportT
-    feedbackMessageTypeSupport* {.importc: "feedback_message_type_support".}: ptr RosidlMessageTypeSupportT
-    statusMessageTypeSupport* {.importc: "status_message_type_support".}: ptr RosidlMessageTypeSupportT
+    goal_service_type_support* {.importc: "goal_service_type_support".}: ptr rosidl_service_type_support_t
+    result_service_type_support* {.importc: "result_service_type_support".}: ptr rosidl_service_type_support_t
+    cancel_service_type_support* {.importc: "cancel_service_type_support".}: ptr rosidl_service_type_support_t
+    feedback_message_type_support* {.importc: "feedback_message_type_support".}: ptr rosidl_message_type_support_t
+    status_message_type_support* {.importc: "status_message_type_support".}: ptr rosidl_message_type_support_t
 
 
 ##  Get the action type support given a provided action and package.

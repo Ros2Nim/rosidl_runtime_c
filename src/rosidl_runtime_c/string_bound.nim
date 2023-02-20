@@ -1,3 +1,5 @@
+##  #pragma c2nim nep1
+
 ##  #pragma c2nim reordertypes
 
 ##  #pragma c2nim importFuncDefines
@@ -27,7 +29,7 @@
 
 type
 
-  String__bound* {.importc: "rosidl_runtime_c__String__bound",
+  String_bound* {.importc: "rosidl_runtime_c__String__bound",
                   header: "string_bound.h", bycopy.} = object ##
                               ##  Upper boundary for #rosidl_runtime_c__String or #rosidl_runtime_c__U16String.
     bound* {.importc: "bound".}: csize_t ##  The number of characters in the string (excluding the null character).

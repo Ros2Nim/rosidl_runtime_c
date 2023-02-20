@@ -1,3 +1,5 @@
+##  #pragma c2nim nep1
+
 ##  #pragma c2nim reordertypes
 
 ##  #pragma c2nim importFuncDefines
@@ -26,9 +28,11 @@
 ##  limitations under the License.
 
 import
-  ./visibility_control, ./visibility_control
+  rosidl_typesupport_introspection_c.visibility_control,
+  rosidl_typesupport_introspection_c.visibility_control
 
 ##  String identifying the typesupport introspection implementation in use.
 
-let identifier* {.importc: "rosidl_typesupport_introspection_c__identifier",
-                header: "identifier.h".}: cstring
+let rosidl_typesupport_introspection_c_identifier* {.
+    importc: "rosidl_typesupport_introspection_c__identifier",
+    header: "identifier.h".}: cstring

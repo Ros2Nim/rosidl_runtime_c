@@ -1,3 +1,5 @@
+##  #pragma c2nim nep1
+
 ##  #pragma c2nim reordertypes
 
 ##  #pragma c2nim importFuncDefines
@@ -27,7 +29,7 @@
 
 type
 
-  float__Sequence* {.importc: "rosidl_runtime_c__float__Sequence",
+  float_Sequence* {.importc: "rosidl_runtime_c__float__Sequence",
                     header: "primitives_sequence.h", bycopy.} = object ##
                               ##  sequence types for all basic types
     data* {.importc: "data".}: ptr cfloat ## !< The pointer to an array of STRUCT_NAME
@@ -36,7 +38,7 @@ type
     ## !< The number of allocated items in data
 
 
-  double__Sequence* {.importc: "rosidl_runtime_c__double__Sequence",
+  double_Sequence* {.importc: "rosidl_runtime_c__double__Sequence",
                      header: "primitives_sequence.h", bycopy.} = object
     data* {.importc: "data".}: ptr cdouble ## !< The pointer to an array of STRUCT_NAME
     size* {.importc: "size".}: csize_t ## !< The number of valid items in data
@@ -44,7 +46,7 @@ type
     ## !< The number of allocated items in data
 
 
-  long_double__Sequence* {.importc: "rosidl_runtime_c__long_double__Sequence",
+  long_double_Sequence* {.importc: "rosidl_runtime_c__long_double__Sequence",
                           header: "primitives_sequence.h", bycopy.} = object
     data* {.importc: "data".}: ptr clongdouble ## !< The pointer to an array of STRUCT_NAME
     size* {.importc: "size".}: csize_t ## !< The number of valid items in data
@@ -52,7 +54,7 @@ type
     ## !< The number of allocated items in data
 
 
-  char__Sequence* {.importc: "rosidl_runtime_c__char__Sequence",
+  char_Sequence* {.importc: "rosidl_runtime_c__char__Sequence",
                    header: "primitives_sequence.h", bycopy.} = object
     data* {.importc: "data".}: ptr cchar ## !< The pointer to an array of STRUCT_NAME
     size* {.importc: "size".}: csize_t ## !< The number of valid items in data
@@ -60,7 +62,7 @@ type
     ## !< The number of allocated items in data
 
 
-  wchar__Sequence* {.importc: "rosidl_runtime_c__wchar__Sequence",
+  wchar_Sequence* {.importc: "rosidl_runtime_c__wchar__Sequence",
                     header: "primitives_sequence.h", bycopy.} = object
     data* {.importc: "data".}: ptr uint16 ## !< The pointer to an array of STRUCT_NAME
     size* {.importc: "size".}: csize_t ## !< The number of valid items in data
@@ -68,7 +70,7 @@ type
     ## !< The number of allocated items in data
 
 
-  boolean__Sequence* {.importc: "rosidl_runtime_c__boolean__Sequence",
+  boolean_Sequence* {.importc: "rosidl_runtime_c__boolean__Sequence",
                       header: "primitives_sequence.h", bycopy.} = object
     data* {.importc: "data".}: ptr bool ## !< The pointer to an array of STRUCT_NAME
     size* {.importc: "size".}: csize_t ## !< The number of valid items in data
@@ -76,7 +78,7 @@ type
     ## !< The number of allocated items in data
 
 
-  octet__Sequence* {.importc: "rosidl_runtime_c__octet__Sequence",
+  octet_Sequence* {.importc: "rosidl_runtime_c__octet__Sequence",
                     header: "primitives_sequence.h", bycopy.} = object
     data* {.importc: "data".}: ptr uint8 ## !< The pointer to an array of STRUCT_NAME
     size* {.importc: "size".}: csize_t ## !< The number of valid items in data
@@ -84,7 +86,7 @@ type
     ## !< The number of allocated items in data
 
 
-  uint8__Sequence* {.importc: "rosidl_runtime_c__uint8__Sequence",
+  uint8_Sequence* {.importc: "rosidl_runtime_c__uint8__Sequence",
                     header: "primitives_sequence.h", bycopy.} = object
     data* {.importc: "data".}: ptr uint8 ## !< The pointer to an array of STRUCT_NAME
     size* {.importc: "size".}: csize_t ## !< The number of valid items in data
@@ -92,7 +94,7 @@ type
     ## !< The number of allocated items in data
 
 
-  int8__Sequence* {.importc: "rosidl_runtime_c__int8__Sequence",
+  int8_Sequence* {.importc: "rosidl_runtime_c__int8__Sequence",
                    header: "primitives_sequence.h", bycopy.} = object
     data* {.importc: "data".}: ptr int8 ## !< The pointer to an array of STRUCT_NAME
     size* {.importc: "size".}: csize_t ## !< The number of valid items in data
@@ -100,7 +102,7 @@ type
     ## !< The number of allocated items in data
 
 
-  uint16__Sequence* {.importc: "rosidl_runtime_c__uint16__Sequence",
+  uint16_Sequence* {.importc: "rosidl_runtime_c__uint16__Sequence",
                      header: "primitives_sequence.h", bycopy.} = object
     data* {.importc: "data".}: ptr uint16 ## !< The pointer to an array of STRUCT_NAME
     size* {.importc: "size".}: csize_t ## !< The number of valid items in data
@@ -108,7 +110,7 @@ type
     ## !< The number of allocated items in data
 
 
-  int16__Sequence* {.importc: "rosidl_runtime_c__int16__Sequence",
+  int16_Sequence* {.importc: "rosidl_runtime_c__int16__Sequence",
                     header: "primitives_sequence.h", bycopy.} = object
     data* {.importc: "data".}: ptr int16 ## !< The pointer to an array of STRUCT_NAME
     size* {.importc: "size".}: csize_t ## !< The number of valid items in data
@@ -116,7 +118,7 @@ type
     ## !< The number of allocated items in data
 
 
-  uint32__Sequence* {.importc: "rosidl_runtime_c__uint32__Sequence",
+  uint32_Sequence* {.importc: "rosidl_runtime_c__uint32__Sequence",
                      header: "primitives_sequence.h", bycopy.} = object
     data* {.importc: "data".}: ptr uint32 ## !< The pointer to an array of STRUCT_NAME
     size* {.importc: "size".}: csize_t ## !< The number of valid items in data
@@ -124,7 +126,7 @@ type
     ## !< The number of allocated items in data
 
 
-  int32__Sequence* {.importc: "rosidl_runtime_c__int32__Sequence",
+  int32_Sequence* {.importc: "rosidl_runtime_c__int32__Sequence",
                     header: "primitives_sequence.h", bycopy.} = object
     data* {.importc: "data".}: ptr int32 ## !< The pointer to an array of STRUCT_NAME
     size* {.importc: "size".}: csize_t ## !< The number of valid items in data
@@ -132,7 +134,7 @@ type
     ## !< The number of allocated items in data
 
 
-  uint64__Sequence* {.importc: "rosidl_runtime_c__uint64__Sequence",
+  uint64_Sequence* {.importc: "rosidl_runtime_c__uint64__Sequence",
                      header: "primitives_sequence.h", bycopy.} = object
     data* {.importc: "data".}: ptr uint64 ## !< The pointer to an array of STRUCT_NAME
     size* {.importc: "size".}: csize_t ## !< The number of valid items in data
@@ -140,7 +142,7 @@ type
     ## !< The number of allocated items in data
 
 
-  int64__Sequence* {.importc: "rosidl_runtime_c__int64__Sequence",
+  int64_Sequence* {.importc: "rosidl_runtime_c__int64__Sequence",
                     header: "primitives_sequence.h", bycopy.} = object
     data* {.importc: "data".}: ptr int64 ## !< The pointer to an array of STRUCT_NAME
     size* {.importc: "size".}: csize_t ## !< The number of valid items in data
@@ -148,10 +150,10 @@ type
     ## !< The number of allocated items in data
 
 
-  bool__Sequence* = boolean__Sequence ##  emulate legacy API
+  bool_Sequence* = boolean_Sequence ##  emulate legacy API
 
-  byte__Sequence* = octet__Sequence
+  byte_Sequence* = octet_Sequence
 
-  float32__Sequence* = float__Sequence
+  float32_Sequence* = float_Sequence
 
-  float64__Sequence* = double__Sequence
+  float64_Sequence* = double_Sequence
