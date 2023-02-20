@@ -13,14 +13,14 @@
 ##  limitations under the License.
 
 import
+  runtime_c/service_type_support_struct, rcutils/types/rcutils_ret,
+  runtime_c/service_type_support_struct, runtime_c/message_type_support_struct,
+  runtime_c/visibility_control, runtime_c/visibility_control,
+  runtime_c/message_type_support_struct, runtime_c/message_type_support_struct,
   runtime_c/service_type_support_struct, runtime_c/service_type_support_struct,
-  runtime_c/message_type_support_struct, runtime_c/visibility_control,
-  runtime_c/visibility_control, runtime_c/message_type_support_struct,
-  runtime_c/message_type_support_struct, runtime_c/service_type_support_struct,
-  runtime_c/service_type_support_struct, ./message_introspection,
-  ./message_introspection, runtime_c/message_initialization,
-  ./message_introspection, ./visibility_control, ./visibility_control,
-  ./message_introspection
+  ./message_introspection, ./message_introspection,
+  runtime_c/message_initialization, ./message_introspection,
+  ./visibility_control, ./visibility_control, ./message_introspection
 
 type
 

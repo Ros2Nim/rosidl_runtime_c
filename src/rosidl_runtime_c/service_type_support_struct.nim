@@ -15,8 +15,9 @@ import rcutils/allocator
 ##  limitations under the License.
 
 import
-  ./message_type_support_struct, ./visibility_control, ./visibility_control,
-  ./message_type_support_struct, ./message_type_support_struct
+  rcutils/types/rcutils_ret, ./message_type_support_struct,
+  ./visibility_control, ./visibility_control, ./message_type_support_struct,
+  ./message_type_support_struct
 
 type
 

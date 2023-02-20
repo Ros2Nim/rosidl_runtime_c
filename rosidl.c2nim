@@ -29,13 +29,9 @@
 #pragma c2nim mangle "^'./'* 'string'$" "rstring"
 
 #pragma c2nim delete "rosidl_typesupport_interface.macros"
-#pragma c2nim delete "rcutils.visibility_control"
+#pragma c2nim delete "rcutils/visibility_control"
 #pragma c2nim delete "rcutils/allocator"
 #pragma c2nim delete "rcutils/macros"
-#pragma c2nim delete "rcutils/types/rcutilsRet"
-#pragma c2nim delete "rcutils/types/rcutils_ret"
-#pragma c2nim delete "rcutils/visibilityControl"
-#pragma c2nim delete "rcutils/visibility_control"
 #pragma c2nim delete "rcutils/visibilityControlMacros"
 #pragma c2nim delete "rcutils/visibility_control_macros"
 
