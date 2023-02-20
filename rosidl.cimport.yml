@@ -18,7 +18,7 @@ imports:
 
   cSourceModifications:
   - cSourceModification: "'u16string.h'"
-    c2NimExtras:
+    c2NimConfigs:
     - rawNims: |
         type
           uintLeast16T * {.importc: "uint_least16_t", header: "stddef.h", bycopy.} = object
