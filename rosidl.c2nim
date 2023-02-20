@@ -28,6 +28,12 @@
 #pragma c2nim mangle "_Bool" "bool"
 #pragma c2nim mangle "^'./'* 'string'$" "rstring"
 
+#pragma c2nim mangle "'U16String_' {.+}" "u16string_$1"
+#pragma c2nim mangle "^'u16string_sequence'$" "U16String_Sequence"
+
+#pragma c2nim mangle "^'String_' {.+}" "string_$1"
+#pragma c2nim mangle "^'string_sequence'$" "String_Sequence"
+
 #pragma c2nim delete "rosidl_typesupport_interface.macros"
 #pragma c2nim delete "rcutils/visibility_control"
 #pragma c2nim delete "rcutils/allocator"

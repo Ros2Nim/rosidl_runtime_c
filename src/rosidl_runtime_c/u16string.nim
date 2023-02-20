@@ -28,7 +28,7 @@ type
     capacity* {.importc: "capacity".}: csize_t ##  The capacity represents the number of allocated characters (including the null character).
 
 
-  U16String_sequence* {.importc: "rosidl_runtime_c__U16String__Sequence",
+  U16String_Sequence* {.importc: "rosidl_runtime_c__U16String__Sequence",
                         header: "u16string.h", bycopy.} = object
     data* {.importc: "data".}: ptr U16String ## !< The pointer to an array of STRUCT_NAME
     size* {.importc: "size".}: csize_t ## !< The number of valid items in data
