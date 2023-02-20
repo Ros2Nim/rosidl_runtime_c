@@ -13,6 +13,8 @@
 
 ##  #pragma c2nim render nobody
 
+##  convert up to three '__' nodes
+
 type
 
   message_initialization* {.size: sizeof(cint).} = enum ##

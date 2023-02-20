@@ -13,6 +13,8 @@
 
 ##  #pragma c2nim render nobody
 
+##  convert up to three '__' nodes
+
 type
   uintLeast16T * {.importc: "uint_least16_t", header: "stddef.h", bycopy.} = object
 

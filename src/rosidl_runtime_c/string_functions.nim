@@ -13,6 +13,8 @@
 
 ##  #pragma c2nim render nobody
 
+##  convert up to three '__' nodes
+
 ##  Copyright 2015 Open Source Robotics Foundation, Inc.
 ##
 ##  Licensed under the Apache License, Version 2.0 (the "License");
@@ -28,8 +30,9 @@
 ##  limitations under the License.
 
 import
-  string, string, primitives_sequence, primitives_sequence, primitives_sequence,
-  primitives_sequence, string, visibility_control, visibility_control
+  rstring, rstring, primitives_sequence, primitives_sequence,
+  primitives_sequence, primitives_sequence, rstring, visibility_control,
+  visibility_control
 
 
 proc String_init*(str: ptr String): bool {.
@@ -120,7 +123,7 @@ proc String_assign*(str: ptr String; value: cstring): bool {.
                               ##    or if the memory reallocation failed.
                               ##
 
-proc String_Sequence*(sequence: ptr String_Sequence; size: csize_t): bool {.
+proc String_Sequence_init*(sequence: ptr String_Sequence; size: csize_t): bool {.
     importc: "rosidl_runtime_c__String__Sequence__init",
     header: "string_functions.h".}
   ##  Initialize a rosidl_runtime_c__String__Sequence__init structure.
@@ -137,7 +140,7 @@ proc String_Sequence*(sequence: ptr String_Sequence; size: csize_t): bool {.
                                   ##    or the memory allocation failed
                                   ##
 
-proc String_Sequence*(sequence: ptr String_Sequence) {.
+proc String_Sequence_fini*(sequence: ptr String_Sequence) {.
     importc: "rosidl_runtime_c__String__Sequence__fini",
     header: "string_functions.h".}
   ##  Deallocate the memory of the string sequence structure.
@@ -147,7 +150,8 @@ proc String_Sequence*(sequence: ptr String_Sequence) {.
                                   ##  \param[inout] sequence a pointer to a string sequence to be finalized
                                   ##
 
-proc String_Sequence*(lhs: ptr String_Sequence; rhs: ptr String_Sequence): bool {.
+proc String_Sequence_are_equal*(lhs: ptr String_Sequence;
+                                rhs: ptr String_Sequence): bool {.
     importc: "rosidl_runtime_c__String__Sequence__are_equal",
     header: "string_functions.h".}
   ##  Check for rosidl_runtime_c__String__Sequence structure equality.
@@ -158,7 +162,8 @@ proc String_Sequence*(lhs: ptr String_Sequence; rhs: ptr String_Sequence): bool 
                                   ##    in size and content, otherwise false.
                                   ##
 
-proc String_Sequence*(input: ptr String_Sequence; output: ptr String_Sequence): bool {.
+proc String_Sequence_copy*(input: ptr String_Sequence;
+                           output: ptr String_Sequence): bool {.
     importc: "rosidl_runtime_c__String__Sequence__copy",
     header: "string_functions.h".}
   ##  Copy rosidl_runtime_c__String__Sequence structure content.
@@ -174,7 +179,7 @@ proc String_Sequence*(input: ptr String_Sequence; output: ptr String_Sequence): 
                                   ##    allocation fails.
                                   ##
 
-proc String_Sequence*(size: csize_t): ptr String_Sequence {.
+proc String_Sequence_create*(size: csize_t): ptr String_Sequence {.
     importc: "rosidl_runtime_c__String__Sequence__create",
     header: "string_functions.h".}
   ##  Create a rosidl_runtime_c__String__Sequence structure with a specific size.
@@ -188,7 +193,7 @@ proc String_Sequence*(size: csize_t): ptr String_Sequence {.
                                   ##  \return a string sequence if initialization was successfully, otherwise NULL.
                                   ##
 
-proc String_Sequence*(sequence: ptr String_Sequence) {.
+proc String_Sequence_destroy*(sequence: ptr String_Sequence) {.
     importc: "rosidl_runtime_c__String__Sequence__destroy",
     header: "string_functions.h".}
   ##  Destroy a rosidl_runtime_c__String__Sequence structure.

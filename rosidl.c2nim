@@ -15,19 +15,21 @@
 // #pragma c2nim header
 #pragma c2nim cppSkipCallOp
 #pragma c2nim cppSkipConverter
-// #pragma c2nim importc
 #pragma c2nim cppskipconverter
 
 #pragma c2nim render extranewlines
 #pragma c2nim render reindentlongcomments
 
-// #pragma c2nim render nobody
 #pragma c2nim mangle "'rosidl_runtime_c__' {\\w+}" "$1"
-#pragma c2nim mangle "(@@'__')+ {\\ident+}" "$1_$2"
+
+#pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
+#pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
+#pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
 
 #pragma c2nim mangle "'rosidl_runtime_c.' {\\ident+}" "$1"
 
 #pragma c2nim mangle "_Bool" "bool"
+#pragma c2nim mangle "^'string'$" "rstring"
 
 #pragma c2nim delete "rosidl_typesupport_interface.macros"
 #pragma c2nim delete "rcutils.visibility_control"
