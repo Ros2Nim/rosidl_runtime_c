@@ -1,19 +1,6 @@
-##  #pragma c2nim nep1
-
-##  #pragma c2nim reordertypes
-
-##  #pragma c2nim importFuncDefines
-##  #pragma c2nim importc
-##  --importDefines        import C defines as procs or vars with ``{.importc.}``
-##  --importFuncDefines    import C define funcs as procs with ``{.importc.}``
-
-##  #pragma c2nim header
-
-##  #pragma c2nim importc
-
-##  #pragma c2nim render nobody
-
-##  convert up to three '__' nodes
+##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
+##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
+##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
 
 ##  Copyright 2014-2015 Open Source Robotics Foundation, Inc.
 ##
@@ -35,6 +22,6 @@ import
 
 ##  String identifying the typesupport introspection implementation in use.
 
-let rosidl_typesupport_introspection_c_identifier* {.
+let rosidlTypesupportIntrospectionCIdentifier* {.
     importc: "rosidl_typesupport_introspection_c__identifier",
     header: "identifier.h".}: cstring

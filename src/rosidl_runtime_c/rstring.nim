@@ -1,19 +1,6 @@
-##  #pragma c2nim nep1
-
-##  #pragma c2nim reordertypes
-
-##  #pragma c2nim importFuncDefines
-##  #pragma c2nim importc
-##  --importDefines        import C defines as procs or vars with ``{.importc.}``
-##  --importFuncDefines    import C define funcs as procs with ``{.importc.}``
-
-##  #pragma c2nim header
-
-##  #pragma c2nim importc
-
-##  #pragma c2nim render nobody
-
-##  convert up to three '__' nodes
+##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
+##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
+##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
 
 ##  Copyright 2015 Open Source Robotics Foundation, Inc.
 ##
@@ -42,8 +29,8 @@ type
     capacity* {.importc: "capacity".}: csize_t ##  The capacity represents the number of allocated bytes (including the null byte).
 
 
-  String_Sequence* {.importc: "rosidl_runtime_c__String__Sequence",
-                     header: "string.h", bycopy.} = object
+  StringSequence* {.importc: "rosidl_runtime_c__String__Sequence",
+                    header: "string.h", bycopy.} = object
     data* {.importc: "data".}: ptr String ## !< The pointer to an array of STRUCT_NAME
     size* {.importc: "size".}: csize_t ## !< The number of valid items in data
     capacity* {.importc: "capacity".}: csize_t

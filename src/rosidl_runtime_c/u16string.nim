@@ -1,19 +1,6 @@
-##  #pragma c2nim nep1
-
-##  #pragma c2nim reordertypes
-
-##  #pragma c2nim importFuncDefines
-##  #pragma c2nim importc
-##  --importDefines        import C defines as procs or vars with ``{.importc.}``
-##  --importFuncDefines    import C define funcs as procs with ``{.importc.}``
-
-##  #pragma c2nim header
-
-##  #pragma c2nim importc
-
-##  #pragma c2nim render nobody
-
-##  convert up to three '__' nodes
+##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
+##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
+##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
 
 type
   uintLeast16T * {.importc: "uint_least16_t", header: "stddef.h", bycopy.} = object
@@ -40,13 +27,13 @@ type
 
   U16String* {.importc: "rosidl_runtime_c__U16String", header: "u16string.h",
                bycopy.} = object ##  An array of 16-bit characters terminated by a null character.
-    data* {.importc: "data".}: ptr uint_least16_t ##  The pointer to the first character, the sequence ends with a null character.
+    data* {.importc: "data".}: ptr uintLeast16T ##  The pointer to the first character, the sequence ends with a null character.
     size* {.importc: "size".}: csize_t ##  The length of the u16string (excluding the null character).
     capacity* {.importc: "capacity".}: csize_t ##  The capacity represents the number of allocated characters (including the null character).
 
 
-  U16String_Sequence* {.importc: "rosidl_runtime_c__U16String__Sequence",
-                        header: "u16string.h", bycopy.} = object
+  U16StringSequence* {.importc: "rosidl_runtime_c__U16String__Sequence",
+                       header: "u16string.h", bycopy.} = object
     data* {.importc: "data".}: ptr U16String ## !< The pointer to an array of STRUCT_NAME
     size* {.importc: "size".}: csize_t ## !< The number of valid items in data
     capacity* {.importc: "capacity".}: csize_t

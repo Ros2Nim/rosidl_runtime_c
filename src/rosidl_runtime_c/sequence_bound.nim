@@ -1,19 +1,6 @@
-##  #pragma c2nim nep1
-
-##  #pragma c2nim reordertypes
-
-##  #pragma c2nim importFuncDefines
-##  #pragma c2nim importc
-##  --importDefines        import C defines as procs or vars with ``{.importc.}``
-##  --importFuncDefines    import C define funcs as procs with ``{.importc.}``
-
-##  #pragma c2nim header
-
-##  #pragma c2nim importc
-
-##  #pragma c2nim render nobody
-
-##  convert up to three '__' nodes
+##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
+##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
+##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
 
 ##  Copyright 2015-2018 Open Source Robotics Foundation, Inc.
 ##
@@ -34,18 +21,18 @@ import
 
 type
 
-  bound_handle_function* = proc (a1: ptr Sequence_bound; a2: cstring): ptr Sequence_bound
+  BoundHandleFunction* = proc (a1: ptr SequenceBound; a2: cstring): ptr SequenceBound
 
-  Sequence_bound* {.importc: "rosidl_runtime_c__Sequence__bound",
-                    header: "sequence_bound.h", bycopy.} = object
-    typesupport_identifier* {.importc: "typesupport_identifier".}: cstring ##
+  SequenceBound* {.importc: "rosidl_runtime_c__Sequence__bound",
+                   header: "sequence_bound.h", bycopy.} = object
+    typesupportIdentifier* {.importc: "typesupport_identifier".}: cstring ##
                               ##  String identifier for the type_support.
     data* {.importc: "data".}: pointer ##  Pointer to type support handle function
-    `func`* {.importc: "func".}: bound_handle_function
+    `func`* {.importc: "func".}: BoundHandleFunction
 
 
 
-proc get_sequence_bound_handle*(handle: ptr Sequence_bound; identifier: cstring): ptr Sequence_bound {.
+proc getSequenceBoundHandle*(handle: ptr SequenceBound; identifier: cstring): ptr SequenceBound {.
     importc: "get_sequence_bound_handle", header: "sequence_bound.h".}
   ##
                               ##  Get the message bounds handle specific to this identifier.
@@ -58,8 +45,8 @@ proc get_sequence_bound_handle*(handle: ptr Sequence_bound; identifier: cstring)
                               ##  \return The associated sequence bound handle function.
                               ##
 
-proc get_sequence_bound_handle_function*(handle: ptr Sequence_bound;
-    identifier: cstring): ptr Sequence_bound {.
+proc getSequenceBoundHandleFunction*(handle: ptr SequenceBound;
+                                     identifier: cstring): ptr SequenceBound {.
     importc: "get_sequence_bound_handle_function", header: "sequence_bound.h".}
   ##
                               ##  Get the message bounds handle function specific to this identifier.

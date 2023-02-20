@@ -1,19 +1,6 @@
-##  #pragma c2nim nep1
-
-##  #pragma c2nim reordertypes
-
-##  #pragma c2nim importFuncDefines
-##  #pragma c2nim importc
-##  --importDefines        import C defines as procs or vars with ``{.importc.}``
-##  --importFuncDefines    import C define funcs as procs with ``{.importc.}``
-
-##  #pragma c2nim header
-
-##  #pragma c2nim importc
-
-##  #pragma c2nim render nobody
-
-##  convert up to three '__' nodes
+##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
+##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
+##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
 
 ##  Copyright 2015-2016 Open Source Robotics Foundation, Inc.
 ##
@@ -34,23 +21,22 @@ import
 
 type
 
-  rosidl_message_typesupport_handle_function* = proc (
-      a1: ptr rosidl_message_type_support_t; a2: cstring): ptr rosidl_message_type_support_t
+  RosidlMessageTypesupportHandleFunction* = proc (
+      a1: ptr RosidlMessageTypeSupportT; a2: cstring): ptr RosidlMessageTypeSupportT
 
-  rosidl_message_type_support_t* {.importc: "rosidl_message_type_support_t",
-                                   header: "message_type_support_struct.h",
-                                   bycopy.} = object ##
+  RosidlMessageTypeSupportT* {.importc: "rosidl_message_type_support_t",
+                               header: "message_type_support_struct.h", bycopy.} = object ##
                               ##  Contains rosidl message type support data
-    typesupport_identifier* {.importc: "typesupport_identifier".}: cstring ##
+    typesupportIdentifier* {.importc: "typesupport_identifier".}: cstring ##
                               ##  String identifier for the type_support.
     data* {.importc: "data".}: pointer ##  Pointer to the message type support library
-    `func`* {.importc: "func".}: rosidl_message_typesupport_handle_function ##
+    `func`* {.importc: "func".}: RosidlMessageTypesupportHandleFunction ##
                               ##  Pointer to the message type support handler function
 
 
 
-proc get_message_typesupport_handle*(handle: ptr rosidl_message_type_support_t;
-                                     identifier: cstring): ptr rosidl_message_type_support_t {.
+proc getMessageTypesupportHandle*(handle: ptr RosidlMessageTypeSupportT;
+                                  identifier: cstring): ptr RosidlMessageTypeSupportT {.
     importc: "get_message_typesupport_handle",
     header: "message_type_support_struct.h".}
   ##  Get the message type support handle specific to this identifier.
@@ -63,8 +49,8 @@ proc get_message_typesupport_handle*(handle: ptr rosidl_message_type_support_t;
                                              ##  \return The associated message typesupport handle function.
                                              ##
 
-proc get_message_typesupport_handle_function*(
-    handle: ptr rosidl_message_type_support_t; identifier: cstring): ptr rosidl_message_type_support_t {.
+proc getMessageTypesupportHandleFunction*(handle: ptr RosidlMessageTypeSupportT;
+    identifier: cstring): ptr RosidlMessageTypeSupportT {.
     importc: "get_message_typesupport_handle_function",
     header: "message_type_support_struct.h".}
   ##  Get the message type support handle function specific to this identifier.

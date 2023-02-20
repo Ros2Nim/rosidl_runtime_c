@@ -1,19 +1,6 @@
-##  #pragma c2nim nep1
-
-##  #pragma c2nim reordertypes
-
-##  #pragma c2nim importFuncDefines
-##  #pragma c2nim importc
-##  --importDefines        import C defines as procs or vars with ``{.importc.}``
-##  --importFuncDefines    import C define funcs as procs with ``{.importc.}``
-
-##  #pragma c2nim header
-
-##  #pragma c2nim importc
-
-##  #pragma c2nim render nobody
-
-##  convert up to three '__' nodes
+##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
+##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
+##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
 
 ##  Copyright 2018 Open Source Robotics Foundation, Inc.
 ##
@@ -31,8 +18,8 @@
 
 type
 
-  String_bound* {.importc: "rosidl_runtime_c__String__bound",
-                  header: "string_bound.h", bycopy.} = object ##
+  StringBound* {.importc: "rosidl_runtime_c__String__bound",
+                 header: "string_bound.h", bycopy.} = object ##
                               ##  Upper boundary for #rosidl_runtime_c__String or #rosidl_runtime_c__U16String.
     bound* {.importc: "bound".}: csize_t ##  The number of characters in the string (excluding the null character).
 

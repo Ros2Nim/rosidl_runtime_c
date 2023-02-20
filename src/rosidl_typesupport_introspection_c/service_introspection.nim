@@ -1,19 +1,6 @@
-##  #pragma c2nim nep1
-
-##  #pragma c2nim reordertypes
-
-##  #pragma c2nim importFuncDefines
-##  #pragma c2nim importc
-##  --importDefines        import C defines as procs or vars with ``{.importc.}``
-##  --importFuncDefines    import C define funcs as procs with ``{.importc.}``
-
-##  #pragma c2nim header
-
-##  #pragma c2nim importc
-
-##  #pragma c2nim render nobody
-
-##  convert up to three '__' nodes
+##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
+##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
+##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
 
 ##  Copyright 2015 Open Source Robotics Foundation, Inc.
 ##
@@ -48,20 +35,20 @@ import
 
 type
 
-  rosidl_typesupport_introspection_c_ServiceMembers* {.
+  RosidlTypesupportIntrospectionCServiceMembers* {.
       importc: "rosidl_typesupport_introspection_c__ServiceMembers",
       header: "service_introspection.h", bycopy.} = object ##
                               ##  This struct provides introspection information for one service definition.
                               ##  A service is comprised of two interfaces: the request and the response.
-    service_namespace_* {.importc: "service_namespace_".}: cstring ##
+    serviceNamespace* {.importc: "service_namespace_".}: cstring ##
                               ##  The namespace in which the service resides, e.g. "example_messages__srv" for
                               ##  example_messages/srv
-    service_name_* {.importc: "service_name_".}: cstring ##
+    serviceName* {.importc: "service_name_".}: cstring ##
                               ##  The name of the service, e.g. "AddTwoInts"
-    request_members_* {.importc: "request_members_".}: ptr rosidl_typesupport_introspection_c_MessageMembers ##
+    requestMembers* {.importc: "request_members_".}: ptr RosidlTypesupportIntrospectionCMessageMembers ##
                               ##  A pointer to the introspection information structure for the request interface.
-    response_members_* {.importc: "response_members_".}: ptr rosidl_typesupport_introspection_c_MessageMembers ##
+    responseMembers* {.importc: "response_members_".}: ptr RosidlTypesupportIntrospectionCMessageMembers ##
                               ##  A pointer to the introspection information structure for the response interface.
-    event_members_* {.importc: "event_members_".}: ptr rosidl_typesupport_introspection_c_MessageMembers ##
+    eventMembers* {.importc: "event_members_".}: ptr RosidlTypesupportIntrospectionCMessageMembers ##
                               ##  A pointer to the introspection information structure for the event interface.
 

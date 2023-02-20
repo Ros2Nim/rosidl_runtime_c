@@ -1,19 +1,6 @@
-##  #pragma c2nim nep1
-
-##  #pragma c2nim reordertypes
-
-##  #pragma c2nim importFuncDefines
-##  #pragma c2nim importc
-##  --importDefines        import C defines as procs or vars with ``{.importc.}``
-##  --importFuncDefines    import C define funcs as procs with ``{.importc.}``
-
-##  #pragma c2nim header
-
-##  #pragma c2nim importc
-
-##  #pragma c2nim render nobody
-
-##  convert up to three '__' nodes
+##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
+##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
+##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
 
 ##  Copyright 2018 Open Source Robotics Foundation, Inc.
 ##
@@ -41,17 +28,17 @@ import
 
 type
 
-  rosidl_action_type_support_t* {.importc: "rosidl_action_type_support_t",
-                                  header: "action_type_support_struct.h", bycopy.} = object ##
+  RosidlActionTypeSupportT* {.importc: "rosidl_action_type_support_t",
+                              header: "action_type_support_struct.h", bycopy.} = object ##
                               ##  Contains rosidl action type support data.
                               ##
                               ##  Actions are built based on services(goal, result and cancel) and message (feedback and status).
                               ##
-    goal_service_type_support* {.importc: "goal_service_type_support".}: ptr rosidl_service_type_support_t
-    result_service_type_support* {.importc: "result_service_type_support".}: ptr rosidl_service_type_support_t
-    cancel_service_type_support* {.importc: "cancel_service_type_support".}: ptr rosidl_service_type_support_t
-    feedback_message_type_support* {.importc: "feedback_message_type_support".}: ptr rosidl_message_type_support_t
-    status_message_type_support* {.importc: "status_message_type_support".}: ptr rosidl_message_type_support_t
+    goalServiceTypeSupport* {.importc: "goal_service_type_support".}: ptr RosidlServiceTypeSupportT
+    resultServiceTypeSupport* {.importc: "result_service_type_support".}: ptr RosidlServiceTypeSupportT
+    cancelServiceTypeSupport* {.importc: "cancel_service_type_support".}: ptr RosidlServiceTypeSupportT
+    feedbackMessageTypeSupport* {.importc: "feedback_message_type_support".}: ptr RosidlMessageTypeSupportT
+    statusMessageTypeSupport* {.importc: "status_message_type_support".}: ptr RosidlMessageTypeSupportT
 
 
 ##  Get the action type support given a provided action and package.

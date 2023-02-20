@@ -1,23 +1,10 @@
-##  #pragma c2nim nep1
-
-##  #pragma c2nim reordertypes
-
-##  #pragma c2nim importFuncDefines
-##  #pragma c2nim importc
-##  --importDefines        import C defines as procs or vars with ``{.importc.}``
-##  --importFuncDefines    import C define funcs as procs with ``{.importc.}``
-
-##  #pragma c2nim header
-
-##  #pragma c2nim importc
-
-##  #pragma c2nim render nobody
-
-##  convert up to three '__' nodes
+##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
+##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
+##  #pragma c2nim mangle " @@'__' {\\ident+}" "$1_$2"
 
 type
 
-  message_initialization* {.size: sizeof(cint).} = enum ##
+  MessageInitialization* {.size: sizeof(cint).} = enum ##
                               ##  Copyright 2017 Open Source Robotics Foundation, Inc.
                               ##
                               ##  Licensed under the Apache License, Version 2.0 (the "License");
