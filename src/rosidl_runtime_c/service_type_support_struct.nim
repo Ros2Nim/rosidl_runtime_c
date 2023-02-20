@@ -31,8 +31,7 @@ import
   rcutils.allocator, rcutils.allocator, rcutils.allocator, rcutils.macros,
   rcutils.macros, rcutils.macros, rcutils.macros, rcutils.macros,
   rcutils.allocator, rcutils.types.rcutils_ret, rcutils.allocator,
-  rcutils.visibility_control, rcutils.visibility_control_macros,
-  rcutils.visibility_control_macros, rcutils.visibility_control,
+  rcutils.visibility_control_macros, rcutils.visibility_control_macros,
   rcutils.allocator, message_type_support_struct, visibility_control,
   visibility_control, message_type_support_struct, message_type_support_struct
 

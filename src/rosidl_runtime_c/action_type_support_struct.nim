@@ -33,10 +33,9 @@ import
   service_type_support_struct, service_type_support_struct, rcutils.allocator,
   rcutils.allocator, rcutils.allocator, rcutils.macros, rcutils.macros,
   rcutils.macros, rcutils.macros, rcutils.macros, rcutils.allocator,
-  rcutils.types.rcutils_ret, rcutils.allocator, rcutils.visibility_control,
+  rcutils.types.rcutils_ret, rcutils.allocator,
   rcutils.visibility_control_macros, rcutils.visibility_control_macros,
-  rcutils.visibility_control, rcutils.allocator, service_type_support_struct,
-  service_type_support_struct
+  rcutils.allocator, service_type_support_struct, service_type_support_struct
 
 type
 
