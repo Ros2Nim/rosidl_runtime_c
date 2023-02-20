@@ -26,7 +26,7 @@
 #pragma c2nim mangle "'rosidl_runtime_c.' {\\ident+}" "$1"
 
 #pragma c2nim mangle "_Bool" "bool"
-#pragma c2nim mangle "^'string'$" "rstring"
+#pragma c2nim mangle "^'./'* 'string'$" "rstring"
 
 #pragma c2nim delete "rosidl_typesupport_interface.macros"
 #pragma c2nim delete "rcutils.visibility_control"
@@ -41,6 +41,6 @@
 
 #pragma c2nim delete "rosidl_typesupport_interface/macros"
 #pragma c2nim delete "rosidlTypesupportInterface/macros"
-#pragma c2nim delete "typesupport_interface.macros"
+#pragma c2nim delete "typesupport_interface/macros"
 
 #pragma c2nim prefix "rosidl_"

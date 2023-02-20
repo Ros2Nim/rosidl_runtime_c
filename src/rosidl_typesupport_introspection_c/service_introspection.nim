@@ -16,11 +16,11 @@ import
   runtime_c/service_type_support_struct, runtime_c/service_type_support_struct,
   runtime_c/message_type_support_struct, runtime_c/visibility_control,
   runtime_c/visibility_control, runtime_c/message_type_support_struct,
-  typesupport_interface/macros, runtime_c/message_type_support_struct,
-  runtime_c/service_type_support_struct, runtime_c/service_type_support_struct,
-  ./message_introspection, ./message_introspection,
-  runtime_c/message_initialization, ./message_introspection,
-  ./visibility_control, ./visibility_control, ./message_introspection
+  runtime_c/message_type_support_struct, runtime_c/service_type_support_struct,
+  runtime_c/service_type_support_struct, ./message_introspection,
+  ./message_introspection, runtime_c/message_initialization,
+  ./message_introspection, ./visibility_control, ./visibility_control,
+  ./message_introspection
 
 type
 

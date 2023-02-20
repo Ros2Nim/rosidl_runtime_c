@@ -22,6 +22,10 @@ imports:
     - rawNims: |
         type
           uintLeast16T * {.importc: "uint_least16_t", header: "stddef.h", bycopy.} = object
+  - cSourceModification: "'service_type_support_struct.h'"
+    c2NimConfigs:
+    - rawNims: |
+        import rcutils/allocator
 
 - name: "rosidl_adapter"
   sources: "deps/rosidl/rosidl_adapter/include"

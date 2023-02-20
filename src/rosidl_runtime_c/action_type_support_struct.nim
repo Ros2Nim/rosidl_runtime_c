@@ -14,10 +14,9 @@
 
 import
   ./message_type_support_struct, ./visibility_control, ./visibility_control,
-  ./message_type_support_struct, typesupport_interface/macros,
-  ./message_type_support_struct, ./service_type_support_struct,
+  ./message_type_support_struct, ./message_type_support_struct,
   ./service_type_support_struct, ./service_type_support_struct,
-  ./service_type_support_struct
+  ./service_type_support_struct, ./service_type_support_struct
 
 type
 

@@ -13,7 +13,7 @@
 ##  limitations under the License.
 
 import
-  ./visibility_control, ./visibility_control, typesupport_interface/macros
+  ./visibility_control, ./visibility_control
 
 type
 

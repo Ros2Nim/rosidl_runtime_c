@@ -15,9 +15,8 @@
 import
   runtime_c/message_initialization, runtime_c/message_type_support_struct,
   runtime_c/visibility_control, runtime_c/visibility_control,
-  runtime_c/message_type_support_struct, typesupport_interface/macros,
-  runtime_c/message_type_support_struct, ./visibility_control,
-  ./visibility_control
+  runtime_c/message_type_support_struct, runtime_c/message_type_support_struct,
+  ./visibility_control, ./visibility_control
 
 type
 

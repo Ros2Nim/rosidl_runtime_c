@@ -13,8 +13,8 @@
 ##  limitations under the License.
 
 import
-  ./string, ./string, ./primitives_sequence, ./primitives_sequence,
-  ./primitives_sequence, ./primitives_sequence, ./string, ./visibility_control,
+  rstring, rstring, ./primitives_sequence, ./primitives_sequence,
+  ./primitives_sequence, ./primitives_sequence, rstring, ./visibility_control,
   ./visibility_control
 
 

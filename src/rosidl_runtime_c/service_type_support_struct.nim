@@ -1,3 +1,5 @@
+import rcutils/allocator
+
 ##  Copyright 2015-2016 Open Source Robotics Foundation, Inc.
 ##
 ##  Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,8 +16,7 @@
 
 import
   ./message_type_support_struct, ./visibility_control, ./visibility_control,
-  ./message_type_support_struct, typesupport_interface/macros,
-  ./message_type_support_struct
+  ./message_type_support_struct, ./message_type_support_struct
 
 type
 
