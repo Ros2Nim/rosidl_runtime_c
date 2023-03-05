@@ -15,6 +15,12 @@ antExport ImporterConfig:
         ]
       defines: []
       skipFiles: []
+      c2NimCfgs:list:
+        - C2NimCfg:
+          fileMatch: peg"'.h'"
+          fileContents: str"""
+              #pragma c2nim mangle "'rosidl_runtime_c/'" "../rosidl_runtime_c/"
+              """
     - ImportConfig:
       name: "rosidl_runtime_c"
       sources: "deps/rosidl/rosidl_runtime_c/include"
