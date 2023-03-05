@@ -1,3 +1,11 @@
+##  #pragma c2nim mangle "'service_name_'$" "service_name"
+##  #pragma c2nim mangle "'request_members_'$" "request_members"
+##  #pragma c2nim mangle "'response_members_'$" "response_members"
+##  #pragma c2nim mangle "'event_members_'$" "event_members"
+##  #pragma c2nim mangle "'rosidl_runtime_c__' {\\w+}" "$1"
+
+##  #pragma c2nim mangle "'rosidl_runtime_c.' {\\ident+}" "$1"
+
 ##  Copyright 2015 Open Source Robotics Foundation, Inc.
 ##
 ##  Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,14 +21,18 @@
 ##  limitations under the License.
 
 import
-  runtime_c/service_type_support_struct, rcutils/types/rcutils_ret,
-  runtime_c/service_type_support_struct, runtime_c/message_type_support_struct,
-  runtime_c/visibility_control, runtime_c/visibility_control,
-  runtime_c/message_type_support_struct, runtime_c/message_type_support_struct,
-  runtime_c/service_type_support_struct, runtime_c/service_type_support_struct,
-  ./message_introspection, ./message_introspection,
-  runtime_c/message_initialization, ./message_introspection,
-  ./visibility_control, ./visibility_control, ./message_introspection
+  ../rosidl_runtime_c/service_type_support_struct, rcutils/types/rcutils_ret,
+  ../rosidl_runtime_c/service_type_support_struct,
+  ../rosidl_runtime_c/message_type_support_struct,
+  ../rosidl_runtime_c/visibility_control,
+  ../rosidl_runtime_c/visibility_control,
+  ../rosidl_runtime_c/message_type_support_struct,
+  ../rosidl_runtime_c/message_type_support_struct,
+  ../rosidl_runtime_c/service_type_support_struct,
+  ../rosidl_runtime_c/service_type_support_struct, ./message_introspection,
+  ./message_introspection, ../rosidl_runtime_c/message_initialization,
+  ./message_introspection, ./visibility_control, ./visibility_control,
+  ./message_introspection
 
 type
 
@@ -29,15 +41,15 @@ type
       header: "service_introspection.h", bycopy.} = object ##
                               ##  This struct provides introspection information for one service definition.
                               ##  A service is comprised of two interfaces: the request and the response.
-    service_namespace_* {.importc: "service_namespace_".}: cstring ##
+    service_namespace* {.importc: "service_namespace_".}: cstring ##
                               ##  The namespace in which the service resides, e.g. "example_messages__srv" for
                               ##  example_messages/srv
-    service_name_* {.importc: "service_name_".}: cstring ##
+    service_name* {.importc: "service_name_".}: cstring ##
                               ##  The name of the service, e.g. "AddTwoInts"
-    request_members_* {.importc: "request_members_".}: ptr typesupport_introspection_c_MessageMembers ##
+    request_members* {.importc: "request_members_".}: ptr typesupport_introspection_c_MessageMembers ##
                               ##  A pointer to the introspection information structure for the request interface.
-    response_members_* {.importc: "response_members_".}: ptr typesupport_introspection_c_MessageMembers ##
+    response_members* {.importc: "response_members_".}: ptr typesupport_introspection_c_MessageMembers ##
                               ##  A pointer to the introspection information structure for the response interface.
-    event_members_* {.importc: "event_members_".}: ptr typesupport_introspection_c_MessageMembers ##
+    event_members* {.importc: "event_members_".}: ptr typesupport_introspection_c_MessageMembers ##
                               ##  A pointer to the introspection information structure for the event interface.
 

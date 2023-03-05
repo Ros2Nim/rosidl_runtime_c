@@ -1,3 +1,11 @@
+##  #pragma c2nim mangle "'service_name_'$" "service_name"
+##  #pragma c2nim mangle "'request_members_'$" "request_members"
+##  #pragma c2nim mangle "'response_members_'$" "response_members"
+##  #pragma c2nim mangle "'event_members_'$" "event_members"
+##  #pragma c2nim mangle "'rosidl_runtime_c__' {\\w+}" "$1"
+
+##  #pragma c2nim mangle "'rosidl_runtime_c.' {\\ident+}" "$1"
+
 ##  Copyright 2014-2015 Open Source Robotics Foundation, Inc.
 ##
 ##  Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,10 +21,13 @@
 ##  limitations under the License.
 
 import
-  runtime_c/message_initialization, runtime_c/message_type_support_struct,
-  runtime_c/visibility_control, runtime_c/visibility_control,
-  runtime_c/message_type_support_struct, runtime_c/message_type_support_struct,
-  ./visibility_control, ./visibility_control
+  ../rosidl_runtime_c/message_initialization,
+  ../rosidl_runtime_c/message_type_support_struct,
+  ../rosidl_runtime_c/visibility_control,
+  ../rosidl_runtime_c/visibility_control,
+  ../rosidl_runtime_c/message_type_support_struct,
+  ../rosidl_runtime_c/message_type_support_struct, ./visibility_control,
+  ./visibility_control
 
 type
 
@@ -24,24 +35,24 @@ type
       importc: "rosidl_typesupport_introspection_c__MessageMember",
       header: "message_introspection.h", bycopy.} = object ##
                               ##  Structure used to describe a single field of an interface type.
-    name_* {.importc: "name_".}: cstring ##  The name of the field.
-    type_id_* {.importc: "type_id_".}: uint8 ##  The type of the field as a value of the field types enum
-                                             ##  rosidl_typesupport_introspection_c_field_types.
-                                             ##  e.g. rosidl_typesupport_introspection_c__ROS_TYPE_FLOAT
-    string_upper_bound_* {.importc: "string_upper_bound_".}: csize_t ##
+    name* {.importc: "name_".}: cstring ##  The name of the field.
+    type_id* {.importc: "type_id_".}: uint8 ##  The type of the field as a value of the field types enum
+                                            ##  rosidl_typesupport_introspection_c_field_types.
+                                            ##  e.g. rosidl_typesupport_introspection_c__ROS_TYPE_FLOAT
+    string_upper_bound* {.importc: "string_upper_bound_".}: csize_t ##
                               ##  If the field is a string, the upper bound on the length of the string.
-    members_* {.importc: "members_".}: ptr message_type_support_t ##
+    members* {.importc: "members_".}: ptr message_type_support_t ##
                               ##  If the type_id_ value is rosidl_typesupport_introspection_c__ROS_TYPE_MESSAGE,
                               ##  this points to an array describing the fields of the sub-interface.
-    is_array_* {.importc: "is_array_".}: bool ##  True if this field is an array type, false if it is any other type. An
-                                              ##  array has the same value for / type_id_.
-    array_size_* {.importc: "array_size_".}: csize_t ##
+    is_array* {.importc: "is_array_".}: bool ##  True if this field is an array type, false if it is any other type. An
+                                             ##  array has the same value for / type_id_.
+    array_size* {.importc: "array_size_".}: csize_t ##
                               ##  If is_array_ is true, this contains the number of members in the array.
-    is_upper_bound_* {.importc: "is_upper_bound_".}: bool ##
+    is_upper_bound* {.importc: "is_upper_bound_".}: bool ##
                               ##  If is_array_ is true, this specifies if the array has a maximum size. If it is true, the
                               ##  value in array_size_ is the maximum size.
-    offset_* {.importc: "offset_".}: uint32 ##  The bytes into the interface's in-memory representation that this field can be found at.
-    default_value_* {.importc: "default_value_".}: pointer ##
+    offset* {.importc: "offset_".}: uint32 ##  The bytes into the interface's in-memory representation that this field can be found at.
+    default_value* {.importc: "default_value_".}: pointer ##
                               ##  If the interface has a default value, this points to it.
     size_function* {.importc: "size_function".}: proc (a1: pointer): csize_t ##
                               ##  If is_array_ is true, a pointer to a function that gives the size of one member of the array.
@@ -74,15 +85,15 @@ type
       importc: "rosidl_typesupport_introspection_c__MessageMembers",
       header: "message_introspection.h", bycopy.} = object ##
                               ##  Structure used to describe all fields of a single interface type.
-    message_namespace_* {.importc: "message_namespace_".}: cstring ##
+    message_namespace* {.importc: "message_namespace_".}: cstring ##
                               ##  The namespace in which the interface resides, e.g. "example_messages__msg" for
                               ##  example_messages/msg
-    message_name_* {.importc: "message_name_".}: cstring ##
+    message_name* {.importc: "message_name_".}: cstring ##
                               ##  The name of the interface, e.g. "Int16"
-    member_count_* {.importc: "member_count_".}: uint32 ##
+    member_count* {.importc: "member_count_".}: uint32 ##
                               ##  The number of fields in the interface
-    size_of_* {.importc: "size_of_".}: csize_t ##  The size of the interface structure in memory
-    members_* {.importc: "members_".}: ptr typesupport_introspection_c_MessageMember ##
+    size_of* {.importc: "size_of_".}: csize_t ##  The size of the interface structure in memory
+    members* {.importc: "members_".}: ptr typesupport_introspection_c_MessageMember ##
                               ##  A pointer to the array that describes each field of the interface
     init_function* {.importc: "init_function".}: proc (a1: pointer;
         a2: message_initialization) ##  The function used to initialise the interface's in-memory representation
