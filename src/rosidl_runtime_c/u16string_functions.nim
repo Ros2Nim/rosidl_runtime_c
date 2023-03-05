@@ -1,3 +1,15 @@
+##  #pragma c2nim prefix "rosidl_"
+##  #pragma c2nim mangle "'rosidl_runtime_c/'" "../rosidl_runtime_c/"
+##  #pragma c2nim mangle "'rosidl_runtime_c__message_initialization'" "message_initialization"
+
+##  #pragma c2nim mangle "'service_name_'$" "service_name"
+##  #pragma c2nim mangle "'request_members_'$" "request_members"
+##  #pragma c2nim mangle "'response_members_'$" "response_members"
+##  #pragma c2nim mangle "'event_members_'$" "event_members"
+##  #pragma c2nim mangle "'rosidl_runtime_c__' {\\w+}" "$1"
+
+##  #pragma c2nim mangle "'rosidl_runtime_c.' {\\ident+}" "$1"
+
 ##  Copyright 2015-2018 Open Source Robotics Foundation, Inc.
 ##
 ##  Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,7 +30,7 @@ import
   ./visibility_control, ./visibility_control
 
 
-proc u16string_init*(str: ptr U16String): bool {.
+proc rosidl_runtime_c_U16String_init*(str: ptr rosidl_runtime_c_U16String): bool {.
     importc: "rosidl_runtime_c__U16String__init",
     header: "u16string_functions.h".}
   ##  Initialize a rosidl_runtime_c__U16String structure.
@@ -37,7 +49,7 @@ proc u16string_init*(str: ptr U16String): bool {.
                                      ##    or the memory allocation failed
                                      ##
 
-proc u16string_fini*(str: ptr U16String) {.
+proc rosidl_runtime_c_U16String_fini*(str: ptr rosidl_runtime_c_U16String) {.
     importc: "rosidl_runtime_c__U16String__fini",
     header: "u16string_functions.h".}
   ##  Deallocate the memory of the rosidl_runtime_c__U16String structure.
@@ -47,7 +59,8 @@ proc u16string_fini*(str: ptr U16String) {.
                                      ##  \param[inout] str a pointer to a U16 string structure to be finalized
                                      ##
 
-proc u16string_are_equal*(lhs: ptr U16String; rhs: ptr U16String): bool {.
+proc rosidl_runtime_c_U16String_are_equal*(lhs: ptr rosidl_runtime_c_U16String;
+    rhs: ptr rosidl_runtime_c_U16String): bool {.
     importc: "rosidl_runtime_c__U16String__are_equal",
     header: "u16string_functions.h".}
   ##  Check for rosidl_runtime_c__U16String structure equality.
@@ -58,7 +71,8 @@ proc u16string_are_equal*(lhs: ptr U16String; rhs: ptr U16String): bool {.
                                      ##    in size and content, otherwise false.
                                      ##
 
-proc u16string_copy*(input: ptr U16String; output: ptr U16String): bool {.
+proc rosidl_runtime_c_U16String_copy*(input: ptr rosidl_runtime_c_U16String;
+                                      output: ptr rosidl_runtime_c_U16String): bool {.
     importc: "rosidl_runtime_c__U16String__copy",
     header: "u16string_functions.h".}
   ##  Copy rosidl_runtime_c__U16String structure content.
@@ -74,7 +88,8 @@ proc u16string_copy*(input: ptr U16String; output: ptr U16String): bool {.
                                      ##    allocation fails.
                                      ##
 
-proc u16string_assignn*(str: ptr U16String; value: ptr uint16; n: csize_t): bool {.
+proc rosidl_runtime_c_U16String_assignn*(str: ptr rosidl_runtime_c_U16String;
+    value: ptr uint16; n: csize_t): bool {.
     importc: "rosidl_runtime_c__U16String__assignn",
     header: "u16string_functions.h".}
   ##  Assign the uint16_t value of n characters to the rosidl_runtime_c__U16String structure.
@@ -91,7 +106,8 @@ proc u16string_assignn*(str: ptr U16String; value: ptr uint16; n: csize_t): bool
                                      ##    or if the memory reallocation failed.
                                      ##
 
-proc u16string_assignn_from_char*(str: ptr U16String; value: cstring; n: csize_t): bool {.
+proc rosidl_runtime_c_U16String_assignn_from_char*(
+    str: ptr rosidl_runtime_c_U16String; value: cstring; n: csize_t): bool {.
     importc: "rosidl_runtime_c__U16String__assignn_from_char",
     header: "u16string_functions.h".}
   ##  Assign the c string pointer value of n characters to the rosidl_runtime_c__U16String structure.
@@ -109,7 +125,8 @@ proc u16string_assignn_from_char*(str: ptr U16String; value: cstring; n: csize_t
                                      ##    or if the memory reallocation failed.
                                      ##
 
-proc u16string_assign*(str: ptr U16String; value: ptr uint16): bool {.
+proc rosidl_runtime_c_U16String_assign*(str: ptr rosidl_runtime_c_U16String;
+                                        value: ptr uint16): bool {.
     importc: "rosidl_runtime_c__U16String__assign",
     header: "u16string_functions.h".}
   ##  Assign the uint16_t pointer to the rosidl_runtime_c__U16String structure.
@@ -127,7 +144,7 @@ proc u16string_assign*(str: ptr U16String; value: ptr uint16): bool {.
                                      ##    or if the memory reallocation failed.
                                      ##
 
-proc u16string_len*(value: ptr uint16): csize_t {.
+proc rosidl_runtime_c_U16String_len*(value: ptr uint16): csize_t {.
     importc: "rosidl_runtime_c__U16String__len", header: "u16string_functions.h".}
   ##
                               ##  Get the length of the uint16_t pointer.
@@ -139,7 +156,8 @@ proc u16string_len*(value: ptr uint16): csize_t {.
                               ##  \return the size of the input value pointer or zero if the pointer is NULL
                               ##
 
-proc u16string_resize*(str: ptr U16String; n: csize_t): bool {.
+proc rosidl_runtime_c_U16String_resize*(str: ptr rosidl_runtime_c_U16String;
+                                        n: csize_t): bool {.
     importc: "rosidl_runtime_c__U16String__resize",
     header: "u16string_functions.h".}
   ##  Resize the uint16_t pointer.
@@ -151,7 +169,8 @@ proc u16string_resize*(str: ptr U16String; n: csize_t): bool {.
                                      ##    or if the size is higher than SIZE_MAX or if the memory reallocation failed.
                                      ##
 
-proc u16string_sequence_init*(sequence: ptr U16String_Sequence; size: csize_t): bool {.
+proc rosidl_runtime_c_U16String_sequence_init*(
+    sequence: ptr rosidl_runtime_c_U16String_sequence; size: csize_t): bool {.
     importc: "rosidl_runtime_c__U16String__Sequence__init",
     header: "u16string_functions.h".}
   ##  Initialize a U16 string sequence structure.
@@ -168,7 +187,8 @@ proc u16string_sequence_init*(sequence: ptr U16String_Sequence; size: csize_t): 
                                      ##    or the memory allocation failed
                                      ##
 
-proc u16string_sequence_fini*(sequence: ptr U16String_Sequence) {.
+proc rosidl_runtime_c_U16String_sequence_fini*(
+    sequence: ptr rosidl_runtime_c_U16String_sequence) {.
     importc: "rosidl_runtime_c__U16String__Sequence__fini",
     header: "u16string_functions.h".}
   ##  Deallocate the memory of the string sequence structure.
@@ -178,8 +198,9 @@ proc u16string_sequence_fini*(sequence: ptr U16String_Sequence) {.
                                      ##  \param[inout] sequence a pointer to a U16 string to be finalized
                                      ##
 
-proc u16string_sequence_are_equal*(lhs: ptr U16String_Sequence;
-                                   rhs: ptr U16String_Sequence): bool {.
+proc rosidl_runtime_c_U16String_sequence_are_equal*(
+    lhs: ptr rosidl_runtime_c_U16String_sequence;
+    rhs: ptr rosidl_runtime_c_U16String_sequence): bool {.
     importc: "rosidl_runtime_c__U16String__Sequence__are_equal",
     header: "u16string_functions.h".}
   ##  Check for rosidl_runtime_c__U16String__Sequence structure equality.
@@ -190,8 +211,9 @@ proc u16string_sequence_are_equal*(lhs: ptr U16String_Sequence;
                                      ##    in size and content, otherwise false.
                                      ##
 
-proc u16string_sequence_copy*(input: ptr U16String_Sequence;
-                              output: ptr U16String_Sequence): bool {.
+proc rosidl_runtime_c_U16String_sequence_copy*(
+    input: ptr rosidl_runtime_c_U16String_sequence;
+    output: ptr rosidl_runtime_c_U16String_sequence): bool {.
     importc: "rosidl_runtime_c__U16String__Sequence__copy",
     header: "u16string_functions.h".}
   ##  Copy a U16 string sequence content.
@@ -207,7 +229,7 @@ proc u16string_sequence_copy*(input: ptr U16String_Sequence;
                                      ##    allocation fails.
                                      ##
 
-proc u16string_sequence_create*(size: csize_t): ptr U16String_Sequence {.
+proc rosidl_runtime_c_U16String_sequence_create*(size: csize_t): ptr rosidl_runtime_c_U16String_sequence {.
     importc: "rosidl_runtime_c__U16String__Sequence__create",
     header: "u16string_functions.h".}
   ##  Create a U16 string sequence structure with a specific size.
@@ -221,7 +243,8 @@ proc u16string_sequence_create*(size: csize_t): ptr U16String_Sequence {.
                                      ##  \return a U16 string sequence if initialization was successfully, otherwise NULL.
                                      ##
 
-proc u16string_sequence_destroy*(sequence: ptr U16String_Sequence) {.
+proc rosidl_runtime_c_U16String_sequence_destroy*(
+    sequence: ptr rosidl_runtime_c_U16String_sequence) {.
     importc: "rosidl_runtime_c__U16String__Sequence__destroy",
     header: "u16string_functions.h".}
   ##  Destroy a U16 string sequence structure.

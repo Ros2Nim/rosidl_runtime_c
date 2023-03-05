@@ -14,11 +14,11 @@
 #pragma c2nim render reIndentLongComments
 #pragma c2nim render NonNep1Imports
 
-#pragma c2nim prefix "rosidl_"
+// #pragma c2nim prefix "rosidl_"
 
-#pragma c2nim mangle "'rosidl_runtime_c/'" "../rosidl_runtime_c/"
+// #pragma c2nim mangle "'rosidl_runtime_c/'" "../rosidl_runtime_c/"
 
-#pragma c2nim mangle "'rosidl_runtime_c__message_initialization'" "message_initialization"
+// #pragma c2nim mangle "'rosidl_runtime_c__message_initialization'" "message_initialization"
 
 #pragma c2nim mangle "'service_namespace_'$" "service_namespace"
 #pragma c2nim mangle " {[a-z]+} '_' {[a-z]+} '_' {[a-z]+} '_' $" "$1_$2_$3"

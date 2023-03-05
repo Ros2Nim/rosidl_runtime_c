@@ -1,3 +1,7 @@
+##  #pragma c2nim prefix "rosidl_"
+##  #pragma c2nim mangle "'rosidl_runtime_c/'" "../rosidl_runtime_c/"
+##  #pragma c2nim mangle "'rosidl_runtime_c__message_initialization'" "message_initialization"
+
 ##  #pragma c2nim mangle "'service_name_'$" "service_name"
 ##  #pragma c2nim mangle "'request_members_'$" "request_members"
 ##  #pragma c2nim mangle "'response_members_'$" "response_members"
@@ -21,22 +25,21 @@
 ##  limitations under the License.
 
 import
-  ../rosidl_runtime_c/service_type_support_struct, rcutils/types/rcutils_ret,
-  ../rosidl_runtime_c/service_type_support_struct,
-  ../rosidl_runtime_c/message_type_support_struct,
-  ../rosidl_runtime_c/visibility_control,
-  ../rosidl_runtime_c/visibility_control,
-  ../rosidl_runtime_c/message_type_support_struct,
-  ../rosidl_runtime_c/message_type_support_struct,
-  ../rosidl_runtime_c/service_type_support_struct,
-  ../rosidl_runtime_c/service_type_support_struct, ./message_introspection,
-  ./message_introspection, ../rosidl_runtime_c/message_initialization,
+  rosidl_runtime_c/service_type_support_struct, rcutils/types/rcutils_ret,
+  rosidl_runtime_c/service_type_support_struct,
+  rosidl_runtime_c/message_type_support_struct,
+  rosidl_runtime_c/visibility_control, rosidl_runtime_c/visibility_control,
+  rosidl_runtime_c/message_type_support_struct,
+  rosidl_runtime_c/message_type_support_struct,
+  rosidl_runtime_c/service_type_support_struct,
+  rosidl_runtime_c/service_type_support_struct, ./message_introspection,
+  ./message_introspection, rosidl_runtime_c/message_initialization,
   ./message_introspection, ./visibility_control, ./visibility_control,
   ./message_introspection
 
 type
 
-  typesupport_introspection_c_ServiceMembers* {.
+  rosidl_typesupport_introspection_c_ServiceMembers* {.
       importc: "rosidl_typesupport_introspection_c__ServiceMembers",
       header: "service_introspection.h", bycopy.} = object ##
                               ##  This struct provides introspection information for one service definition.
@@ -46,10 +49,10 @@ type
                               ##  example_messages/srv
     service_name* {.importc: "service_name_".}: cstring ##
                               ##  The name of the service, e.g. "AddTwoInts"
-    request_members* {.importc: "request_members_".}: ptr typesupport_introspection_c_MessageMembers ##
+    request_members* {.importc: "request_members_".}: ptr rosidl_typesupport_introspection_c_MessageMembers ##
                               ##  A pointer to the introspection information structure for the request interface.
-    response_members* {.importc: "response_members_".}: ptr typesupport_introspection_c_MessageMembers ##
+    response_members* {.importc: "response_members_".}: ptr rosidl_typesupport_introspection_c_MessageMembers ##
                               ##  A pointer to the introspection information structure for the response interface.
-    event_members* {.importc: "event_members_".}: ptr typesupport_introspection_c_MessageMembers ##
+    event_members* {.importc: "event_members_".}: ptr rosidl_typesupport_introspection_c_MessageMembers ##
                               ##  A pointer to the introspection information structure for the event interface.
 

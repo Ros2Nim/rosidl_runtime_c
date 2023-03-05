@@ -1,3 +1,7 @@
+##  #pragma c2nim prefix "rosidl_"
+##  #pragma c2nim mangle "'rosidl_runtime_c/'" "../rosidl_runtime_c/"
+##  #pragma c2nim mangle "'rosidl_runtime_c__message_initialization'" "message_initialization"
+
 ##  #pragma c2nim mangle "'service_name_'$" "service_name"
 ##  #pragma c2nim mangle "'request_members_'$" "request_members"
 ##  #pragma c2nim mangle "'response_members_'$" "response_members"
@@ -25,6 +29,6 @@ import
 
 ##  String identifying the typesupport introspection implementation in use.
 
-let typesupport_introspection_c_identifier* {.
+let rosidl_typesupport_introspection_c_identifier* {.
     importc: "rosidl_typesupport_introspection_c__identifier",
     header: "identifier.h".}: cstring

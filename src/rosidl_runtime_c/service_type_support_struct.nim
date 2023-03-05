@@ -1,3 +1,15 @@
+##  #pragma c2nim prefix "rosidl_"
+##  #pragma c2nim mangle "'rosidl_runtime_c/'" "../rosidl_runtime_c/"
+##  #pragma c2nim mangle "'rosidl_runtime_c__message_initialization'" "message_initialization"
+
+##  #pragma c2nim mangle "'service_name_'$" "service_name"
+##  #pragma c2nim mangle "'request_members_'$" "request_members"
+##  #pragma c2nim mangle "'response_members_'$" "response_members"
+##  #pragma c2nim mangle "'event_members_'$" "event_members"
+##  #pragma c2nim mangle "'rosidl_runtime_c__' {\\w+}" "$1"
+
+##  #pragma c2nim mangle "'rosidl_runtime_c.' {\\ident+}" "$1"
+
 import rcutils/allocator
 
 ##  Copyright 2015-2016 Open Source Robotics Foundation, Inc.
@@ -21,12 +33,12 @@ import
 
 type
 
-  service_typesupport_handle_function* = proc (a1: ptr service_type_support_t;
-      a2: cstring): ptr service_type_support_t
+  rosidl_service_typesupport_handle_function* = proc (
+      a1: ptr rosidl_service_type_support_t; a2: cstring): ptr rosidl_service_type_support_t
 
-  service_introspection_info_t* {.importc: "rosidl_service_introspection_info_t",
-                                  header: "service_type_support_struct.h",
-                                  bycopy.} = object
+  rosidl_service_introspection_info_t* {.
+      importc: "rosidl_service_introspection_info_t",
+      header: "service_type_support_struct.h", bycopy.} = object
     event_type* {.importc: "event_type".}: uint8
     stamp_sec* {.importc: "stamp_sec".}: int32
     stamp_nanosec* {.importc: "stamp_nanosec".}: uint32
@@ -34,8 +46,8 @@ type
     sequence_number* {.importc: "sequence_number".}: int64
 
 
-  event_message_create_handle_function_function* = proc (
-      info: ptr service_introspection_info_t;
+  rosidl_event_message_create_handle_function_function* = proc (
+      info: ptr rosidl_service_introspection_info_t;
       allocator: ptr rcutils_allocator_t; request_message: pointer;
       response_message: pointer): pointer ##  Creates a ServiceEvent message for the service.
                                           ##
@@ -50,7 +62,7 @@ type
                                           ##  \return The built ServiceEvent message. Will return NULL if the message could not be built.
                                           ##
 
-  event_message_destroy_handle_function_function* = proc (
+  rosidl_event_message_destroy_handle_function_function* = proc (
       event_message: pointer; allocator: ptr rcutils_allocator_t): bool ##
                               ##  Destroys a ServiceEvent message
                               ##
@@ -61,27 +73,28 @@ type
                               ##  \param[in] allocator The allocator to use for deallocating the message.
                               ##
 
-  service_type_support_t* {.importc: "rosidl_service_type_support_t",
-                            header: "service_type_support_struct.h", bycopy.} = object ##
+  rosidl_service_type_support_t* {.importc: "rosidl_service_type_support_t",
+                                   header: "service_type_support_struct.h",
+                                   bycopy.} = object ##
                               ##  Contains rosidl service type support data
     typesupport_identifier* {.importc: "typesupport_identifier".}: cstring ##
                               ##  String identifier for the type_support.
     data* {.importc: "data".}: pointer ##  Pointer to the service type support library
-    `func`* {.importc: "func".}: service_typesupport_handle_function ##
+    `func`* {.importc: "func".}: rosidl_service_typesupport_handle_function ##
                               ##  Pointer to the service type support handler function
     event_message_create_handle_function*
-        {.importc: "event_message_create_handle_function".}: event_message_create_handle_function_function ##
+        {.importc: "event_message_create_handle_function".}: rosidl_event_message_create_handle_function_function ##
                               ##  Pointer to function to create the introspection message
     event_message_destroy_handle_function*
-        {.importc: "event_message_destroy_handle_function".}: event_message_destroy_handle_function_function ##
+        {.importc: "event_message_destroy_handle_function".}: rosidl_event_message_destroy_handle_function_function ##
                               ##  Pointer to function to finalize the introspection message
-    event_typesupport* {.importc: "event_typesupport".}: ptr message_type_support_t ##
+    event_typesupport* {.importc: "event_typesupport".}: ptr rosidl_message_type_support_t ##
                               ##  Service event message typesupport
 
 
 
-proc get_service_typesupport_handle*(handle: ptr service_type_support_t;
-                                     identifier: cstring): ptr service_type_support_t {.
+proc get_service_typesupport_handle*(handle: ptr rosidl_service_type_support_t;
+                                     identifier: cstring): ptr rosidl_service_type_support_t {.
     importc: "get_service_typesupport_handle",
     header: "service_type_support_struct.h".}
   ##  Get the service type support handle specific to this identifier.
@@ -95,7 +108,7 @@ proc get_service_typesupport_handle*(handle: ptr service_type_support_t;
                                              ##
 
 proc get_service_typesupport_handle_function*(
-    handle: ptr service_type_support_t; identifier: cstring): ptr service_type_support_t {.
+    handle: ptr rosidl_service_type_support_t; identifier: cstring): ptr rosidl_service_type_support_t {.
     importc: "get_service_typesupport_handle_function",
     header: "service_type_support_struct.h".}
   ##  Get the service type support handle function specific to this identifier.

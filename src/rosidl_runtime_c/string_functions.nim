@@ -1,3 +1,15 @@
+##  #pragma c2nim prefix "rosidl_"
+##  #pragma c2nim mangle "'rosidl_runtime_c/'" "../rosidl_runtime_c/"
+##  #pragma c2nim mangle "'rosidl_runtime_c__message_initialization'" "message_initialization"
+
+##  #pragma c2nim mangle "'service_name_'$" "service_name"
+##  #pragma c2nim mangle "'request_members_'$" "request_members"
+##  #pragma c2nim mangle "'response_members_'$" "response_members"
+##  #pragma c2nim mangle "'event_members_'$" "event_members"
+##  #pragma c2nim mangle "'rosidl_runtime_c__' {\\w+}" "$1"
+
+##  #pragma c2nim mangle "'rosidl_runtime_c.' {\\ident+}" "$1"
+
 ##  Copyright 2015 Open Source Robotics Foundation, Inc.
 ##
 ##  Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,7 +30,7 @@ import
   ./visibility_control
 
 
-proc string_init*(str: ptr String): bool {.
+proc rosidl_runtime_c_String_init*(str: ptr rosidl_runtime_c_String): bool {.
     importc: "rosidl_runtime_c__String__init", header: "string_functions.h".}
   ##
                               ##  Initialize a rosidl_runtime_c__String structure.
@@ -38,8 +50,8 @@ proc string_init*(str: ptr String): bool {.
                               ##    or the memory allocation failed
                               ##
 
-proc string_fini*(str: ptr String) {.importc: "rosidl_runtime_c__String__fini",
-                                     header: "string_functions.h".}
+proc rosidl_runtime_c_String_fini*(str: ptr rosidl_runtime_c_String) {.
+    importc: "rosidl_runtime_c__String__fini", header: "string_functions.h".}
   ##
                               ##  Deallocate the memory of the rosidl_runtime_c__String structure.
                               ##
@@ -48,7 +60,8 @@ proc string_fini*(str: ptr String) {.importc: "rosidl_runtime_c__String__fini",
                               ##  \param[inout] str a pointer to a rosidl_runtime_c__String structure to be finalized
                               ##
 
-proc string_copy*(input: ptr String; output: ptr String): bool {.
+proc rosidl_runtime_c_String_copy*(input: ptr rosidl_runtime_c_String;
+                                   output: ptr rosidl_runtime_c_String): bool {.
     importc: "rosidl_runtime_c__String__copy", header: "string_functions.h".}
   ##
                               ##  Copy rosidl_runtime_c__String structure content.
@@ -64,7 +77,8 @@ proc string_copy*(input: ptr String; output: ptr String): bool {.
                               ##    allocation fails.
                               ##
 
-proc string_are_equal*(lhs: ptr String; rhs: ptr String): bool {.
+proc rosidl_runtime_c_String_are_equal*(lhs: ptr rosidl_runtime_c_String;
+                                        rhs: ptr rosidl_runtime_c_String): bool {.
     importc: "rosidl_runtime_c__String__are_equal", header: "string_functions.h".}
   ##
                               ##  Check for rosidl_runtime_c__String structure equality.
@@ -75,7 +89,8 @@ proc string_are_equal*(lhs: ptr String; rhs: ptr String): bool {.
                               ##    otherwise false.
                               ##
 
-proc string_assignn*(str: ptr String; value: cstring; n: csize_t): bool {.
+proc rosidl_runtime_c_String_assignn*(str: ptr rosidl_runtime_c_String;
+                                      value: cstring; n: csize_t): bool {.
     importc: "rosidl_runtime_c__String__assignn", header: "string_functions.h".}
   ##
                               ##  Assign the c string pointer of n characters to the rosidl_runtime_c__String structure.
@@ -88,7 +103,8 @@ proc string_assignn*(str: ptr String; value: cstring; n: csize_t): bool {.
                               ##    or if the memory reallocation failed.
                               ##
 
-proc string_assign*(str: ptr String; value: cstring): bool {.
+proc rosidl_runtime_c_String_assign*(str: ptr rosidl_runtime_c_String;
+                                     value: cstring): bool {.
     importc: "rosidl_runtime_c__String__assign", header: "string_functions.h".}
   ##
                               ##  Assign the c string pointer to the rosidl_runtime_c__String structure.
@@ -106,7 +122,8 @@ proc string_assign*(str: ptr String; value: cstring): bool {.
                               ##    or if the memory reallocation failed.
                               ##
 
-proc string_sequence_init*(sequence: ptr String_Sequence; size: csize_t): bool {.
+proc rosidl_runtime_c_String_sequence_init*(
+    sequence: ptr rosidl_runtime_c_String_sequence; size: csize_t): bool {.
     importc: "rosidl_runtime_c__String__Sequence__init",
     header: "string_functions.h".}
   ##  Initialize a rosidl_runtime_c__String__Sequence__init structure.
@@ -123,7 +140,8 @@ proc string_sequence_init*(sequence: ptr String_Sequence; size: csize_t): bool {
                                   ##    or the memory allocation failed
                                   ##
 
-proc string_sequence_fini*(sequence: ptr String_Sequence) {.
+proc rosidl_runtime_c_String_sequence_fini*(
+    sequence: ptr rosidl_runtime_c_String_sequence) {.
     importc: "rosidl_runtime_c__String__Sequence__fini",
     header: "string_functions.h".}
   ##  Deallocate the memory of the string sequence structure.
@@ -133,8 +151,9 @@ proc string_sequence_fini*(sequence: ptr String_Sequence) {.
                                   ##  \param[inout] sequence a pointer to a string sequence to be finalized
                                   ##
 
-proc string_sequence_are_equal*(lhs: ptr String_Sequence;
-                                rhs: ptr String_Sequence): bool {.
+proc rosidl_runtime_c_String_sequence_are_equal*(
+    lhs: ptr rosidl_runtime_c_String_sequence;
+    rhs: ptr rosidl_runtime_c_String_sequence): bool {.
     importc: "rosidl_runtime_c__String__Sequence__are_equal",
     header: "string_functions.h".}
   ##  Check for rosidl_runtime_c__String__Sequence structure equality.
@@ -145,8 +164,9 @@ proc string_sequence_are_equal*(lhs: ptr String_Sequence;
                                   ##    in size and content, otherwise false.
                                   ##
 
-proc string_sequence_copy*(input: ptr String_Sequence;
-                           output: ptr String_Sequence): bool {.
+proc rosidl_runtime_c_String_sequence_copy*(
+    input: ptr rosidl_runtime_c_String_sequence;
+    output: ptr rosidl_runtime_c_String_sequence): bool {.
     importc: "rosidl_runtime_c__String__Sequence__copy",
     header: "string_functions.h".}
   ##  Copy rosidl_runtime_c__String__Sequence structure content.
@@ -162,7 +182,7 @@ proc string_sequence_copy*(input: ptr String_Sequence;
                                   ##    allocation fails.
                                   ##
 
-proc string_sequence_create*(size: csize_t): ptr String_Sequence {.
+proc rosidl_runtime_c_String_sequence_create*(size: csize_t): ptr rosidl_runtime_c_String_sequence {.
     importc: "rosidl_runtime_c__String__Sequence__create",
     header: "string_functions.h".}
   ##  Create a rosidl_runtime_c__String__Sequence structure with a specific size.
@@ -176,7 +196,8 @@ proc string_sequence_create*(size: csize_t): ptr String_Sequence {.
                                   ##  \return a string sequence if initialization was successfully, otherwise NULL.
                                   ##
 
-proc string_sequence_destroy*(sequence: ptr String_Sequence) {.
+proc rosidl_runtime_c_String_sequence_destroy*(
+    sequence: ptr rosidl_runtime_c_String_sequence) {.
     importc: "rosidl_runtime_c__String__Sequence__destroy",
     header: "string_functions.h".}
   ##  Destroy a rosidl_runtime_c__String__Sequence structure.
