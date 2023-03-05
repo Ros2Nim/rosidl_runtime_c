@@ -10,9 +10,6 @@
 
 ##  #pragma c2nim mangle "'rosidl_runtime_c.' {\\ident+}" "$1"
 
-import ../rosidl_typesupport_introspection_c/message_introspection
-
-export message_introspection
 
 type
 

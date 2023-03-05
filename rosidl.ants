@@ -53,9 +53,6 @@ antExport ImporterConfig:
         - C2NimCfg:
           fileMatch: peg"'message_initialization.h'"
           rawNims: str"""
-              import ../rosidl_typesupport_introspection_c/message_introspection
-
-              export message_introspection
               """
       sourceMods:list:
         - CSrcMods:
