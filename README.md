@@ -1,6 +1,6 @@
-# RosIDL for Nim
+# RosIDL Runtime C for Nim
 
-This is a plain wrapper to the rosidl core package for Nim. 
+This is a plain wrapper to the rosidl C runtime package for Nim. 
 
 ## About
 
