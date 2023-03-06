@@ -31,7 +31,7 @@ import
 type
 
   rosidl_runtime_c_String* {.importc: "rosidl_runtime_c__String",
-                             header: "string.h", bycopy.} = object ##
+                             header: "rosidl_runtime_c/string.h", bycopy.} = object ##
                               ##  An array of 8-bit characters terminated by a null byte.
     data* {.importc: "data".}: cstring ##  The pointer to the first character, the sequence ends with a null byte.
     size* {.importc: "size".}: csize_t ##  The length of the string (excluding the null byte).
@@ -39,7 +39,8 @@ type
 
 
   rosidl_runtime_c_String_sequence* {.importc: "rosidl_runtime_c__String__Sequence",
-                                      header: "string.h", bycopy.} = object
+                                      header: "rosidl_runtime_c/string.h",
+                                      bycopy.} = object
     data* {.importc: "data".}: ptr rosidl_runtime_c_String ##
                               ## !< The pointer to an array of STRUCT_NAME
     size* {.importc: "size".}: csize_t ## !< The number of valid items in data

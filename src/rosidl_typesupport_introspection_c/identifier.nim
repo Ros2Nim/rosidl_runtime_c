@@ -31,4 +31,4 @@ import
 
 let rosidl_typesupport_introspection_c_identifier* {.
     importc: "rosidl_typesupport_introspection_c__identifier",
-    header: "identifier.h".}: cstring
+    header: "rosidl_typesupport_introspection_c/identifier.h".}: cstring

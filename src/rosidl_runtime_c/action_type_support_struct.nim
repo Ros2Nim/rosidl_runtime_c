@@ -33,8 +33,8 @@ import
 
 type
 
-  rosidl_action_type_support_t* {.importc: "rosidl_action_type_support_t",
-                                  header: "action_type_support_struct.h", bycopy.} = object ##
+  rosidl_action_type_support_t* {.importc: "rosidl_action_type_support_t", header: "rosidl_runtime_c/action_type_support_struct.h",
+                                  bycopy.} = object ##
                               ##  Contains rosidl action type support data.
                               ##
                               ##  Actions are built based on services(goal, result and cancel) and message (feedback and status).

@@ -38,7 +38,7 @@ type
 
   rosidl_service_introspection_info_t* {.
       importc: "rosidl_service_introspection_info_t",
-      header: "service_type_support_struct.h", bycopy.} = object
+      header: "rosidl_runtime_c/service_type_support_struct.h", bycopy.} = object
     event_type* {.importc: "event_type".}: uint8
     stamp_sec* {.importc: "stamp_sec".}: int32
     stamp_nanosec* {.importc: "stamp_nanosec".}: uint32
@@ -73,8 +73,7 @@ type
                               ##  \param[in] allocator The allocator to use for deallocating the message.
                               ##
 
-  rosidl_service_type_support_t* {.importc: "rosidl_service_type_support_t",
-                                   header: "service_type_support_struct.h",
+  rosidl_service_type_support_t* {.importc: "rosidl_service_type_support_t", header: "rosidl_runtime_c/service_type_support_struct.h",
                                    bycopy.} = object ##
                               ##  Contains rosidl service type support data
     typesupport_identifier* {.importc: "typesupport_identifier".}: cstring ##
@@ -96,31 +95,33 @@ type
 proc get_service_typesupport_handle*(handle: ptr rosidl_service_type_support_t;
                                      identifier: cstring): ptr rosidl_service_type_support_t {.
     importc: "get_service_typesupport_handle",
-    header: "service_type_support_struct.h".}
-  ##  Get the service type support handle specific to this identifier.
-                                             ##
-                                             ##  The handle's message typesupport identifier function is returned or if the parameters are NULL
-                                             ##  then an assert will happen.
-                                             ##
-                                             ##  \param handle Handle to service type support
-                                             ##  \param identifier The typesupport identifier to get the handle function for
-                                             ##  \return The associated service typesupport handle function.
-                                             ##
+    header: "rosidl_runtime_c/service_type_support_struct.h".}
+  ##
+                              ##  Get the service type support handle specific to this identifier.
+                              ##
+                              ##  The handle's message typesupport identifier function is returned or if the parameters are NULL
+                              ##  then an assert will happen.
+                              ##
+                              ##  \param handle Handle to service type support
+                              ##  \param identifier The typesupport identifier to get the handle function for
+                              ##  \return The associated service typesupport handle function.
+                              ##
 
 proc get_service_typesupport_handle_function*(
     handle: ptr rosidl_service_type_support_t; identifier: cstring): ptr rosidl_service_type_support_t {.
     importc: "get_service_typesupport_handle_function",
-    header: "service_type_support_struct.h".}
-  ##  Get the service type support handle function specific to this identifier.
-                                             ##
-                                             ##  If the identifier is the same as this handle's typesupport_identifier the handle is simply
-                                             ##  returned or if the parameters are NULL then an assert will happen.
-                                             ##
-                                             ##  \param handle Handle to service type support
-                                             ##  \param identifier The typesupport identifier to get the handle function for
-                                             ##  \return if the identifier match's the handle's identifier then the handle's function
-                                             ##    is returned.
-                                             ##
+    header: "rosidl_runtime_c/service_type_support_struct.h".}
+  ##
+                              ##  Get the service type support handle function specific to this identifier.
+                              ##
+                              ##  If the identifier is the same as this handle's typesupport_identifier the handle is simply
+                              ##  returned or if the parameters are NULL then an assert will happen.
+                              ##
+                              ##  \param handle Handle to service type support
+                              ##  \param identifier The typesupport identifier to get the handle function for
+                              ##  \return if the identifier match's the handle's identifier then the handle's function
+                              ##    is returned.
+                              ##
 ##  Get the service type support given a provided action and package.
 ##
 ##  \param PkgName Name of the package that contains the service

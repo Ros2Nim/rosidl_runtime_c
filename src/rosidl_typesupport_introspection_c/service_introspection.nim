@@ -42,9 +42,9 @@ type
 
   rosidl_typesupport_introspection_c_ServiceMembers* {.
       importc: "rosidl_typesupport_introspection_c__ServiceMembers",
-      header: "service_introspection.h", bycopy.} = object ##
-                              ##  This struct provides introspection information for one service definition.
-                              ##  A service is comprised of two interfaces: the request and the response.
+      header: "rosidl_typesupport_introspection_c/service_introspection.h",
+      bycopy.} = object ##  This struct provides introspection information for one service definition.
+                         ##  A service is comprised of two interfaces: the request and the response.
     service_namespace* {.importc: "service_namespace_".}: cstring ##
                               ##  The namespace in which the service resides, e.g. "example_messages__srv" for
                               ##  example_messages/srv

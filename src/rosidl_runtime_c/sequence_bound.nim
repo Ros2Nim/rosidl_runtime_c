@@ -32,8 +32,8 @@ type
   rosidl_runtime_c_bound_handle_function* = proc (
       a1: ptr rosidl_runtime_c_sequence_bound; a2: cstring): ptr rosidl_runtime_c_sequence_bound
 
-  rosidl_runtime_c_sequence_bound* {.importc: "rosidl_runtime_c__Sequence__bound",
-                                     header: "sequence_bound.h", bycopy.} = object
+  rosidl_runtime_c_sequence_bound* {.importc: "rosidl_runtime_c__Sequence__bound", header: "rosidl_runtime_c/sequence_bound.h",
+                                     bycopy.} = object
     typesupport_identifier* {.importc: "typesupport_identifier".}: cstring ##
                               ##  String identifier for the type_support.
     data* {.importc: "data".}: pointer ##  Pointer to type support handle function
@@ -43,32 +43,32 @@ type
 
 proc get_sequence_bound_handle*(handle: ptr rosidl_runtime_c_sequence_bound;
                                 identifier: cstring): ptr rosidl_runtime_c_sequence_bound {.
-    importc: "get_sequence_bound_handle", header: "sequence_bound.h".}
-  ##
-                              ##  Get the message bounds handle specific to this identifier.
-                              ##
-                              ##  The handle's sequence bound is simply returned or if the parameters are NULL then an assert
-                              ##  will happen.
-                              ##
-                              ##  \param handle Handle to service type support
-                              ##  \param identifier The identifier to get the handle for
-                              ##  \return The associated sequence bound handle function.
-                              ##
+    importc: "get_sequence_bound_handle",
+    header: "rosidl_runtime_c/sequence_bound.h".}
+  ##  Get the message bounds handle specific to this identifier.
+                                                 ##
+                                                 ##  The handle's sequence bound is simply returned or if the parameters are NULL then an assert
+                                                 ##  will happen.
+                                                 ##
+                                                 ##  \param handle Handle to service type support
+                                                 ##  \param identifier The identifier to get the handle for
+                                                 ##  \return The associated sequence bound handle function.
+                                                 ##
 
 proc get_sequence_bound_handle_function*(
     handle: ptr rosidl_runtime_c_sequence_bound; identifier: cstring): ptr rosidl_runtime_c_sequence_bound {.
-    importc: "get_sequence_bound_handle_function", header: "sequence_bound.h".}
-  ##
-                              ##  Get the message bounds handle function specific to this identifier.
-                              ##
-                              ##  If the identifier is the same as this handle function's identifier the handle is simply returned
-                              ##  or if the parameters are NULL then an assert will happen.
-                              ##
-                              ##  \param handle Handle to service type support
-                              ##  \param identifier The identifier to get the handle function for
-                              ##  \return if the identifier match's the handle's identifier then the handle's function
-                              ##    is returned.
-                              ##
+    importc: "get_sequence_bound_handle_function",
+    header: "rosidl_runtime_c/sequence_bound.h".}
+  ##  Get the message bounds handle function specific to this identifier.
+                                                 ##
+                                                 ##  If the identifier is the same as this handle function's identifier the handle is simply returned
+                                                 ##  or if the parameters are NULL then an assert will happen.
+                                                 ##
+                                                 ##  \param handle Handle to service type support
+                                                 ##  \param identifier The identifier to get the handle function for
+                                                 ##  \return if the identifier match's the handle's identifier then the handle's function
+                                                 ##    is returned.
+                                                 ##
 ##  Get the sequence bounds given a provided action and package.
 ##
 ##  \param PkgName Name of the package that contains the message

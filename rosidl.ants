@@ -6,6 +6,7 @@ antExport ImporterConfig:
     - ImportConfig:
       name: "rosidl_typesupport_introspection_c"
       sources: "deps/rosidl/rosidl_typesupport_introspection_c/include"
+      headerPrefix: "rosidl_typesupport_introspection_c/"
       globs: ["**/*.h"]
       includes: [
         "deps/rcutils/include",
@@ -24,6 +25,7 @@ antExport ImporterConfig:
     - ImportConfig:
       name: "rosidl_runtime_c"
       sources: "deps/rosidl/rosidl_runtime_c/include"
+      headerPrefix: "rosidl_runtime_c/"
       globs: ["**/*.h"]
       includes: [
         "deps/rcutils/include",

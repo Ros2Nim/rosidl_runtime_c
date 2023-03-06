@@ -27,7 +27,8 @@
 type
 
   rosidl_runtime_c_String_bound* {.importc: "rosidl_runtime_c__String__bound",
-                                   header: "string_bound.h", bycopy.} = object ##
+                                   header: "rosidl_runtime_c/string_bound.h",
+                                   bycopy.} = object ##
                               ##  Upper boundary for #rosidl_runtime_c__String or #rosidl_runtime_c__U16String.
     bound* {.importc: "bound".}: csize_t ##  The number of characters in the string (excluding the null character).
 

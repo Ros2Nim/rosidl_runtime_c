@@ -37,8 +37,8 @@ type
 
   rosidl_typesupport_introspection_c_MessageMember* {.
       importc: "rosidl_typesupport_introspection_c__MessageMember",
-      header: "message_introspection.h", bycopy.} = object ##
-                              ##  Structure used to describe a single field of an interface type.
+      header: "rosidl_typesupport_introspection_c/message_introspection.h",
+      bycopy.} = object     ##  Structure used to describe a single field of an interface type.
     name* {.importc: "name_".}: cstring ##  The name of the field.
     type_id* {.importc: "type_id_".}: uint8 ##  The type of the field as a value of the field types enum
                                             ##  rosidl_typesupport_introspection_c_field_types.
@@ -87,8 +87,8 @@ type
 
   rosidl_typesupport_introspection_c_MessageMembers* {.
       importc: "rosidl_typesupport_introspection_c__MessageMembers",
-      header: "message_introspection.h", bycopy.} = object ##
-                              ##  Structure used to describe all fields of a single interface type.
+      header: "rosidl_typesupport_introspection_c/message_introspection.h",
+      bycopy.} = object     ##  Structure used to describe all fields of a single interface type.
     message_namespace* {.importc: "message_namespace_".}: cstring ##
                               ##  The namespace in which the interface resides, e.g. "example_messages__msg" for
                               ##  example_messages/msg

@@ -34,7 +34,7 @@ import
 type
 
   rosidl_runtime_c_U16String* {.importc: "rosidl_runtime_c__U16String",
-                                header: "u16string.h", bycopy.} = object ##
+                                header: "rosidl_runtime_c/u16string.h", bycopy.} = object ##
                               ##  An array of 16-bit characters terminated by a null character.
     data* {.importc: "data".}: ptr uint_least16_t ##  The pointer to the first character, the sequence ends with a null character.
     size* {.importc: "size".}: csize_t ##  The length of the u16string (excluding the null character).
@@ -42,8 +42,8 @@ type
 
 
   rosidl_runtime_c_U16String_sequence* {.
-      importc: "rosidl_runtime_c__U16String__Sequence", header: "u16string.h",
-      bycopy.} = object
+      importc: "rosidl_runtime_c__U16String__Sequence",
+      header: "rosidl_runtime_c/u16string.h", bycopy.} = object
     data* {.importc: "data".}: ptr rosidl_runtime_c_U16String ##
                               ## !< The pointer to an array of STRUCT_NAME
     size* {.importc: "size".}: csize_t ## !< The number of valid items in data
