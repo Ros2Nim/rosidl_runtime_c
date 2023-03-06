@@ -4,25 +4,6 @@ import cimporter/configs
 antExport ImporterConfig:
   cimports:list:
     - ImportConfig:
-      name: "rosidl_typesupport_introspection_c"
-      sources: "deps/rosidl/rosidl_typesupport_introspection_c/include"
-      headerPrefix: "rosidl_typesupport_introspection_c/"
-      globs: ["**/*.h"]
-      includes: [
-        "deps/rcutils/include",
-        "deps/rosidl/rosidl_runtime_c/include",
-        "deps/rosidl/rosidl_typesupport_interface/include",
-        "deps/rosidl/rosidl_typesupport_introspection_c/include",
-        ]
-      defines: []
-      skipFiles: []
-      c2NimCfgs:list:
-        - C2NimCfg:
-          fileMatch: peg"'.h'"
-          fileContents: str"""
-              #pragma c2nim mangle "'rosidl_runtime_c/'" "../rosidl_runtime_c/"
-              """
-    - ImportConfig:
       name: "rosidl_runtime_c"
       sources: "deps/rosidl/rosidl_runtime_c/include"
       headerPrefix: "rosidl_runtime_c/"
