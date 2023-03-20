@@ -13,7 +13,8 @@
 ##  limitations under the License.
 
 import
-  ./visibility_control, ./visibility_control
+  ./visibility_control
+
 
 type
 
@@ -28,6 +29,7 @@ type
     data* {.importc: "data".}: pointer ##  Pointer to the message type support library
     `func`* {.importc: "func".}: rosidl_message_typesupport_handle_function ##
                               ##  Pointer to the message type support handler function
+
 
 
 

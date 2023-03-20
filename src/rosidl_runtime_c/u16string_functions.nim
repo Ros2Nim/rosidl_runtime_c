@@ -13,9 +13,7 @@
 ##  limitations under the License.
 
 import
-  ./u16string, ./u16string, ./primitives_sequence, ./primitives_sequence,
-  ./primitives_sequence, ./primitives_sequence, ./u16string,
-  ./visibility_control, ./visibility_control
+  ./u16string, ./primitives_sequence, ./visibility_control
 
 
 proc rosidl_runtime_c_U16String_init*(str: ptr rosidl_runtime_c_U16String): bool {.

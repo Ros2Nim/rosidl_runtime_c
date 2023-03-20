@@ -13,9 +13,7 @@
 ##  limitations under the License.
 
 import
-  rstring, rstring, ./primitives_sequence, ./primitives_sequence,
-  ./primitives_sequence, ./primitives_sequence, rstring, ./visibility_control,
-  ./visibility_control
+  rstring, ./primitives_sequence, ./visibility_control
 
 
 proc rosidl_runtime_c_String_init*(str: ptr rosidl_runtime_c_String): bool {.

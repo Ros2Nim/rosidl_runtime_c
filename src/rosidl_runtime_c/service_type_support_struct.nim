@@ -15,9 +15,8 @@ import rcutils/allocator
 ##  limitations under the License.
 
 import
-  rcutils/types/rcutils_ret, ./message_type_support_struct,
-  ./visibility_control, ./visibility_control, ./message_type_support_struct,
-  ./message_type_support_struct
+  rcutils/types/rcutils_ret, ./message_type_support_struct, ./visibility_control
+
 
 type
 
@@ -77,6 +76,7 @@ type
                               ##  Pointer to function to finalize the introspection message
     event_typesupport* {.importc: "event_typesupport".}: ptr rosidl_message_type_support_t ##
                               ##  Service event message typesupport
+
 
 
 

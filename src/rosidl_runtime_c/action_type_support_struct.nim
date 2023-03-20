@@ -13,11 +13,9 @@
 ##  limitations under the License.
 
 import
-  ./message_type_support_struct, ./visibility_control, ./visibility_control,
-  ./message_type_support_struct, ./message_type_support_struct,
-  ./service_type_support_struct, ./service_type_support_struct,
-  rcutils/types/rcutils_ret, ./service_type_support_struct,
-  ./service_type_support_struct
+  ./message_type_support_struct, ./visibility_control,
+  ./service_type_support_struct, rcutils/types/rcutils_ret
+
 
 type
 
@@ -32,6 +30,7 @@ type
     cancel_service_type_support* {.importc: "cancel_service_type_support".}: ptr rosidl_service_type_support_t
     feedback_message_type_support* {.importc: "feedback_message_type_support".}: ptr rosidl_message_type_support_t
     status_message_type_support* {.importc: "status_message_type_support".}: ptr rosidl_message_type_support_t
+
 
 
 ##  Get the action type support given a provided action and package.

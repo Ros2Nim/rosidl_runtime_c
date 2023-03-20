@@ -12,6 +12,7 @@
 ##  See the License for the specific language governing permissions and
 ##  limitations under the License.
 
+
 type
 
   rosidl_runtime_c_float_sequence* {.importc: "rosidl_runtime_c__float__Sequence", header: "rosidl_runtime_c/primitives_sequence.h",
@@ -144,3 +145,4 @@ type
   rosidl_runtime_c_float32_sequence* = rosidl_runtime_c_float_sequence
 
   rosidl_runtime_c_float64_sequence* = rosidl_runtime_c_double_sequence
+

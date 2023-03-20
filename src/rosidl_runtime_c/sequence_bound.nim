@@ -13,7 +13,8 @@
 ##  limitations under the License.
 
 import
-  ./visibility_control, ./visibility_control
+  ./visibility_control
+
 
 type
 
@@ -26,6 +27,7 @@ type
                               ##  String identifier for the type_support.
     data* {.importc: "data".}: pointer ##  Pointer to type support handle function
     `func`* {.importc: "func".}: rosidl_runtime_c_bound_handle_function
+
 
 
 

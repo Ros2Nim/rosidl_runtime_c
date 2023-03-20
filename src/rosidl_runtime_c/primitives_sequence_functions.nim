@@ -13,8 +13,7 @@
 ##  limitations under the License.
 
 import
-  ./primitives_sequence, ./primitives_sequence, ./primitives_sequence,
-  ./visibility_control, ./visibility_control
+  ./primitives_sequence, ./visibility_control
 
 ##
 ##  \def ROSIDL_RUNTIME_C__DECLARE_PRIMITIVE_SEQUENCE_INIT(STRUCT_NAME)

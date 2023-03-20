@@ -1,4 +1,5 @@
 
+
 type
 
   rosidl_runtime_c_message_initialization* {.size: sizeof(cint).} = enum ##

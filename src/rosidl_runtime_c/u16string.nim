@@ -16,8 +16,8 @@ type
 ##  limitations under the License.
 
 import
-  ./primitives_sequence, ./primitives_sequence, ./primitives_sequence,
   ./primitives_sequence
+
 
 type
 
@@ -37,4 +37,5 @@ type
     size* {.importc: "size".}: csize_t ## !< The number of valid items in data
     capacity* {.importc: "capacity".}: csize_t
     ## !< The number of allocated items in data
+
 
